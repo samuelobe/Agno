@@ -52,10 +52,13 @@ class CameraViewModel: ObservableObject {
                 self.session.addInput(input)
                 self.session.addOutput(output)
             }
+            self.session.commitConfiguration()
             
         } catch  {
             print(error.localizedDescription)
         }
+        
+        
         
     }
 }
