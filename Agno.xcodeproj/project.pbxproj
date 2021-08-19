@@ -17,6 +17,7 @@
 		3DB7A95C26CEC5F00086F644 /* CameraView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DB7A95B26CEC5F00086F644 /* CameraView.swift */; };
 		3DB7A95E26CED0910086F644 /* CameraViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DB7A95D26CED0900086F644 /* CameraViewModel.swift */; };
 		3DB7A96026CEFA360086F644 /* CameraPreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DB7A95F26CEFA360086F644 /* CameraPreview.swift */; };
+		3DB7A96426CEFF750086F644 /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DB7A96326CEFF750086F644 /* DetailView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,7 @@
 		3DB7A95B26CEC5F00086F644 /* CameraView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraView.swift; sourceTree = "<group>"; };
 		3DB7A95D26CED0900086F644 /* CameraViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraViewModel.swift; sourceTree = "<group>"; };
 		3DB7A95F26CEFA360086F644 /* CameraPreview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraPreview.swift; sourceTree = "<group>"; };
+		3DB7A96326CEFF750086F644 /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -92,6 +94,7 @@
 				3DB7A94426CE9C790086F644 /* ContentView.swift */,
 				3DB7A95B26CEC5F00086F644 /* CameraView.swift */,
 				3DB7A95F26CEFA360086F644 /* CameraPreview.swift */,
+				3DB7A96326CEFF750086F644 /* DetailView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -182,6 +185,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3DB7A94126CE9C790086F644 /* AppDelegate.swift in Sources */,
+				3DB7A96426CEFF750086F644 /* DetailView.swift in Sources */,
 				3DB7A94326CE9C790086F644 /* SceneDelegate.swift in Sources */,
 				3DB7A94826CE9C790086F644 /* Agno.xcdatamodeld in Sources */,
 				3DB7A96026CEFA360086F644 /* CameraPreview.swift in Sources */,
