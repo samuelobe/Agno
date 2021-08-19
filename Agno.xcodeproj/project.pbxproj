@@ -14,6 +14,8 @@
 		3DB7A94A26CE9C790086F644 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3DB7A94926CE9C790086F644 /* Assets.xcassets */; };
 		3DB7A94D26CE9C790086F644 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3DB7A94C26CE9C790086F644 /* Preview Assets.xcassets */; };
 		3DB7A95026CE9C790086F644 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3DB7A94E26CE9C790086F644 /* LaunchScreen.storyboard */; };
+		3DB7A95C26CEC5F00086F644 /* CameraView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DB7A95B26CEC5F00086F644 /* CameraView.swift */; };
+		3DB7A95E26CED0910086F644 /* CameraViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DB7A95D26CED0900086F644 /* CameraViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +28,8 @@
 		3DB7A94C26CE9C790086F644 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		3DB7A94F26CE9C790086F644 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3DB7A95126CE9C790086F644 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3DB7A95B26CEC5F00086F644 /* CameraView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraView.swift; sourceTree = "<group>"; };
+		3DB7A95D26CED0900086F644 /* CameraViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,9 +64,10 @@
 			children = (
 				3DB7A94026CE9C790086F644 /* AppDelegate.swift */,
 				3DB7A94226CE9C790086F644 /* SceneDelegate.swift */,
-				3DB7A94426CE9C790086F644 /* ContentView.swift */,
+				3DB7A95926CE9D4D0086F644 /* ViewModel */,
+				3DB7A95826CE9D3B0086F644 /* Model */,
+				3DB7A95726CE9D310086F644 /* View */,
 				3DB7A94926CE9C790086F644 /* Assets.xcassets */,
-				3DB7A94E26CE9C790086F644 /* LaunchScreen.storyboard */,
 				3DB7A95126CE9C790086F644 /* Info.plist */,
 				3DB7A94626CE9C790086F644 /* Agno.xcdatamodeld */,
 				3DB7A94B26CE9C790086F644 /* Preview Content */,
@@ -76,6 +81,31 @@
 				3DB7A94C26CE9C790086F644 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		3DB7A95726CE9D310086F644 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				3DB7A94E26CE9C790086F644 /* LaunchScreen.storyboard */,
+				3DB7A94426CE9C790086F644 /* ContentView.swift */,
+				3DB7A95B26CEC5F00086F644 /* CameraView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		3DB7A95826CE9D3B0086F644 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		3DB7A95926CE9D4D0086F644 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				3DB7A95D26CED0900086F644 /* CameraViewModel.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -151,7 +181,9 @@
 				3DB7A94126CE9C790086F644 /* AppDelegate.swift in Sources */,
 				3DB7A94326CE9C790086F644 /* SceneDelegate.swift in Sources */,
 				3DB7A94826CE9C790086F644 /* Agno.xcdatamodeld in Sources */,
+				3DB7A95C26CEC5F00086F644 /* CameraView.swift in Sources */,
 				3DB7A94526CE9C790086F644 /* ContentView.swift in Sources */,
+				3DB7A95E26CED0910086F644 /* CameraViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
