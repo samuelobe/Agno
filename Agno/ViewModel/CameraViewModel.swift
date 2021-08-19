@@ -38,7 +38,7 @@ class CameraViewModel: ObservableObject {
         self.session.beginConfiguration()
         self.session.sessionPreset = .high
         
-        guard let backCamera = AVCaptureDevice.default(for: AVMediaType.video)
+        guard let backCamera = AVCaptureDevice.default(.builtInDualCamera, for: .video, position: .back )
         else {
             print("Unable to access back camera!")
             return
