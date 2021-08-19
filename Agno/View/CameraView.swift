@@ -10,12 +10,14 @@ import AVFoundation
 
 struct CameraView : View {
     @StateObject var camera = CameraViewModel()
-    var isPreview = ProcessInfo.processInfo.environment["XCODE_RUNNING_FOR_PREVIEWS"] == "1"
+    var isPreview = Platform.isSimulator
+    
     
     var body: some View {
         ZStack {
             if isPreview {
                 Color.gray
+                Text("Camera View").foregroundColor(.white)
             }
             else{
                 CameraPreview(camera: camera)
@@ -56,35 +58,20 @@ struct CameraView : View {
     }
 }
 
-struct CameraPreview : UIViewRepresentable {
-    @ObservedObject var camera : CameraViewModel
-    
-    func makeUIView(context: Context) -> UIView {
-        let view = UIView(frame: UIScreen.main.bounds)
-        
-        camera.preview = AVCaptureVideoPreviewLayer(session: camera.session)
-        camera.preview.frame = view.frame
-        camera.preview.videoGravity = .resizeAspectFill
-        camera.preview.connection?.videoOrientation = .portrait
-        
-        view.layer.addSublayer(camera.preview)
-        
-        // Start camera session
-        camera.session.startRunning()
-        
-        
-        return view
-    }
-    
-    func updateUIView(_ uiView: UIViewType, context: Context) {
-        
-    }
-    
-    
+struct Platform {
+    static let isSimulator: Bool = {
+        var isSim = false
+        #if targetEnvironment(simulator)
+          isSim = true
+        #endif
+        return isSim
+    }()
 }
+
+
 
 struct CameraView_Previews: PreviewProvider {
     static var previews: some View {
-        CameraView()
+        CameraView(isPreview: true)
     }
 }
