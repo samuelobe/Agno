@@ -18,6 +18,7 @@
 		3DB7A95E26CED0910086F644 /* CameraViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DB7A95D26CED0900086F644 /* CameraViewModel.swift */; };
 		3DB7A96026CEFA360086F644 /* CameraPreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DB7A95F26CEFA360086F644 /* CameraPreview.swift */; };
 		3DB7A96426CEFF750086F644 /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DB7A96326CEFF750086F644 /* DetailView.swift */; };
+		3DB7A96626CF462D0086F644 /* Celebrity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DB7A96526CF462D0086F644 /* Celebrity.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +35,7 @@
 		3DB7A95D26CED0900086F644 /* CameraViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraViewModel.swift; sourceTree = "<group>"; };
 		3DB7A95F26CEFA360086F644 /* CameraPreview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraPreview.swift; sourceTree = "<group>"; };
 		3DB7A96326CEFF750086F644 /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
+		3DB7A96526CF462D0086F644 /* Celebrity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Celebrity.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,6 +104,7 @@
 		3DB7A95826CE9D3B0086F644 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				3DB7A96526CF462D0086F644 /* Celebrity.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -188,6 +191,7 @@
 				3DB7A96426CEFF750086F644 /* DetailView.swift in Sources */,
 				3DB7A94326CE9C790086F644 /* SceneDelegate.swift in Sources */,
 				3DB7A94826CE9C790086F644 /* Agno.xcdatamodeld in Sources */,
+				3DB7A96626CF462D0086F644 /* Celebrity.swift in Sources */,
 				3DB7A96026CEFA360086F644 /* CameraPreview.swift in Sources */,
 				3DB7A95C26CEC5F00086F644 /* CameraView.swift in Sources */,
 				3DB7A94526CE9C790086F644 /* ContentView.swift in Sources */,

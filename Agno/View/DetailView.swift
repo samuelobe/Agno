@@ -15,7 +15,6 @@ struct DetailView: View {
             Image(systemName: "chevron.left").padding()
                 .foregroundColor(.white).background(RoundedRectangle(cornerRadius: 12)
                                                         .accentColor(.black)).opacity(0.7)
-            
         }
     }
     var body: some View {
@@ -31,6 +30,30 @@ struct DetailView: View {
                 }.padding(EdgeInsets(top: 20, leading: 20, bottom: 5, trailing: 0))
                 HStack {
                     Text("Master Chief Petty Officer John-117").foregroundColor(Color(.white)).font(.title2)
+                    Spacer()
+                }.padding(.leading, 20)
+                HStack {
+                    Text("Birthday").foregroundColor(Color("SectionColor")).bold().font(.title2)
+                    Spacer()
+                }.padding(EdgeInsets(top: 20, leading: 20, bottom: 5, trailing: 0))
+                HStack {
+                    Text("♍️ May 22, 1999").foregroundColor(Color(.white)).font(.title2)
+                    Spacer()
+                }.padding(.leading, 20)
+                HStack {
+                    Text("Nationality").foregroundColor(Color("SectionColor")).bold().font(.title2)
+                    Spacer()
+                }.padding(EdgeInsets(top: 20, leading: 20, bottom: 5, trailing: 0))
+                HStack {
+                    Text("🇺🇸 US").foregroundColor(Color(.white)).font(.title2)
+                    Spacer()
+                }.padding(.leading, 20)
+                HStack {
+                    Text("Net Worth").foregroundColor(Color("SectionColor")).bold().font(.title2)
+                    Spacer()
+                }.padding(EdgeInsets(top: 20, leading: 20, bottom: 5, trailing: 0))
+                HStack {
+                    Text("💵 2.2 million").foregroundColor(Color(.white)).font(.title2)
                     Spacer()
                 }.padding(.leading, 20)
                 Spacer()
