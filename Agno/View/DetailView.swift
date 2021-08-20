@@ -10,6 +10,9 @@ import SwiftUI
 struct DetailView: View {
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     
+    //@EnvironmentObject var detail : DetailViewModel
+    
+    
     var btnBack: some View {
         Button(action: {self.presentationMode.wrappedValue.dismiss()}) {
             Image(systemName: "chevron.left").padding()
@@ -25,35 +28,35 @@ struct DetailView: View {
                 Image("MasterChief")
                     .resizable().aspectRatio(contentMode: .fit)
                 HStack {
-                    Text("Full Name").foregroundColor(Color("SectionColor")).bold().font(.title2)
+                    Text("Full Name").foregroundColor(Color("SectionColor")).bold().font(.title3)
                     Spacer()
-                }.padding(EdgeInsets(top: 20, leading: 20, bottom: 5, trailing: 0))
+                }.padding(EdgeInsets(top: 20, leading: 20, bottom: 1, trailing: 0))
                 HStack {
-                    Text("Master Chief Petty Officer John-117").foregroundColor(Color(.white)).font(.title2)
-                    Spacer()
-                }.padding(.leading, 20)
-                HStack {
-                    Text("Birthday").foregroundColor(Color("SectionColor")).bold().font(.title2)
-                    Spacer()
-                }.padding(EdgeInsets(top: 20, leading: 20, bottom: 5, trailing: 0))
-                HStack {
-                    Text("♍️ May 22, 1999").foregroundColor(Color(.white)).font(.title2)
+                    Text("Master Chief Petty Officer John-117").foregroundColor(Color(.white)).font(.title3)
                     Spacer()
                 }.padding(.leading, 20)
                 HStack {
-                    Text("Nationality").foregroundColor(Color("SectionColor")).bold().font(.title2)
+                    Text("Birthday").foregroundColor(Color("SectionColor")).bold().font(.title3)
                     Spacer()
-                }.padding(EdgeInsets(top: 20, leading: 20, bottom: 5, trailing: 0))
+                }.padding(EdgeInsets(top: 10, leading: 20, bottom: 1, trailing: 0))
                 HStack {
-                    Text("🇺🇸 US").foregroundColor(Color(.white)).font(.title2)
+                    Text("♍️ May 22, 1999").foregroundColor(Color(.white)).font(.title3)
                     Spacer()
                 }.padding(.leading, 20)
                 HStack {
-                    Text("Net Worth").foregroundColor(Color("SectionColor")).bold().font(.title2)
+                    Text("Nationality").foregroundColor(Color("SectionColor")).bold().font(.title3)
                     Spacer()
-                }.padding(EdgeInsets(top: 20, leading: 20, bottom: 5, trailing: 0))
+                }.padding(EdgeInsets(top: 10, leading: 20, bottom: 1, trailing: 0))
                 HStack {
-                    Text("💵 2.2 million").foregroundColor(Color(.white)).font(.title2)
+                    Text("🇺🇸 US").foregroundColor(Color(.white)).font(.title3)
+                    Spacer()
+                }.padding(.leading, 20)
+                HStack {
+                    Text("Net Worth").foregroundColor(Color("SectionColor")).bold().font(.title3)
+                    Spacer()
+                }.padding(EdgeInsets(top: 10, leading: 20, bottom: 1, trailing: 0))
+                HStack {
+                    Text("💵 2.2 million").foregroundColor(Color(.white)).font(.title3)
                     Spacer()
                 }.padding(.leading, 20)
                 Spacer()

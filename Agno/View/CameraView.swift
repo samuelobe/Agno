@@ -10,15 +10,18 @@ import AVFoundation
 
 struct CameraView : View {
     @StateObject var camera = CameraViewModel()
-    var isPreview = Platform.isSimulator
+    @StateObject var detail = DetailViewModel(celebName: "Michael Jordan")
+    
+    @State private var showModal = false
     @State private var action: Int? = 0
     
+    var isSim = Platform.isSimulator
     
     var body: some View {
         
         ZStack {
             
-            if isPreview {
+            if isSim {
                 Color.gray
                 Text("Camera View").foregroundColor(.white)
             }
@@ -48,9 +51,21 @@ struct CameraView : View {
                             Button(action: {
                                 camera.isPhotoTaken.toggle()
                                 self.action = 1
+//                                detail.getCelebrity()
+//                                if detail.celebs.count >= 1 {
+//                                    self.action = 1
+//                                }
+//                                else {
+//                                    self.showModal.toggle()
+//                                }
+//                                print(detail.celebs)
+                                
+                                
                             }, label: {
                                 Circle().fill(Color("ButtonColor")).frame(width: 70, height: 70, alignment: .center)
-                            })
+                            }).sheet(isPresented: $showModal) {
+                                ModalView(showModal: self.$showModal)
+                            }
                         }.navigationBarBackButtonHidden(true)
                         
                         Circle().stroke(Color.white, lineWidth: 5).frame(width: 85, height: 85, alignment: .center)
@@ -60,11 +75,22 @@ struct CameraView : View {
             }
         }.onAppear(perform: {
             camera.check()
-        }).ignoresSafeArea(.all ,edges: .all)
+        }).ignoresSafeArea(.all ,edges: .all).environmentObject(detail)
         
         
     }
     
+}
+
+struct ModalView: View {
+    @Binding var showModal: Bool
+    
+    var body: some View {
+        Text("Modal view")
+        Button("Dismiss") {
+            self.showModal.toggle()
+        }
+    }
 }
 
 
@@ -83,6 +109,6 @@ struct Platform {
 
 struct CameraView_Previews: PreviewProvider {
     static var previews: some View {
-        CameraView(isPreview: true)
+        CameraView(isSim: true)
     }
 }

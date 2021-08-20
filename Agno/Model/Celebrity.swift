@@ -8,10 +8,14 @@
 import Foundation
 import SwiftUI
 
-struct Celebrity : Identifiable, Decodable {
-    let id: Int
-    let name: String
-    let imageUrl: String
+struct Celebrity : Codable {
+    var name: String
+    var net_worth: Int
+    var nationality: String
+    var height: Float
+    var birthdy: String?
+    var gender: String?
+    var occupation : [String]
+    var imageUrl: String?
 }
 
-let MOCK_CELEB = Celebrity.init(id: 0, name: "Master Chief", imageUrl: "")
