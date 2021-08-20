@@ -19,6 +19,7 @@
 		3DB7A96026CEFA360086F644 /* CameraPreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DB7A95F26CEFA360086F644 /* CameraPreview.swift */; };
 		3DB7A96426CEFF750086F644 /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DB7A96326CEFF750086F644 /* DetailView.swift */; };
 		3DB7A96626CF462D0086F644 /* Celebrity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DB7A96526CF462D0086F644 /* Celebrity.swift */; };
+		3DB7A97426CFDACD0086F644 /* CustomFont.otf in Resources */ = {isa = PBXBuildFile; fileRef = 3DB7A96C26CFDACD0086F644 /* CustomFont.otf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +37,7 @@
 		3DB7A95F26CEFA360086F644 /* CameraPreview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraPreview.swift; sourceTree = "<group>"; };
 		3DB7A96326CEFF750086F644 /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
 		3DB7A96526CF462D0086F644 /* Celebrity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Celebrity.swift; sourceTree = "<group>"; };
+		3DB7A96C26CFDACD0086F644 /* CustomFont.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = CustomFont.otf; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,11 +70,12 @@
 		3DB7A93F26CE9C790086F644 /* Agno */ = {
 			isa = PBXGroup;
 			children = (
+				3DB7A96A26CFDAB70086F644 /* Fonts */,
 				3DB7A94026CE9C790086F644 /* AppDelegate.swift */,
 				3DB7A94226CE9C790086F644 /* SceneDelegate.swift */,
-				3DB7A95926CE9D4D0086F644 /* ViewModel */,
 				3DB7A95826CE9D3B0086F644 /* Model */,
 				3DB7A95726CE9D310086F644 /* View */,
+				3DB7A95926CE9D4D0086F644 /* ViewModel */,
 				3DB7A94926CE9C790086F644 /* Assets.xcassets */,
 				3DB7A95126CE9C790086F644 /* Info.plist */,
 				3DB7A94626CE9C790086F644 /* Agno.xcdatamodeld */,
@@ -115,6 +118,14 @@
 				3DB7A95D26CED0900086F644 /* CameraViewModel.swift */,
 			);
 			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		3DB7A96A26CFDAB70086F644 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				3DB7A96C26CFDACD0086F644 /* CustomFont.otf */,
+			);
+			path = Fonts;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -175,6 +186,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3DB7A95026CE9C790086F644 /* LaunchScreen.storyboard in Resources */,
+				3DB7A97426CFDACD0086F644 /* CustomFont.otf in Resources */,
 				3DB7A94D26CE9C790086F644 /* Preview Assets.xcassets in Resources */,
 				3DB7A94A26CE9C790086F644 /* Assets.xcassets in Resources */,
 			);
