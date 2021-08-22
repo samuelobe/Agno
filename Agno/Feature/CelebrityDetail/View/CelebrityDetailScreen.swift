@@ -7,10 +7,11 @@
 
 import SwiftUI
 
-struct DetailView: View {
+struct CelebrityDetailScreen: View {
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     
     //@EnvironmentObject var detail : DetailViewModel
+    
     
     
     var btnBack: some View {
@@ -69,6 +70,6 @@ struct DetailView: View {
 
 struct DetailView_Previews: PreviewProvider {
     static var previews: some View {
-        DetailView()
+        CelebrityDetailScreen()
     }
 }

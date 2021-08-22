@@ -9,37 +9,39 @@
 /* Begin PBXBuildFile section */
 		3DB7A94126CE9C790086F644 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DB7A94026CE9C790086F644 /* AppDelegate.swift */; };
 		3DB7A94326CE9C790086F644 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DB7A94226CE9C790086F644 /* SceneDelegate.swift */; };
-		3DB7A94526CE9C790086F644 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DB7A94426CE9C790086F644 /* ContentView.swift */; };
-		3DB7A94826CE9C790086F644 /* Agno.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 3DB7A94626CE9C790086F644 /* Agno.xcdatamodeld */; };
+		3DB7A94526CE9C790086F644 /* StartScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DB7A94426CE9C790086F644 /* StartScreen.swift */; };
 		3DB7A94A26CE9C790086F644 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3DB7A94926CE9C790086F644 /* Assets.xcassets */; };
 		3DB7A94D26CE9C790086F644 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3DB7A94C26CE9C790086F644 /* Preview Assets.xcassets */; };
 		3DB7A95026CE9C790086F644 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3DB7A94E26CE9C790086F644 /* LaunchScreen.storyboard */; };
-		3DB7A95C26CEC5F00086F644 /* CameraView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DB7A95B26CEC5F00086F644 /* CameraView.swift */; };
+		3DB7A95C26CEC5F00086F644 /* CameraScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DB7A95B26CEC5F00086F644 /* CameraScreen.swift */; };
 		3DB7A95E26CED0910086F644 /* CameraViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DB7A95D26CED0900086F644 /* CameraViewModel.swift */; };
 		3DB7A96026CEFA360086F644 /* CameraPreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DB7A95F26CEFA360086F644 /* CameraPreview.swift */; };
-		3DB7A96426CEFF750086F644 /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DB7A96326CEFF750086F644 /* DetailView.swift */; };
+		3DB7A96426CEFF750086F644 /* CelebrityDetailScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DB7A96326CEFF750086F644 /* CelebrityDetailScreen.swift */; };
 		3DB7A96626CF462D0086F644 /* Celebrity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DB7A96526CF462D0086F644 /* Celebrity.swift */; };
 		3DB7A97426CFDACD0086F644 /* CustomFont.otf in Resources */ = {isa = PBXBuildFile; fileRef = 3DB7A96C26CFDACD0086F644 /* CustomFont.otf */; };
-		3DB7A97B26D0445E0086F644 /* DetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DB7A97A26D0445E0086F644 /* DetailViewModel.swift */; };
+		3DB7A97B26D0445E0086F644 /* CelebrityDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DB7A97A26D0445E0086F644 /* CelebrityDetailViewModel.swift */; };
+		3DD1E09D26D2DA9C00E5CCAD /* CelebrityService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DD1E09C26D2DA9C00E5CCAD /* CelebrityService.swift */; };
+		3DD1E0A526D2E13500E5CCAD /* APIConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DD1E0A426D2E13500E5CCAD /* APIConstants.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		3DB7A93D26CE9C790086F644 /* Agno.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Agno.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3DB7A94026CE9C790086F644 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3DB7A94226CE9C790086F644 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		3DB7A94426CE9C790086F644 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
-		3DB7A94726CE9C790086F644 /* Agno.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Agno.xcdatamodel; sourceTree = "<group>"; };
+		3DB7A94426CE9C790086F644 /* StartScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartScreen.swift; sourceTree = "<group>"; };
 		3DB7A94926CE9C790086F644 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3DB7A94C26CE9C790086F644 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		3DB7A94F26CE9C790086F644 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3DB7A95126CE9C790086F644 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		3DB7A95B26CEC5F00086F644 /* CameraView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraView.swift; sourceTree = "<group>"; };
+		3DB7A95B26CEC5F00086F644 /* CameraScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraScreen.swift; sourceTree = "<group>"; };
 		3DB7A95D26CED0900086F644 /* CameraViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraViewModel.swift; sourceTree = "<group>"; };
 		3DB7A95F26CEFA360086F644 /* CameraPreview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraPreview.swift; sourceTree = "<group>"; };
-		3DB7A96326CEFF750086F644 /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
+		3DB7A96326CEFF750086F644 /* CelebrityDetailScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CelebrityDetailScreen.swift; sourceTree = "<group>"; };
 		3DB7A96526CF462D0086F644 /* Celebrity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Celebrity.swift; sourceTree = "<group>"; };
 		3DB7A96C26CFDACD0086F644 /* CustomFont.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = CustomFont.otf; sourceTree = "<group>"; };
-		3DB7A97A26D0445E0086F644 /* DetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewModel.swift; sourceTree = "<group>"; };
+		3DB7A97A26D0445E0086F644 /* CelebrityDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CelebrityDetailViewModel.swift; sourceTree = "<group>"; };
+		3DD1E09C26D2DA9C00E5CCAD /* CelebrityService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CelebrityService.swift; sourceTree = "<group>"; };
+		3DD1E0A426D2E13500E5CCAD /* APIConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIConstants.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,15 +74,8 @@
 		3DB7A93F26CE9C790086F644 /* Agno */ = {
 			isa = PBXGroup;
 			children = (
-				3DB7A96A26CFDAB70086F644 /* Fonts */,
-				3DB7A94026CE9C790086F644 /* AppDelegate.swift */,
-				3DB7A94226CE9C790086F644 /* SceneDelegate.swift */,
-				3DB7A95826CE9D3B0086F644 /* Model */,
-				3DB7A95726CE9D310086F644 /* View */,
-				3DB7A95926CE9D4D0086F644 /* ViewModel */,
-				3DB7A94926CE9C790086F644 /* Assets.xcassets */,
-				3DB7A95126CE9C790086F644 /* Info.plist */,
-				3DB7A94626CE9C790086F644 /* Agno.xcdatamodeld */,
+				3DD1E0A126D2DF9200E5CCAD /* Feature */,
+				3DD1E09E26D2DF4200E5CCAD /* Base */,
 				3DB7A94B26CE9C790086F644 /* Preview Content */,
 			);
 			path = Agno;
@@ -97,11 +92,7 @@
 		3DB7A95726CE9D310086F644 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				3DB7A94E26CE9C790086F644 /* LaunchScreen.storyboard */,
-				3DB7A94426CE9C790086F644 /* ContentView.swift */,
-				3DB7A95B26CEC5F00086F644 /* CameraView.swift */,
-				3DB7A95F26CEFA360086F644 /* CameraPreview.swift */,
-				3DB7A96326CEFF750086F644 /* DetailView.swift */,
+				3DB7A96326CEFF750086F644 /* CelebrityDetailScreen.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -117,8 +108,7 @@
 		3DB7A95926CE9D4D0086F644 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
-				3DB7A95D26CED0900086F644 /* CameraViewModel.swift */,
-				3DB7A97A26D0445E0086F644 /* DetailViewModel.swift */,
+				3DB7A97A26D0445E0086F644 /* CelebrityDetailViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -129,6 +119,107 @@
 				3DB7A96C26CFDACD0086F644 /* CustomFont.otf */,
 			);
 			path = Fonts;
+			sourceTree = "<group>";
+		};
+		3DD1E09B26D2DA8200E5CCAD /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				3DD1E09C26D2DA9C00E5CCAD /* CelebrityService.swift */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
+		3DD1E09E26D2DF4200E5CCAD /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				3DB7A95126CE9C790086F644 /* Info.plist */,
+				3DB7A94926CE9C790086F644 /* Assets.xcassets */,
+				3DD1E0A326D2DFDA00E5CCAD /* Delegates */,
+				3DD1E0A026D2DF6600E5CCAD /* Views */,
+				3DD1E09F26D2DF5300E5CCAD /* Constants */,
+				3DB7A96A26CFDAB70086F644 /* Fonts */,
+			);
+			path = Base;
+			sourceTree = "<group>";
+		};
+		3DD1E09F26D2DF5300E5CCAD /* Constants */ = {
+			isa = PBXGroup;
+			children = (
+				3DD1E0A426D2E13500E5CCAD /* APIConstants.swift */,
+			);
+			path = Constants;
+			sourceTree = "<group>";
+		};
+		3DD1E0A026D2DF6600E5CCAD /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				3DB7A94E26CE9C790086F644 /* LaunchScreen.storyboard */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		3DD1E0A126D2DF9200E5CCAD /* Feature */ = {
+			isa = PBXGroup;
+			children = (
+				3DD1E0AA26D2E51600E5CCAD /* Introduction */,
+				3DD1E0A626D2E2A600E5CCAD /* Camera */,
+				3DD1E0A226D2DF9900E5CCAD /* CelebrityDetail */,
+			);
+			path = Feature;
+			sourceTree = "<group>";
+		};
+		3DD1E0A226D2DF9900E5CCAD /* CelebrityDetail */ = {
+			isa = PBXGroup;
+			children = (
+				3DB7A95826CE9D3B0086F644 /* Model */,
+				3DB7A95726CE9D310086F644 /* View */,
+				3DB7A95926CE9D4D0086F644 /* ViewModel */,
+				3DD1E09B26D2DA8200E5CCAD /* Service */,
+			);
+			path = CelebrityDetail;
+			sourceTree = "<group>";
+		};
+		3DD1E0A326D2DFDA00E5CCAD /* Delegates */ = {
+			isa = PBXGroup;
+			children = (
+				3DB7A94026CE9C790086F644 /* AppDelegate.swift */,
+				3DB7A94226CE9C790086F644 /* SceneDelegate.swift */,
+			);
+			path = Delegates;
+			sourceTree = "<group>";
+		};
+		3DD1E0A626D2E2A600E5CCAD /* Camera */ = {
+			isa = PBXGroup;
+			children = (
+				3DD1E0A826D2E35300E5CCAD /* View */,
+				3DD1E0A926D2E36400E5CCAD /* ViewModel */,
+			);
+			path = Camera;
+			sourceTree = "<group>";
+		};
+		3DD1E0A826D2E35300E5CCAD /* View */ = {
+			isa = PBXGroup;
+			children = (
+				3DB7A95B26CEC5F00086F644 /* CameraScreen.swift */,
+				3DB7A95F26CEFA360086F644 /* CameraPreview.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		3DD1E0A926D2E36400E5CCAD /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				3DB7A95D26CED0900086F644 /* CameraViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		3DD1E0AA26D2E51600E5CCAD /* Introduction */ = {
+			isa = PBXGroup;
+			children = (
+				3DB7A94426CE9C790086F644 /* StartScreen.swift */,
+			);
+			path = Introduction;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -203,14 +294,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				3DB7A94126CE9C790086F644 /* AppDelegate.swift in Sources */,
-				3DB7A96426CEFF750086F644 /* DetailView.swift in Sources */,
+				3DB7A96426CEFF750086F644 /* CelebrityDetailScreen.swift in Sources */,
 				3DB7A94326CE9C790086F644 /* SceneDelegate.swift in Sources */,
-				3DB7A97B26D0445E0086F644 /* DetailViewModel.swift in Sources */,
-				3DB7A94826CE9C790086F644 /* Agno.xcdatamodeld in Sources */,
+				3DB7A97B26D0445E0086F644 /* CelebrityDetailViewModel.swift in Sources */,
+				3DD1E09D26D2DA9C00E5CCAD /* CelebrityService.swift in Sources */,
 				3DB7A96626CF462D0086F644 /* Celebrity.swift in Sources */,
 				3DB7A96026CEFA360086F644 /* CameraPreview.swift in Sources */,
-				3DB7A95C26CEC5F00086F644 /* CameraView.swift in Sources */,
-				3DB7A94526CE9C790086F644 /* ContentView.swift in Sources */,
+				3DD1E0A526D2E13500E5CCAD /* APIConstants.swift in Sources */,
+				3DB7A95C26CEC5F00086F644 /* CameraScreen.swift in Sources */,
+				3DB7A94526CE9C790086F644 /* StartScreen.swift in Sources */,
 				3DB7A95E26CED0910086F644 /* CameraViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -409,19 +501,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCVersionGroup section */
-		3DB7A94626CE9C790086F644 /* Agno.xcdatamodeld */ = {
-			isa = XCVersionGroup;
-			children = (
-				3DB7A94726CE9C790086F644 /* Agno.xcdatamodel */,
-			);
-			currentVersion = 3DB7A94726CE9C790086F644 /* Agno.xcdatamodel */;
-			path = Agno.xcdatamodeld;
-			sourceTree = "<group>";
-			versionGroupType = wrapper.xcdatamodel;
-		};
-/* End XCVersionGroup section */
 	};
 	rootObject = 3DB7A93526CE9C790086F644 /* Project object */;
 }

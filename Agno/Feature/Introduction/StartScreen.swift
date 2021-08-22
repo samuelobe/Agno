@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct ContentView: View {
+struct StartScreen: View {
     @State private var action: Int? = 0
     var body: some View {
         NavigationView {
@@ -18,7 +18,7 @@ struct ContentView: View {
                     Text("AGNO is a celebrity-image recognition app which detects faces of celebrities with a single click..." ).foregroundColor(.white).font(Font.custom("CustomFont", size: 20)).multilineTextAlignment(.center)
                     Spacer()
                     NavigationLink(
-                        destination: CameraView(),
+                        destination: CameraScreen(),
                         tag: 1, selection: $action
                     ) {
                         Button(action: {self.action = 1}, label: {
@@ -43,6 +43,6 @@ struct ContentView: View {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        StartScreen()
     }
 }

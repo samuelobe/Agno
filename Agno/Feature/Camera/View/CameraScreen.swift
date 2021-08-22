@@ -8,9 +8,9 @@
 import SwiftUI
 import AVFoundation
 
-struct CameraView : View {
+struct CameraScreen : View {
     @StateObject var camera = CameraViewModel()
-    @StateObject var detail = DetailViewModel(celebName: "Michael Jordan")
+    @StateObject var detail = CelebrityDetailViewModel(celebName: "Michael Jordan")
     
     @State private var showModal = false
     @State private var action: Int? = 0
@@ -47,10 +47,12 @@ struct CameraView : View {
                 Spacer()
                 HStack{
                     ZStack {
-                        NavigationLink(destination: DetailView(), tag: 1, selection: $action) {
+                        NavigationLink(destination: CelebrityDetailScreen(), tag: 1, selection: $action) {
                             Button(action: {
                                 camera.isPhotoTaken.toggle()
                                 self.action = 1
+                                self.detail.getCelebrity()
+                                print("TEST")
 //                                detail.getCelebrity()
 //                                if detail.celebs.count >= 1 {
 //                                    self.action = 1
@@ -109,6 +111,6 @@ struct Platform {
 
 struct CameraView_Previews: PreviewProvider {
     static var previews: some View {
-        CameraView(isSim: true)
+        CameraScreen(isSim: true)
     }
 }
