@@ -10,7 +10,7 @@ import AVFoundation
 
 struct CameraScreen : View {
     @StateObject var camera = CameraViewModel()
-    @StateObject var detail = CelebrityDetailViewModel(celebName: "Michael Jordan")
+//    @StateObject var detail = CelebrityDetailViewModel(celebName: "Michael Jordan")
     
     @State private var showModal = false
     @State private var action: Int? = 0
@@ -51,16 +51,6 @@ struct CameraScreen : View {
                             Button(action: {
                                 camera.isPhotoTaken.toggle()
                                 self.action = 1
-                                self.detail.getCelebrity()
-                                print("TEST")
-//                                detail.getCelebrity()
-//                                if detail.celebs.count >= 1 {
-//                                    self.action = 1
-//                                }
-//                                else {
-//                                    self.showModal.toggle()
-//                                }
-//                                print(detail.celebs)
                                 
                                 
                             }, label: {
@@ -77,7 +67,8 @@ struct CameraScreen : View {
             }
         }.onAppear(perform: {
             camera.check()
-        }).ignoresSafeArea(.all ,edges: .all).environmentObject(detail)
+        }).ignoresSafeArea(.all ,edges: .all)
+            //.environmentObject(detail)
         
         
     }
