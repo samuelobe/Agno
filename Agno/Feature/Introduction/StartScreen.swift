@@ -29,11 +29,10 @@ struct StartScreen: View {
                                 .cornerRadius(40)
                                 .foregroundColor(.white)
                         })
-                    }
+                    }.navigationBarHidden(true)
                     
                 }
-            }.navigationBarHidden(true)
-            .navigationBarTitle(Text("Home"))
+            }
             
             
         }.preferredColorScheme(.dark)

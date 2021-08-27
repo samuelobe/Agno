@@ -92,6 +92,7 @@ struct CameraScreen : View {
         }.onAppear(perform: {
             camera.check()
         }).ignoresSafeArea(.all ,edges: .all)
+            .navigationBarHidden(true)
         //.environmentObject(detail)
         
         
