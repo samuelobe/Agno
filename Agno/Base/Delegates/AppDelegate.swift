@@ -16,6 +16,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+        // Initialize the Amazon Cognito credentials provider
+
+        let credentialsProvider = AWSCognitoCredentialsProvider(regionType:.USWest2,
+           identityPoolId:"us-west-2:265cd769-9a83-4582-aa5c-8abbf4ef8cc5")
+
+        let configuration = AWSServiceConfiguration(region:.USWest2, credentialsProvider:credentialsProvider)
+
+        AWSServiceManager.default().defaultServiceConfiguration = configuration
        
         // Override point for customization after application launch.
         return true

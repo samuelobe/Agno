@@ -10,7 +10,6 @@ import AVFoundation
 
 struct CameraScreen : View {
     @StateObject var camera = CameraViewModel()
-//    @StateObject var detail = CelebrityDetailViewModel(celebName: "Michael Jordan")
     
     @State private var showModal = false
     @State private var action: Int? = 0
@@ -32,15 +31,35 @@ struct CameraScreen : View {
                 Spacer()
                 ZStack {
                     Color.black.frame(height: 85, alignment: .center).opacity(0.75)
-                    HStack{
-                        Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/, label: {
-                            Image(systemName: "photo").font(.system(size: 27.0)).foregroundColor(.white)
-                        }).padding(.leading, 40)
-                        Spacer()
-                        Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/, label: {
-                            Image(systemName: "gearshape").font(.system(size: 27.0)).foregroundColor(.white)
-                        }).padding(.trailing, 40)
+                    if self.camera.isPhotoTaken {
+                        HStack{
+                            Button(action: {
+                                print(self.camera.picData)
+                                
+                            },
+                                   label: {
+                                Image(systemName: "checkmark.square.fill").font(.system(size: 27.0)).foregroundColor(.white)
+                            }).padding(.leading, 40)
+                            Spacer()
+                            Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/, label: {
+                                Image(systemName: "clear.fill").font(.system(size: 27.0)).foregroundColor(.white)
+                            }).padding(.trailing, 40)
+                        }
                     }
+                    else {
+                        HStack{
+                            Button(action: {
+                                
+                            }, label: {
+                                Image(systemName: "photo").font(.system(size: 27.0)).foregroundColor(.white)
+                            }).padding(.leading, 40)
+                            Spacer()
+                            Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/, label: {
+                                Image(systemName: "gearshape").font(.system(size: 27.0)).foregroundColor(.white)
+                            }).padding(.trailing, 40)
+                        }
+                    }
+                    
                 }
             }
             VStack {
@@ -49,8 +68,8 @@ struct CameraScreen : View {
                     ZStack {
                         NavigationLink(destination: CelebrityDetailScreen(), tag: 1, selection: $action) {
                             Button(action: {
-                                camera.isPhotoTaken.toggle()
-                                self.action = 1
+                                self.camera.takePic()
+                                //self.action = 1
                                 
                                 
                             }, label: {
@@ -68,7 +87,7 @@ struct CameraScreen : View {
         }.onAppear(perform: {
             camera.check()
         }).ignoresSafeArea(.all ,edges: .all)
-            //.environmentObject(detail)
+        //.environmentObject(detail)
         
         
     }
@@ -91,9 +110,9 @@ struct ModalView: View {
 struct Platform {
     static let isSimulator: Bool = {
         var isSim = false
-        #if targetEnvironment(simulator)
+#if targetEnvironment(simulator)
         isSim = true
-        #endif
+#endif
         return isSim
     }()
 }
