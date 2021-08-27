@@ -33,15 +33,21 @@ struct CameraScreen : View {
                     Color.black.frame(height: 85, alignment: .center).opacity(0.75)
                     if self.camera.isPhotoTaken {
                         HStack{
-                            Button(action: {
-                                print(self.camera.picData)
+                            
+                            NavigationLink(destination: CelebrityDetailScreen(), tag: 1, selection: $action) {
+                                Button(action: {
+                                    //self.action = 1
+                                    
+                                },
+                                       label: {
+                                    Image(systemName: "checkmark.square.fill").font(.system(size: 27.0)).foregroundColor(.white)
+                                }).padding(.leading, 40)
                                 
-                            },
-                                   label: {
-                                Image(systemName: "checkmark.square.fill").font(.system(size: 27.0)).foregroundColor(.white)
-                            }).padding(.leading, 40)
+                            }.navigationBarBackButtonHidden(true)
                             Spacer()
-                            Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/, label: {
+                            Button(action: {
+                                camera.resetCamera()
+                            }, label: {
                                 Image(systemName: "clear.fill").font(.system(size: 27.0)).foregroundColor(.white)
                             }).padding(.trailing, 40)
                         }
@@ -62,27 +68,26 @@ struct CameraScreen : View {
                     
                 }
             }
-            VStack {
-                Spacer()
-                HStack{
-                    ZStack {
-                        NavigationLink(destination: CelebrityDetailScreen(), tag: 1, selection: $action) {
+            if !self.camera.isPhotoTaken {
+                VStack {
+                    Spacer()
+                    HStack{
+                        ZStack {
                             Button(action: {
                                 self.camera.takePic()
-                                //self.action = 1
-                                
-                                
                             }, label: {
                                 Circle().fill(Color("ButtonColor")).frame(width: 70, height: 70, alignment: .center)
                             }).sheet(isPresented: $showModal) {
                                 ModalView(showModal: self.$showModal)
                             }
-                        }.navigationBarBackButtonHidden(true)
+                            
+                            Circle().stroke(Color.white, lineWidth: 5).frame(width: 85, height: 85, alignment: .center)
+                            
+                            
+                        }
                         
-                        Circle().stroke(Color.white, lineWidth: 5).frame(width: 85, height: 85, alignment: .center)
-                    }
-                    
-                }.padding(.bottom, 40)
+                    }.padding(.bottom, 40)
+                }
             }
         }.onAppear(perform: {
             camera.check()

@@ -8,7 +8,6 @@
 import AVFoundation
 import SwiftUI
 import UIKit
-import AWSRekognition
 
 class CameraViewModel: NSObject,ObservableObject, AVCapturePhotoCaptureDelegate {
     @Published var isPhotoTaken = false
@@ -16,8 +15,9 @@ class CameraViewModel: NSObject,ObservableObject, AVCapturePhotoCaptureDelegate 
     @Published var session = AVCaptureSession()
     @Published var output : AVCapturePhotoOutput!
     @Published var preview : AVCaptureVideoPreviewLayer!
-    @Published var picData = Data(count: 0)
-    private var rekognitionObject: AWSRekognition?
+    
+    
+    private var recognitionAWS = CelebrityRecognition()
     
     func check(){
         switch AVCaptureDevice.authorizationStatus(for: .video) {
@@ -74,7 +74,18 @@ class CameraViewModel: NSObject,ObservableObject, AVCapturePhotoCaptureDelegate 
             self.session.stopRunning()
 
             DispatchQueue.main.async {
-                self.isPhotoTaken.toggle()
+                self.isPhotoTaken = true
+            }
+        }
+    }
+    
+    func resetCamera(){
+        
+        DispatchQueue.global(qos: .background).async {
+            self.session.startRunning()
+
+            DispatchQueue.main.async {
+                self.isPhotoTaken = false
             }
         }
     }
@@ -87,49 +98,18 @@ class CameraViewModel: NSObject,ObservableObject, AVCapturePhotoCaptureDelegate 
         }
         
         guard let imageData = photo.fileDataRepresentation() else {return}
-        self.picData = (UIImage(data: imageData)?.jpegData(compressionQuality: 0.2))!
-        
-        //sendImageToRekognition()
-        
         print("photo taken")
         
-    }
-    
-    
-    // MARK: - AWS Methods
-    
-    func sendImageToRekognition(){
-        rekognitionObject = AWSRekognition.default()
-        let celebImageAWS = AWSRekognitionImage()
-        celebImageAWS?.bytes = self.picData
-        let celebRequest = AWSRekognitionRecognizeCelebritiesRequest()
-        celebRequest?.image = celebImageAWS
+        recognitionAWS.picData = (UIImage(data: imageData)?.jpegData(compressionQuality: 0.2))!
         
-        rekognitionObject?.recognizeCelebrities(celebRequest!){
-            (result, error) in
-            if error != nil {
-                print(error!.localizedDescription)
-            }
-            if result != nil {
-                print(result!)
-                if ((result!.celebrityFaces?.count)! > 0) {
-                    for (_, celebFace) in result!.celebrityFaces!.enumerated() {
-                        if celebFace.matchConfidence!.intValue > 50 {
-                            print(celebFace.name!)
-                        }
-                    }
-                    print("Celebs found")
-                }
-                else if ((result!.unrecognizedFaces?.count)! > 0) {
-                    print("Other faces found")
-                }
-                else {
-                    print("No faces found in picture")
-                }
-            }
-            else {
-                print("No result")
-            }
-        }
+        recognitionAWS.sendImageToRekognition()
+        
+        
+        
     }
+    
+    
+    
+    
+
 }
