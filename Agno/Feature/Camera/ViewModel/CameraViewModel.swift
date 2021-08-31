@@ -9,15 +9,13 @@ import AVFoundation
 import SwiftUI
 import UIKit
 
-class CameraViewModel: NSObject,ObservableObject, AVCapturePhotoCaptureDelegate {
+class CameraViewModel: NSObject, ObservableObject, AVCapturePhotoCaptureDelegate {
     @Published var isPhotoTaken = false
     @Published var alert = false
     @Published var session = AVCaptureSession()
     @Published var output : AVCapturePhotoOutput!
     @Published var preview : AVCaptureVideoPreviewLayer!
-    
-    
-    private var recognitionAWS = CelebrityRecognition()
+    @Published var imageData = Data(count: 0)
     
     func check(){
         switch AVCaptureDevice.authorizationStatus(for: .video) {
@@ -46,6 +44,7 @@ class CameraViewModel: NSObject,ObservableObject, AVCapturePhotoCaptureDelegate 
             
             guard let backCamera = AVCaptureDevice.default(.builtInDualCamera, for: .video, position: .back )
             else {
+                self.alert.toggle()
                 print("Unable to access back camera!")
                 return
             }
@@ -80,7 +79,6 @@ class CameraViewModel: NSObject,ObservableObject, AVCapturePhotoCaptureDelegate 
     }
     
     func resetCamera(){
-        
         DispatchQueue.global(qos: .background).async {
             self.session.startRunning()
 
@@ -90,20 +88,21 @@ class CameraViewModel: NSObject,ObservableObject, AVCapturePhotoCaptureDelegate 
         }
     }
     
+    
     func photoOutput(_ output: AVCapturePhotoOutput, didFinishProcessingPhoto photo: AVCapturePhoto, error: Error?) {
         
         if error != nil {
             print(error?.localizedDescription ?? "Camera Output Error")
             return
         }
-        
-        guard let imageData = photo.fileDataRepresentation() else {return}
         print("photo taken")
         
-        recognitionAWS.picData = (UIImage(data: imageData)?.jpegData(compressionQuality: 0.2))!
+        guard let data = photo.fileDataRepresentation() else {return}
+        self.imageData = data
         
-        recognitionAWS.sendImageToRekognition()
+        print("image data captured")
         
+       
         
         
     }

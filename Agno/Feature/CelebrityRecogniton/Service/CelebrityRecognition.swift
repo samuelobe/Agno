@@ -8,19 +8,23 @@
 import Foundation
 import AWSRekognition
 
-class CelebrityRecognition {
+class CelebrityRecognition : ObservableObject {
     private var rekognitionObject: AWSRekognition?
     @Published var picData = Data(count: 0)
     
     // MARK: - AWS Method
-    func sendImageToRekognition(){
+    func sendImageToRekognition() -> [RecognizedCelebrity] {
+        var celebList : [RecognizedCelebrity] = []
+        
         rekognitionObject = AWSRekognition.default()
         let celebImageAWS = AWSRekognitionImage()
         celebImageAWS?.bytes = self.picData
         print("AWS Image Created")
+        
         let celebRequest = AWSRekognitionRecognizeCelebritiesRequest()
         celebRequest?.image = celebImageAWS
         print("Request Created")
+        
         rekognitionObject?.recognizeCelebrities(celebRequest!){
             (result, error) in
             if error != nil {
@@ -31,11 +35,10 @@ class CelebrityRecognition {
                 let faces = result!.celebrityFaces
                 if ((faces?.count)! > 0) {
                     for celeb in faces! {
-                        print(celeb.name! )
-                        print(celeb.matchConfidence!)
-                        print(celeb.urls!)
+                        let recogCeleb = RecognizedCelebrity(name: celeb.name!, confidence: celeb.matchConfidence!, urls: celeb.urls!)
+                        celebList.append(recogCeleb)
                     }
-
+                    
                     print("Celebs found")
                 }
                 else if ((result!.unrecognizedFaces?.count)! > 0) {
@@ -49,6 +52,7 @@ class CelebrityRecognition {
                 print("No result")
             }
         }
+        return celebList
     }
     
 }

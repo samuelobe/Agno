@@ -9,6 +9,6 @@ import Foundation
 
 struct RecognizedCelebrity {
     let name : String
-    let confidence : Double
+    let confidence : NSNumber
     let urls : [String]
 }

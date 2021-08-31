@@ -10,9 +10,12 @@ import AVFoundation
 
 struct CameraScreen : View {
     @StateObject var camera = CameraViewModel()
+    @StateObject var celeb = CelebrityListViewModel()
     
     @State private var showModal = false
     @State private var action: Int? = 0
+    
+    
     
     var isSim = Platform.isSimulator
     
@@ -34,19 +37,27 @@ struct CameraScreen : View {
                     if self.camera.isPhotoTaken {
                         HStack{
                             
-                            NavigationLink(destination: CelebrityDetailScreen(), tag: 1, selection: $action) {
+                            NavigationLink(destination: CelebrityListScreen()
+                                            .environmentObject(celeb)
+                                            .environmentObject(camera),
+                                           tag: 1, selection: $action) {
                                 Button(action: {
-                                    //self.action = 1
+                                    self.celeb.imageData = self.camera.imageData
+                                    self.action = 1
+                                    
+                                    //self.camera.acceptPhoto()
                                     
                                 },
                                        label: {
                                     Image(systemName: "checkmark.square.fill").font(.system(size: 27.0)).foregroundColor(.white)
                                 }).padding(.leading, 40)
                                 
-                            }.navigationBarBackButtonHidden(true)
+                            }
+                            
                             Spacer()
                             Button(action: {
-                                camera.resetCamera()
+                                //self.camera.check()
+                                self.camera.resetCamera()
                             }, label: {
                                 Image(systemName: "clear.fill").font(.system(size: 27.0)).foregroundColor(.white)
                             }).padding(.trailing, 40)
@@ -90,10 +101,9 @@ struct CameraScreen : View {
                 }
             }
         }.onAppear(perform: {
-            camera.check()
+            self.camera.check()
         }).ignoresSafeArea(.all ,edges: .all)
             .navigationBarHidden(true)
-        //.environmentObject(detail)
         
         
     }

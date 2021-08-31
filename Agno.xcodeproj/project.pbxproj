@@ -8,8 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		3D0762A126D88A9600031C57 /* RecognizedCelebrity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D0762A026D88A9600031C57 /* RecognizedCelebrity.swift */; };
+		3D0762A626D979DF00031C57 /* CelebrityListScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D0762A526D979DF00031C57 /* CelebrityListScreen.swift */; };
+		3D0762A826D979F400031C57 /* CelebrityListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D0762A726D979F400031C57 /* CelebrityListViewModel.swift */; };
 		3D566FB226D4059500D69502 /* CelebrityRecognition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D566FB126D4059500D69502 /* CelebrityRecognition.swift */; };
-		3D566FB426D4083C00D69502 /* ImageScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D566FB326D4083C00D69502 /* ImageScreen.swift */; };
 		3DB7A94126CE9C790086F644 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DB7A94026CE9C790086F644 /* AppDelegate.swift */; };
 		3DB7A94326CE9C790086F644 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DB7A94226CE9C790086F644 /* SceneDelegate.swift */; };
 		3DB7A94526CE9C790086F644 /* StartScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DB7A94426CE9C790086F644 /* StartScreen.swift */; };
@@ -20,7 +21,6 @@
 		3DB7A95E26CED0910086F644 /* CameraViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DB7A95D26CED0900086F644 /* CameraViewModel.swift */; };
 		3DB7A96026CEFA360086F644 /* CameraPreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DB7A95F26CEFA360086F644 /* CameraPreview.swift */; };
 		3DB7A96426CEFF750086F644 /* CelebrityDetailScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DB7A96326CEFF750086F644 /* CelebrityDetailScreen.swift */; };
-		3DB7A96626CF462D0086F644 /* Celebrity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DB7A96526CF462D0086F644 /* Celebrity.swift */; };
 		3DB7A97426CFDACD0086F644 /* CustomFont.otf in Resources */ = {isa = PBXBuildFile; fileRef = 3DB7A96C26CFDACD0086F644 /* CustomFont.otf */; };
 		3DB7A97B26D0445E0086F644 /* CelebrityDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DB7A97A26D0445E0086F644 /* CelebrityDetailViewModel.swift */; };
 		3DD1E09D26D2DA9C00E5CCAD /* CelebrityService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DD1E09C26D2DA9C00E5CCAD /* CelebrityService.swift */; };
@@ -31,8 +31,9 @@
 /* Begin PBXFileReference section */
 		2ADBC99B50B770C08747BED5 /* Pods-Agno.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Agno.debug.xcconfig"; path = "Target Support Files/Pods-Agno/Pods-Agno.debug.xcconfig"; sourceTree = "<group>"; };
 		3D0762A026D88A9600031C57 /* RecognizedCelebrity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecognizedCelebrity.swift; sourceTree = "<group>"; };
+		3D0762A526D979DF00031C57 /* CelebrityListScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CelebrityListScreen.swift; sourceTree = "<group>"; };
+		3D0762A726D979F400031C57 /* CelebrityListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CelebrityListViewModel.swift; sourceTree = "<group>"; };
 		3D566FB126D4059500D69502 /* CelebrityRecognition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CelebrityRecognition.swift; sourceTree = "<group>"; };
-		3D566FB326D4083C00D69502 /* ImageScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageScreen.swift; sourceTree = "<group>"; };
 		3DB7A93D26CE9C790086F644 /* Agno.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Agno.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3DB7A94026CE9C790086F644 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3DB7A94226CE9C790086F644 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -45,7 +46,6 @@
 		3DB7A95D26CED0900086F644 /* CameraViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraViewModel.swift; sourceTree = "<group>"; };
 		3DB7A95F26CEFA360086F644 /* CameraPreview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraPreview.swift; sourceTree = "<group>"; };
 		3DB7A96326CEFF750086F644 /* CelebrityDetailScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CelebrityDetailScreen.swift; sourceTree = "<group>"; };
-		3DB7A96526CF462D0086F644 /* Celebrity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Celebrity.swift; sourceTree = "<group>"; };
 		3DB7A96C26CFDACD0086F644 /* CustomFont.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = CustomFont.otf; sourceTree = "<group>"; };
 		3DB7A97A26D0445E0086F644 /* CelebrityDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CelebrityDetailViewModel.swift; sourceTree = "<group>"; };
 		3DD1E09C26D2DA9C00E5CCAD /* CelebrityService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CelebrityService.swift; sourceTree = "<group>"; };
@@ -88,6 +88,31 @@
 				3D566FB126D4059500D69502 /* CelebrityRecognition.swift */,
 			);
 			path = Service;
+			sourceTree = "<group>";
+		};
+		3D0762A426D979BF00031C57 /* CelebrityList */ = {
+			isa = PBXGroup;
+			children = (
+				3D0762AA26D97A5500031C57 /* ViewModel */,
+				3D0762A926D97A5100031C57 /* View */,
+			);
+			path = CelebrityList;
+			sourceTree = "<group>";
+		};
+		3D0762A926D97A5100031C57 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				3D0762A526D979DF00031C57 /* CelebrityListScreen.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		3D0762AA26D97A5500031C57 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				3D0762A726D979F400031C57 /* CelebrityListViewModel.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		3D566FB026D4056B00D69502 /* CelebrityRecogniton */ = {
@@ -145,14 +170,6 @@
 			path = View;
 			sourceTree = "<group>";
 		};
-		3DB7A95826CE9D3B0086F644 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				3DB7A96526CF462D0086F644 /* Celebrity.swift */,
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
 		3DB7A95926CE9D4D0086F644 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
@@ -207,6 +224,7 @@
 		3DD1E0A126D2DF9200E5CCAD /* Feature */ = {
 			isa = PBXGroup;
 			children = (
+				3D0762A426D979BF00031C57 /* CelebrityList */,
 				3D566FB026D4056B00D69502 /* CelebrityRecogniton */,
 				3DD1E0A626D2E2A600E5CCAD /* Camera */,
 				3DD1E0A226D2DF9900E5CCAD /* CelebrityDetail */,
@@ -218,7 +236,6 @@
 		3DD1E0A226D2DF9900E5CCAD /* CelebrityDetail */ = {
 			isa = PBXGroup;
 			children = (
-				3DB7A95826CE9D3B0086F644 /* Model */,
 				3DB7A95726CE9D310086F644 /* View */,
 				3DB7A95926CE9D4D0086F644 /* ViewModel */,
 				3DD1E09B26D2DA8200E5CCAD /* Service */,
@@ -249,7 +266,6 @@
 			children = (
 				3DB7A95B26CEC5F00086F644 /* CameraScreen.swift */,
 				3DB7A95F26CEFA360086F644 /* CameraPreview.swift */,
-				3D566FB326D4083C00D69502 /* ImageScreen.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -397,12 +413,12 @@
 				3DB7A94126CE9C790086F644 /* AppDelegate.swift in Sources */,
 				3D566FB226D4059500D69502 /* CelebrityRecognition.swift in Sources */,
 				3DB7A96426CEFF750086F644 /* CelebrityDetailScreen.swift in Sources */,
+				3D0762A626D979DF00031C57 /* CelebrityListScreen.swift in Sources */,
 				3DB7A94326CE9C790086F644 /* SceneDelegate.swift in Sources */,
 				3DB7A97B26D0445E0086F644 /* CelebrityDetailViewModel.swift in Sources */,
 				3DD1E09D26D2DA9C00E5CCAD /* CelebrityService.swift in Sources */,
-				3DB7A96626CF462D0086F644 /* Celebrity.swift in Sources */,
+				3D0762A826D979F400031C57 /* CelebrityListViewModel.swift in Sources */,
 				3DB7A96026CEFA360086F644 /* CameraPreview.swift in Sources */,
-				3D566FB426D4083C00D69502 /* ImageScreen.swift in Sources */,
 				3DD1E0A526D2E13500E5CCAD /* APIConstants.swift in Sources */,
 				3DB7A95C26CEC5F00086F644 /* CameraScreen.swift in Sources */,
 				3DB7A94526CE9C790086F644 /* StartScreen.swift in Sources */,
