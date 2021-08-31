@@ -101,7 +101,11 @@ struct CameraScreen : View {
                 }
             }
         }.onAppear(perform: {
-            self.camera.check()
+            if !self.camera.isChecked {
+                self.camera.check()
+                self.camera.isChecked.toggle()
+            }
+            
         }).ignoresSafeArea(.all ,edges: .all)
             .navigationBarHidden(true)
         

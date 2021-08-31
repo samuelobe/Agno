@@ -12,6 +12,7 @@ import UIKit
 class CameraViewModel: NSObject, ObservableObject, AVCapturePhotoCaptureDelegate {
     @Published var isPhotoTaken = false
     @Published var alert = false
+    @Published var isChecked = false
     @Published var session = AVCaptureSession()
     @Published var output : AVCapturePhotoOutput!
     @Published var preview : AVCaptureVideoPreviewLayer!
@@ -51,19 +52,20 @@ class CameraViewModel: NSObject, ObservableObject, AVCapturePhotoCaptureDelegate
             
             let input = try AVCaptureDeviceInput(device: backCamera)
             output = AVCapturePhotoOutput()
-            if self.session.canAddInput(input) && self.session.canAddOutput(output){
+            
+            if self.session.canAddInput(input) && self.session.canAddOutput(output) {
                 self.session.addInput(input)
                 self.session.addOutput(output)
-                
             }
-            
+            else {
+                print("Cannot add input and output")
+            }
+
             self.session.commitConfiguration()
             
         } catch  {
             print(error.localizedDescription)
         }
-        
-       
     }
     
     func takePic(){
@@ -101,10 +103,6 @@ class CameraViewModel: NSObject, ObservableObject, AVCapturePhotoCaptureDelegate
         self.imageData = data
         
         print("image data captured")
-        
-       
-        
-        
     }
     
     
