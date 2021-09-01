@@ -10,6 +10,7 @@
 		3D0762A126D88A9600031C57 /* RecognizedCelebrity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D0762A026D88A9600031C57 /* RecognizedCelebrity.swift */; };
 		3D0762A626D979DF00031C57 /* CelebrityListScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D0762A526D979DF00031C57 /* CelebrityListScreen.swift */; };
 		3D0762A826D979F400031C57 /* CelebrityListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D0762A726D979F400031C57 /* CelebrityListViewModel.swift */; };
+		3D20A94226DEC3B400FDEB22 /* CameraButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D20A94126DEC3B400FDEB22 /* CameraButton.swift */; };
 		3D566FB226D4059500D69502 /* CelebrityRecognition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D566FB126D4059500D69502 /* CelebrityRecognition.swift */; };
 		3DB7A94126CE9C790086F644 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DB7A94026CE9C790086F644 /* AppDelegate.swift */; };
 		3DB7A94326CE9C790086F644 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DB7A94226CE9C790086F644 /* SceneDelegate.swift */; };
@@ -33,6 +34,7 @@
 		3D0762A026D88A9600031C57 /* RecognizedCelebrity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecognizedCelebrity.swift; sourceTree = "<group>"; };
 		3D0762A526D979DF00031C57 /* CelebrityListScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CelebrityListScreen.swift; sourceTree = "<group>"; };
 		3D0762A726D979F400031C57 /* CelebrityListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CelebrityListViewModel.swift; sourceTree = "<group>"; };
+		3D20A94126DEC3B400FDEB22 /* CameraButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraButton.swift; sourceTree = "<group>"; };
 		3D566FB126D4059500D69502 /* CelebrityRecognition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CelebrityRecognition.swift; sourceTree = "<group>"; };
 		3DB7A93D26CE9C790086F644 /* Agno.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Agno.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3DB7A94026CE9C790086F644 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -147,6 +149,7 @@
 			children = (
 				3DB7A95126CE9C790086F644 /* Info.plist */,
 				3DB7A94926CE9C790086F644 /* Assets.xcassets */,
+				3DB7A94E26CE9C790086F644 /* LaunchScreen.storyboard */,
 				3DD1E09E26D2DF4200E5CCAD /* Base */,
 				3DD1E0A126D2DF9200E5CCAD /* Feature */,
 				3DB7A94B26CE9C790086F644 /* Preview Content */,
@@ -200,7 +203,6 @@
 				3DD1E09F26D2DF5300E5CCAD /* Constants */,
 				3DD1E0A326D2DFDA00E5CCAD /* Delegates */,
 				3DB7A96A26CFDAB70086F644 /* Fonts */,
-				3DD1E0A026D2DF6600E5CCAD /* Views */,
 			);
 			path = Base;
 			sourceTree = "<group>";
@@ -211,14 +213,6 @@
 				3DD1E0A426D2E13500E5CCAD /* APIConstants.swift */,
 			);
 			path = Constants;
-			sourceTree = "<group>";
-		};
-		3DD1E0A026D2DF6600E5CCAD /* Views */ = {
-			isa = PBXGroup;
-			children = (
-				3DB7A94E26CE9C790086F644 /* LaunchScreen.storyboard */,
-			);
-			path = Views;
 			sourceTree = "<group>";
 		};
 		3DD1E0A126D2DF9200E5CCAD /* Feature */ = {
@@ -266,6 +260,7 @@
 			children = (
 				3DB7A95B26CEC5F00086F644 /* CameraScreen.swift */,
 				3DB7A95F26CEFA360086F644 /* CameraPreview.swift */,
+				3D20A94126DEC3B400FDEB22 /* CameraButton.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -417,6 +412,7 @@
 				3DB7A94326CE9C790086F644 /* SceneDelegate.swift in Sources */,
 				3DB7A97B26D0445E0086F644 /* CelebrityDetailViewModel.swift in Sources */,
 				3DD1E09D26D2DA9C00E5CCAD /* CelebrityService.swift in Sources */,
+				3D20A94226DEC3B400FDEB22 /* CameraButton.swift in Sources */,
 				3D0762A826D979F400031C57 /* CelebrityListViewModel.swift in Sources */,
 				3DB7A96026CEFA360086F644 /* CameraPreview.swift in Sources */,
 				3DD1E0A526D2E13500E5CCAD /* APIConstants.swift in Sources */,

@@ -9,7 +9,7 @@ import AVFoundation
 import SwiftUI
 import UIKit
 
-class CameraViewModel: NSObject, ObservableObject, AVCapturePhotoCaptureDelegate {
+class CameraViewModel: NSObject, ObservableObject {
     @Published var isPhotoTaken = false
     @Published var alert = false
     @Published var isChecked = false
@@ -41,9 +41,9 @@ class CameraViewModel: NSObject, ObservableObject, AVCapturePhotoCaptureDelegate
     func setUp(){
         do {
             self.session.beginConfiguration()
-            self.session.sessionPreset = .high
+            self.session.sessionPreset = .medium //.high
             
-            guard let backCamera = AVCaptureDevice.default(.builtInDualCamera, for: .video, position: .back )
+            guard let backCamera = AVCaptureDevice.default(.builtInWideAngleCamera, for: .video, position: .back )
             else {
                 self.alert.toggle()
                 print("Unable to access back camera!")
@@ -70,43 +70,30 @@ class CameraViewModel: NSObject, ObservableObject, AVCapturePhotoCaptureDelegate
     
     func takePic(){
         self.output.capturePhoto(with: AVCapturePhotoSettings(), delegate: self)
-        
-        DispatchQueue.global(qos: .background).async {
-            self.session.stopRunning()
-
-            DispatchQueue.main.async {
-                self.isPhotoTaken = true
-            }
-        }
+        self.isPhotoTaken = true
+        print("photo captured")
     }
     
     func resetCamera(){
-        DispatchQueue.global(qos: .background).async {
-            self.session.startRunning()
-
-            DispatchQueue.main.async {
-                self.isPhotoTaken = false
-            }
-        }
+        self.session.startRunning()
+        self.isPhotoTaken = false
     }
-    
-    
+}
+
+extension CameraViewModel : AVCapturePhotoCaptureDelegate {
     func photoOutput(_ output: AVCapturePhotoOutput, didFinishProcessingPhoto photo: AVCapturePhoto, error: Error?) {
+        self.session.stopRunning()
         
         if error != nil {
-            print(error?.localizedDescription ?? "Camera Output Error")
+            print("Photo output error")
             return
         }
-        print("photo taken")
         
-        guard let data = photo.fileDataRepresentation() else {return}
+        guard let data = photo.fileDataRepresentation() else {
+            print("Data representation error")
+            return}
         self.imageData = data
         
         print("image data captured")
     }
-    
-    
-    
-    
-
 }

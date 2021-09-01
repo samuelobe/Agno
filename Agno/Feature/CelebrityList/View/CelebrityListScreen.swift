@@ -9,7 +9,7 @@ import SwiftUI
 
 struct CelebrityListScreen: View {
     @EnvironmentObject var celebModel : CelebrityListViewModel
-    //@EnvironmentObject var cameraModel : CameraViewModel
+    @EnvironmentObject var cameraModel : CameraViewModel
     @Environment(\.presentationMode) var presentationMode
     
     
@@ -24,7 +24,6 @@ struct CelebrityListScreen: View {
             .navigationBarItems(leading:
                 Button(action: {
                     self.presentationMode.wrappedValue.dismiss()
-                    //self.cameraModel.resetCamera()
                 }) {
                     HStack {
                         Image(systemName: "arrow.left.circle")
