@@ -9,6 +9,7 @@ import SwiftUI
 
 struct CelebrityListScreen: View {
     @EnvironmentObject var celebModel : CelebrityListViewModel
+    @EnvironmentObject var cameraModel : CameraViewModel
     
     var body: some View {
         VStack{
@@ -25,7 +26,10 @@ struct CelebrityListScreen: View {
             else {
                 ProgressView()
             }
-        }.preferredColorScheme(.dark)
+        }.preferredColorScheme(.dark).onDisappear(perform: {
+            self.celebModel.resetCelebs()
+            self.cameraModel.resetCamera()
+        })
     }
 }
 

@@ -12,7 +12,7 @@ struct CelebrityCell: View {
     
     var body: some View {
         HStack(alignment: .center) {
-            Image(systemName: "person.crop.square").resizable().frame(width: 75, height: 75)
+            Image(systemName: "person.crop.square").resizable().frame(width: 75, height: 75).padding()
             VStack(alignment: .leading, spacing: 10) {
                 Text(celeb.name).font(.system(size: 26, weight: .bold, design: .default))
                     .foregroundColor(.white)

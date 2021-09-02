@@ -21,6 +21,9 @@ class CelebrityListViewModel: ObservableObject {
             self.celebs = celebData
             print(celebData)
         }
-        
+    }
+    
+    func resetCelebs(){
+        self.celebs = []
     }
 }
