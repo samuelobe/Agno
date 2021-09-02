@@ -13,7 +13,7 @@ class CelebrityRecognition : ObservableObject {
     @Published var picData = Data(count: 0)
     
     // MARK: - AWS Method
-    func sendImageToRekognition() -> [RecognizedCelebrity] {
+    func sendImageToRekognition(completion: @escaping ([RecognizedCelebrity]) -> Void)  {
         var celebList : [RecognizedCelebrity] = []
         
         rekognitionObject = AWSRekognition.default()
@@ -35,7 +35,7 @@ class CelebrityRecognition : ObservableObject {
                 let faces = result!.celebrityFaces
                 if ((faces?.count)! > 0) {
                     for celeb in faces! {
-                        let recogCeleb = RecognizedCelebrity(name: celeb.name!, confidence: celeb.matchConfidence!, urls: celeb.urls!)
+                        let recogCeleb = RecognizedCelebrity(name: celeb.name!, confidence: celeb.matchConfidence!, urls: celeb.urls ?? [])
                         celebList.append(recogCeleb)
                     }
                     
@@ -51,8 +51,9 @@ class CelebrityRecognition : ObservableObject {
             else {
                 print("No result")
             }
+            completion(celebList)
+            
         }
-        return celebList
     }
     
 }

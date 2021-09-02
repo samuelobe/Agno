@@ -39,6 +39,7 @@ struct CameraScreen : View {
                                            tag: 1, selection: $action) {
                                 Button(action: {
                                     self.celeb.imageData = self.camera.imageData
+                                    self.celeb.getAWSData()
                                     self.action = 1
                                 },
                                        label: {

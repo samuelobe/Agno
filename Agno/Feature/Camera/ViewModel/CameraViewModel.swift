@@ -41,7 +41,7 @@ class CameraViewModel: NSObject, ObservableObject {
     func setUp(){
         do {
             self.session.beginConfiguration()
-            self.session.sessionPreset = .medium //.high
+            self.session.sessionPreset = .high
             
             guard let backCamera = AVCaptureDevice.default(.builtInWideAngleCamera, for: .video, position: .back )
             else {

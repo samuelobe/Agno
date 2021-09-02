@@ -9,33 +9,34 @@ import SwiftUI
 
 struct CelebrityListScreen: View {
     @EnvironmentObject var celebModel : CelebrityListViewModel
-    @EnvironmentObject var cameraModel : CameraViewModel
-    @Environment(\.presentationMode) var presentationMode
-    
     
     var body: some View {
         VStack{
-            Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
-        }.navigationBarTitle(Text("Detail View"), displayMode: .inline)
-            .edgesIgnoringSafeArea(.bottom)
-            // Hide the system back button
-            .navigationBarBackButtonHidden(true)
-            // Add your custom back button here
-            .navigationBarItems(leading:
-                Button(action: {
-                    self.presentationMode.wrappedValue.dismiss()
-                }) {
-                    HStack {
-                        Image(systemName: "arrow.left.circle")
-                        Text("Go Back")
+            if !celebModel.celebs.isEmpty {
+                ScrollView{
+                    LazyVStack{
+                        ForEach(celebModel.celebs){
+                            celeb in
+                                CelebrityCell(celeb: celeb)
+                        }
                     }
-            })
-        
+                }
+            }
+            else {
+                ProgressView()
+            }
+        }.preferredColorScheme(.dark)
     }
 }
 
 struct CelebrityListScreen_Previews: PreviewProvider {
+    
+    static func previewModel() -> CelebrityListViewModel {
+        let model = CelebrityListViewModel()
+        model.celebs = dummyData
+        return model
+    }
     static var previews: some View {
-        CelebrityListScreen()
+        CelebrityListScreen().environmentObject(previewModel())
     }
 }

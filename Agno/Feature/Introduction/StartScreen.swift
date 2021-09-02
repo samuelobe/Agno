@@ -12,8 +12,7 @@ struct StartScreen: View {
 
     var body: some View {
         NavigationView {
-            ZStack {
-                Color.black.ignoresSafeArea()
+            
                 VStack{
                     Text("AGNO" ).foregroundColor(.white).font(Font.custom("CustomFont", size: 50)).padding()
                     Text("AGNO is a celebrity-image recognition app which detects faces of celebrities with a single click..." ).foregroundColor(.white).font(Font.custom("CustomFont", size: 15)).multilineTextAlignment(.center).padding()
@@ -33,10 +32,8 @@ struct StartScreen: View {
                     }.navigationBarHidden(true)
                     
                 }
-            }
-            
-            
-        }.preferredColorScheme(.dark)
+            }.preferredColorScheme(.dark)
+
         
     }
 }
