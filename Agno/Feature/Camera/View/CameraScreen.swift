@@ -34,7 +34,6 @@ struct CameraScreen : View {
                     Color.black.frame(height: 85, alignment: .center).opacity(0.75)
                     if self.camera.isPhotoTaken {
                         HStack{
-                            
                             NavigationLink(destination: CelebrityListScreen(),
                                            tag: 1, selection: $action) {
                                 Button(action: {
@@ -47,7 +46,6 @@ struct CameraScreen : View {
                                 }).padding(.leading, 40)
                                 
                             }
-                            
                             Spacer()
                             Button(action: {
                                 self.camera.resetCamera()
@@ -57,17 +55,7 @@ struct CameraScreen : View {
                         }
                     }
                     else {
-                        HStack{
-                            Button(action: {
-                                
-                            }, label: {
-                                Image(systemName: "photo").font(.system(size: 27.0)).foregroundColor(.white)
-                            }).padding(.leading, 40)
-                            Spacer()
-                            Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/, label: {
-                                Image(systemName: "gearshape").font(.system(size: 27.0)).foregroundColor(.white)
-                            }).padding(.trailing, 40)
-                        }
+                        CameraBar(leftButtonIcon: "photo", rightButtonIcon: "gearshape", leftButtonAction: {}, rightButtonAction: {})
                     }
                     
                 }
@@ -104,8 +92,8 @@ struct Platform {
 
 
 
-//struct CameraView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        CameraScreen(isSim: true)
-//    }
-//}
+struct CameraView_Previews: PreviewProvider {
+    static var previews: some View {
+        CameraScreen(isSim: true).environmentObject(CameraViewModel()).environmentObject(CelebrityListViewModel())
+    }
+}

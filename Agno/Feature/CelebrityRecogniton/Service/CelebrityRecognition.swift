@@ -31,12 +31,12 @@ class CelebrityRecognition : ObservableObject {
                 print(error!.localizedDescription)
             }
             if result != nil {
-                //print(result!)
                 let faces = result!.celebrityFaces
                 if ((faces?.count)! > 0) {
                     for celeb in faces! {
-                        let recogCeleb = RecognizedCelebrity(name: celeb.name!, confidence: celeb.matchConfidence!, urls: celeb.urls ?? [])
-                        celebList.append(recogCeleb)
+                        // TODO: Figure out a way to extract faces and add to model, then present face in CelebrityCell
+                        let recognizedCeleb = RecognizedCelebrity(name: celeb.name!, confidence: celeb.matchConfidence!, urls: celeb.urls ?? [])
+                        celebList.append(recognizedCeleb)
                     }
                     
                     print("Celebs found")

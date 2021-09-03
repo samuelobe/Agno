@@ -11,6 +11,7 @@
 		3D0762A626D979DF00031C57 /* CelebrityListScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D0762A526D979DF00031C57 /* CelebrityListScreen.swift */; };
 		3D0762A826D979F400031C57 /* CelebrityListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D0762A726D979F400031C57 /* CelebrityListViewModel.swift */; };
 		3D20A94226DEC3B400FDEB22 /* CameraButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D20A94126DEC3B400FDEB22 /* CameraButton.swift */; };
+		3D5164A826E2C2840019D663 /* CameraBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D5164A726E2C2840019D663 /* CameraBar.swift */; };
 		3D566FB226D4059500D69502 /* CelebrityRecognition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D566FB126D4059500D69502 /* CelebrityRecognition.swift */; };
 		3DB7A94126CE9C790086F644 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DB7A94026CE9C790086F644 /* AppDelegate.swift */; };
 		3DB7A94326CE9C790086F644 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DB7A94226CE9C790086F644 /* SceneDelegate.swift */; };
@@ -36,6 +37,7 @@
 		3D0762A526D979DF00031C57 /* CelebrityListScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CelebrityListScreen.swift; sourceTree = "<group>"; };
 		3D0762A726D979F400031C57 /* CelebrityListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CelebrityListViewModel.swift; sourceTree = "<group>"; };
 		3D20A94126DEC3B400FDEB22 /* CameraButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraButton.swift; sourceTree = "<group>"; };
+		3D5164A726E2C2840019D663 /* CameraBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraBar.swift; sourceTree = "<group>"; };
 		3D566FB126D4059500D69502 /* CelebrityRecognition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CelebrityRecognition.swift; sourceTree = "<group>"; };
 		3DB7A93D26CE9C790086F644 /* Agno.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Agno.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3DB7A94026CE9C790086F644 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -264,6 +266,7 @@
 				3DB7A95B26CEC5F00086F644 /* CameraScreen.swift */,
 				3DB7A95F26CEFA360086F644 /* CameraPreview.swift */,
 				3D20A94126DEC3B400FDEB22 /* CameraButton.swift */,
+				3D5164A726E2C2840019D663 /* CameraBar.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -409,6 +412,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3DB7A94126CE9C790086F644 /* AppDelegate.swift in Sources */,
+				3D5164A826E2C2840019D663 /* CameraBar.swift in Sources */,
 				3D566FB226D4059500D69502 /* CelebrityRecognition.swift in Sources */,
 				3DB7A96426CEFF750086F644 /* CelebrityDetailScreen.swift in Sources */,
 				3D0762A626D979DF00031C57 /* CelebrityListScreen.swift in Sources */,
