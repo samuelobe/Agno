@@ -1,0 +1,6 @@
+/Pods
+/Agno.xcworkspace
+
+**/xcshareddata
+**/xcuserdata
+.DS_Store

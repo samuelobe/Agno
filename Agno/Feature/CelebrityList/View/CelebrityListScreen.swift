@@ -41,6 +41,6 @@ struct CelebrityListScreen_Previews: PreviewProvider {
         return model
     }
     static var previews: some View {
-        CelebrityListScreen().environmentObject(previewModel())
+        CelebrityListScreen().environmentObject(previewModel()).environmentObject(CameraViewModel())
     }
 }
