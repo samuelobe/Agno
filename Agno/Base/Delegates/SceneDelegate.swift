@@ -21,10 +21,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // Get the managed object context from the shared persistent container.
         //let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
 
-        @StateObject var camera = CameraViewModel()
-        @StateObject var celeb = CelebrityListViewModel()
         
-        let contentView = StartScreen().environmentObject(camera).environmentObject(celeb)
+        
+        let contentView = StartScreen()
 
         // Use a UIHostingController as window root view controller.
         if let windowScene = scene as? UIWindowScene {

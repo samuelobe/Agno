@@ -18,7 +18,10 @@ class CelebrityListViewModel: ObservableObject {
         recognitionAWS.picData = (UIImage(data: self.imageData)?.jpegData(compressionQuality: 0.2))!
         recognitionAWS.sendImageToRekognition() {
             (celebData) in
-            self.celebs = celebData
+            DispatchQueue.main.async {
+                self.celebs = celebData
+            }
+            
             print(celebData)
         }
     }

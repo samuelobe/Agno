@@ -9,6 +9,8 @@ import SwiftUI
 
 struct StartScreen: View {
     @State private var action: Int? = 0
+    @StateObject var camera = CameraViewModel()
+    @StateObject var celeb = CelebrityListViewModel()
 
     var body: some View {
         NavigationView {
@@ -32,9 +34,7 @@ struct StartScreen: View {
                     }.navigationBarHidden(true)
                     
                 }
-            }.preferredColorScheme(.dark)
-
-        
+            }.preferredColorScheme(.dark).environmentObject(camera).environmentObject(celeb).navigationViewStyle(StackNavigationViewStyle())
     }
 }
 
