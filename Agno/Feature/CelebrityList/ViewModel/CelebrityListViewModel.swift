@@ -19,7 +19,7 @@ class CelebrityListViewModel: ObservableObject {
         recognitionAWS.sendImageToRekognition() {
             (celebData) in
             DispatchQueue.main.async {
-                self.celebs = celebData
+                self.celebs = Array(celebData)
             }
             
             print(celebData)

@@ -13,8 +13,8 @@ class CelebrityRecognition : ObservableObject {
     @Published var picData = Data(count: 0)
     
     // MARK: - AWS Method
-    func sendImageToRekognition(completion: @escaping ([RecognizedCelebrity]) -> Void)  {
-        var celebList : [RecognizedCelebrity] = []
+    func sendImageToRekognition(completion: @escaping (Set<RecognizedCelebrity>) -> Void)  {
+        var celebList : Set<RecognizedCelebrity> = []
         
         rekognitionObject = AWSRekognition.default()
         let celebImageAWS = AWSRekognitionImage()
@@ -36,7 +36,7 @@ class CelebrityRecognition : ObservableObject {
                     for celeb in faces! {
                         // TODO: Figure out a way to extract faces and add to model, then present face in CelebrityCell
                         let recognizedCeleb = RecognizedCelebrity(name: celeb.name!, confidence: celeb.matchConfidence!, urls: celeb.urls ?? [])
-                        celebList.append(recognizedCeleb)
+                        celebList.insert(recognizedCeleb)
                     }
                     
                     print("Celebs found")
