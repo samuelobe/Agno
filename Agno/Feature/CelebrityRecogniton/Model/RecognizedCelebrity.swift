@@ -18,7 +18,7 @@ struct RecognizedCelebrity: Identifiable, Hashable {
     }
     
     static func == (lhs: RecognizedCelebrity , rhs: RecognizedCelebrity) -> Bool {
-        return lhs.name == rhs.name
+        return lhs.name == rhs.name && lhs.urls == rhs.urls
     }
 }
 

@@ -10,7 +10,6 @@ import AVFoundation
 
 struct CameraScreen : View {
     @EnvironmentObject var camera: CameraViewModel
-    @EnvironmentObject var celeb: CelebrityListViewModel
     
     @State private var showModal = false
     @State private var action: Int? = 0
@@ -37,8 +36,6 @@ struct CameraScreen : View {
                             NavigationLink(destination: CelebrityListScreen(),
                                            tag: 1, selection: $action) {
                                 Button(action: {
-                                    self.celeb.imageData = self.camera.imageData
-                                    self.celeb.getAWSData()
                                     self.action = 1
                                 },
                                        label: {

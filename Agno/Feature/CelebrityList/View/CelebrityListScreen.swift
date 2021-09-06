@@ -22,11 +22,23 @@ struct CelebrityListScreen: View {
                         }
                     }
                 }
+
             }
             else {
-                ProgressView()
+                if !celebModel.alert {
+                    ProgressView()
+                }
+                else {
+                    Text("Could not find any celebrities in image")
+                }
+                
             }
-        }.preferredColorScheme(.dark).onDisappear(perform: {
+        }.preferredColorScheme(.dark)
+        .onAppear(perform: {
+            self.celebModel.imageData = self.cameraModel.imageData
+            self.celebModel.getAWSData()
+        })
+        .onDisappear(perform: {
             self.celebModel.resetCelebs()
             self.cameraModel.resetCamera()
         })
