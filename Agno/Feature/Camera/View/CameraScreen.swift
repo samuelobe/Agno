@@ -10,6 +10,7 @@ import AVFoundation
 
 struct CameraScreen : View {
     @EnvironmentObject var camera: CameraViewModel
+    @EnvironmentObject var celeb : CelebrityListViewModel
     
     @State private var showModal = false
     @State private var action: Int? = 0
@@ -65,11 +66,13 @@ struct CameraScreen : View {
                 self.camera.check()
                 self.camera.isChecked.toggle()
             }
+            else {
+                self.celeb.resetCelebs()
+                self.camera.resetCamera()
+            }
             
         }).ignoresSafeArea(.all ,edges: .all)
             .navigationBarHidden(true)
-        
-        
     }
     
 }
