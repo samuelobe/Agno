@@ -12,7 +12,7 @@ struct CameraScreen : View {
     @EnvironmentObject var camera: CameraViewModel
     @EnvironmentObject var celeb : CelebrityListViewModel
     
-    @State private var showModal = false
+    @State private var disableCameraView = false
     @State private var action: Int? = 0
     
     var isSim = Platform.isSimulator
@@ -71,8 +71,18 @@ struct CameraScreen : View {
                 self.camera.resetCamera()
             }
             
-        }).ignoresSafeArea(.all ,edges: .all)
-            .navigationBarHidden(true)
+        })
+            
+        .ignoresSafeArea(.all ,edges: .all)
+        .navigationBarHidden(true)
+        .onReceive(NotificationCenter.default.publisher(for: UIApplication.willResignActiveNotification )) {
+            _ in print("moving to background")
+
+        }
+        .onReceive(NotificationCenter.default.publisher(for: UIApplication.didBecomeActiveNotification )) {
+            _ in print("user returned to app")
+            
+        }
     }
     
 }
