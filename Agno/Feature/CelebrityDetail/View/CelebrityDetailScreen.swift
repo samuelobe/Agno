@@ -12,7 +12,7 @@ struct CelebrityDetailScreen: View {
 
     var body: some View {
         ZStack {
-            Color("BackgroundColor")
+            Color("BackgroundColor").ignoresSafeArea()
             VStack {
                 Image("SteveCarell")
                     .resizable().aspectRatio(contentMode: .fill)
@@ -53,7 +53,7 @@ struct CelebrityDetailScreen: View {
                 }
 
             }
-        }.ignoresSafeArea()
+        }
     }
 }
 

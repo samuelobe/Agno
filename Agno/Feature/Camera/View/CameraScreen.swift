@@ -26,7 +26,13 @@ struct CameraScreen : View {
                 Text("Camera View").foregroundColor(.white)
             }
             else{
-                CameraPreview(camera: camera)
+                if disableCameraView {
+                    Color.black
+                }
+                else {
+                    CameraPreview(camera: camera)
+                }
+                
             }
             VStack{
                 Spacer()
@@ -69,18 +75,22 @@ struct CameraScreen : View {
             else {
                 self.celeb.resetCelebs()
                 self.camera.resetCamera()
+                self.celeb.didRecieveData = false
             }
             
         })
-            
+        .navigationBarBackButtonHidden(true)
         .ignoresSafeArea(.all ,edges: .all)
-        .navigationBarHidden(true)
         .onReceive(NotificationCenter.default.publisher(for: UIApplication.willResignActiveNotification )) {
-            _ in print("moving to background")
+            _ in
+            print("moving to background")
+            //self.disableCameraView.toggle()
 
         }
         .onReceive(NotificationCenter.default.publisher(for: UIApplication.didBecomeActiveNotification )) {
-            _ in print("user returned to app")
+            _ in
+            print("user returned to app")
+            //self.disableCameraView.toggle()
             
         }
     }
@@ -104,6 +114,6 @@ struct Platform {
 
 struct CameraView_Previews: PreviewProvider {
     static var previews: some View {
-        CameraScreen(isSim: true).environmentObject(CameraViewModel()).environmentObject(CelebrityListViewModel())
+        CameraScreen(isSim: true).environmentObject(CameraViewModel()).environmentObject(CelebrityListViewModel(recognitionAWS: CelebrityRecognition()))
     }
 }

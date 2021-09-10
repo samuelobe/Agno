@@ -12,52 +12,69 @@ struct CelebrityListScreen: View {
     @EnvironmentObject var cameraModel : CameraViewModel
     
     var body: some View {
-        VStack{
-            if !celebModel.celebs.isEmpty {
-                List{
-                    ForEach(celebModel.celebs){ celeb in
-                        ZStack {
-                            CelebrityCell(celeb: celeb)
-                            NavigationLink(destination: CelebrityDetailScreen(celeb: celeb)) {
-                                    EmptyView()
-                            }.buttonStyle(.plain)
-                        }.listRowInsets(EdgeInsets())
+        ZStack {
+            Color("BackgroundColor").ignoresSafeArea()
+            VStack{
+                if !celebModel.celebs.isEmpty {
+                    if #available(iOS 15.0, *) {
+                        List{
+                            ForEach(celebModel.celebs){ celeb in
+                                ZStack {
+                                    CelebrityCell(celeb: celeb)
+                                    NavigationLink(destination: CelebrityDetailScreen(celeb: celeb)) {
+                                        EmptyView()
+                                    }.buttonStyle(.plain)
+                                }.listRowInsets(EdgeInsets()).listRowBackground(Color("BackgroundColor"))
+                                    .listRowSeparator(.hidden)
+                                
+                            }
+                        }.listStyle(.plain)
                     }
-                }.listStyle(.plain)
-            }
-            else {
-                if !celebModel.alert {
-                    ProgressView()
+                    else {
+                        ScrollView {
+                            LazyVStack {
+                                ForEach(celebModel.celebs){ celeb in
+                                    NavigationLink(destination: CelebrityDetailScreen(celeb: celeb)) {
+                                            CelebrityCell(celeb: celeb)
+                                    }
+                                }
+                            }
+                        }.fixFlickering()
+                    }
+                    
+                    
                 }
                 else {
-                    Text("No celebrity faces found in picture")
+                    if !celebModel.alert {
+                        ProgressView()
+                    }
+                    else {
+                        Text("No celebrity faces found in picture")
+                    }
+                    
                 }
-                
             }
-        }.preferredColorScheme(.dark)
-            .onAppear(perform: {
-                if !Platform.isSimulator {
-                    self.celebModel.imageData = self.cameraModel.imageData
-                    self.celebModel.getAWSData()
-                }
-
-            })
-            .onDisappear(perform: {
-                self.celebModel.resetCelebs()
-                self.cameraModel.resetCamera()
-            })
+        }.onAppear(perform: {
+            if !Platform.isSimulator && !self.celebModel.didRecieveData {
+                self.celebModel.imageData = self.cameraModel.imageData
+                self.celebModel.getAWSData()
+                self.celebModel.didRecieveData.toggle()
+            }
+        })
+            .preferredColorScheme(.dark)
+        
     }
 }
 
 struct CelebrityListScreen_Previews: PreviewProvider {
-
+    
     static func previewModel() -> CelebrityListViewModel {
-        let model = CelebrityListViewModel()
+        let model = CelebrityListViewModel(recognitionAWS: CelebrityRecognition())
         model.celebs = dummyData
         return model
     }
     static var previews: some View {
         CelebrityListScreen().environmentObject(previewModel()).environmentObject(CameraViewModel())
-                    .onAppear(perform: {})
+            .onAppear(perform: {})
     }
 }

@@ -13,7 +13,12 @@ class CelebrityListViewModel: ObservableObject {
     @Published var imageData = Data(count: 0)
     @Published var celebs : [RecognizedCelebrity] = []
     @Published var alert = false
-    private var recognitionAWS = CelebrityRecognition()
+    @Published var didRecieveData = false
+    private var recognitionAWS : CelebrityRecognition
+    
+    init(recognitionAWS aws : CelebrityRecognition) {
+        self.recognitionAWS = aws
+    }
     
     func getAWSData() {
         recognitionAWS.picData = (UIImage(data: self.imageData)?.jpegData(compressionQuality: 0.2))!

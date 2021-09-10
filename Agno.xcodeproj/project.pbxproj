@@ -29,6 +29,7 @@
 		3DD1E09D26D2DA9C00E5CCAD /* CelebrityService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DD1E09C26D2DA9C00E5CCAD /* CelebrityService.swift */; };
 		3DD1E0A526D2E13500E5CCAD /* APIConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DD1E0A426D2E13500E5CCAD /* APIConstants.swift */; };
 		7876922469F1D927A8E4954F /* Pods_Agno.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 754D5FC58E66A741E64DB578 /* Pods_Agno.framework */; };
+		E938210126EC040B00F76BFA /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E938210026EC040B00F76BFA /* Extensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -58,6 +59,7 @@
 		3DD1E0A426D2E13500E5CCAD /* APIConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIConstants.swift; sourceTree = "<group>"; };
 		754D5FC58E66A741E64DB578 /* Pods_Agno.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Agno.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		97CAB587BB761E3890E9C0DD /* Pods-Agno.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Agno.release.xcconfig"; path = "Target Support Files/Pods-Agno/Pods-Agno.release.xcconfig"; sourceTree = "<group>"; };
+		E938210026EC040B00F76BFA /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -205,6 +207,7 @@
 		3DD1E09E26D2DF4200E5CCAD /* Base */ = {
 			isa = PBXGroup;
 			children = (
+				E93820FF26EC03F800F76BFA /* Extensions */,
 				3DD1E09F26D2DF5300E5CCAD /* Constants */,
 				3DD1E0A326D2DFDA00E5CCAD /* Delegates */,
 				3DB7A96A26CFDAB70086F644 /* Fonts */,
@@ -294,6 +297,14 @@
 				97CAB587BB761E3890E9C0DD /* Pods-Agno.release.xcconfig */,
 			);
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		E93820FF26EC03F800F76BFA /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				E938210026EC040B00F76BFA /* Extensions.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -412,6 +423,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3DB7A94126CE9C790086F644 /* AppDelegate.swift in Sources */,
+				E938210126EC040B00F76BFA /* Extensions.swift in Sources */,
 				3D5164A826E2C2840019D663 /* CameraBar.swift in Sources */,
 				3D566FB226D4059500D69502 /* CelebrityRecognition.swift in Sources */,
 				3DB7A96426CEFF750086F644 /* CelebrityDetailScreen.swift in Sources */,

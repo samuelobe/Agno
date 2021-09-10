@@ -12,17 +12,20 @@ struct CelebrityCell: View {
     
     var body: some View {
         HStack(alignment: .center) {
-            Image(systemName: "person.crop.square").resizable().frame(width: 75, height: 75).padding()
             VStack(alignment: .leading, spacing: 10) {
                 Text(celeb.name).font(.system(size: 26, weight: .bold, design: .default))
                     .foregroundColor(.white)
+                    .lineLimit(1)
                 Text("Confidence: "+celeb.confidence.stringValue.prefix(5)).foregroundColor(.white)
-            }.padding(EdgeInsets(top: 20, leading: 40, bottom: 20, trailing: 40))
+            }.padding()
+            Spacer()
+            Image(systemName: "chevron.right").foregroundColor(.white).font(.system(size: 25)).padding()
             
-        }.frame(maxWidth: .infinity,  alignment: .center).background(Color.gray).cornerRadius(20).padding(10)
+        }.frame(maxWidth: .infinity,  alignment: .center).background(Color("SectionColor")).cornerRadius(20).padding(EdgeInsets(top: 0, leading: 10, bottom: 15, trailing: 10))
+        
     }
     
-
+    
 }
 
 struct CelebrityCell_Previews: PreviewProvider {
