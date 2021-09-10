@@ -40,23 +40,24 @@ struct CelebrityListScreen: View {
                     self.celebModel.imageData = self.cameraModel.imageData
                     self.celebModel.getAWSData()
                 }
-    
+
             })
-//            .onDisappear(perform: {
-//                self.celebModel.resetCelebs()
-//                self.cameraModel.resetCamera()
-//            })
+            .onDisappear(perform: {
+                self.celebModel.resetCelebs()
+                self.cameraModel.resetCamera()
+            })
     }
 }
 
-//struct CelebrityListScreen_Previews: PreviewProvider {
-//    
-//    static func previewModel() -> CelebrityListViewModel {
-//        let model = CelebrityListViewModel()
-//        model.celebs = dummyData
-//        return model
-//    }
-//    static var previews: some View {
-//        CelebrityListScreen().environmentObject(previewModel()).environmentObject(CameraViewModel())
-//    }
-//}
+struct CelebrityListScreen_Previews: PreviewProvider {
+
+    static func previewModel() -> CelebrityListViewModel {
+        let model = CelebrityListViewModel()
+        model.celebs = dummyData
+        return model
+    }
+    static var previews: some View {
+        CelebrityListScreen().environmentObject(previewModel()).environmentObject(CameraViewModel())
+                    .onAppear(perform: {})
+    }
+}
