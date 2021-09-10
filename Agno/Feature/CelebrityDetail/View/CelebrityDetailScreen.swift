@@ -12,11 +12,23 @@ struct CelebrityDetailScreen: View {
 
     var body: some View {
         ZStack {
-            Color("BackgroundColor").ignoresSafeArea()
-                            Image("SteveCarell")
-                .resizable().aspectRatio(contentMode: .fill).ignoresSafeArea()
             
+            GeometryReader{
+                proxy in
+                let frame = proxy.frame(in: .global)
+                
+                Image("SteveCarell")
+                    .resizable()
+                    .aspectRatio(contentMode: .fill)
+                    .frame(width: frame.width, height: frame.height)
+            }.ignoresSafeArea()
             
+            BottomSheet(style: .systemThinMaterialDark)
+
+        }
+    }
+}
+
 //            VStack {
 //                ScrollView {
 //                    HStack {
@@ -55,10 +67,6 @@ struct CelebrityDetailScreen: View {
 //                }
 //
 //            }
-        }
-    }
-}
-
 struct DetailView_Previews: PreviewProvider {
     static var previews: some View {
         CelebrityDetailScreen(celeb: RecognizedCelebrity(name: "Steve Carell", confidence: NSNumber.init(value: 99.99), urls: []))

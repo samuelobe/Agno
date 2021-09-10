@@ -23,7 +23,7 @@ struct CelebrityListScreen: View {
                                     CelebrityCell(celeb: celeb)
                                     NavigationLink(destination: CelebrityDetailScreen(celeb: celeb)) {
                                         EmptyView()
-                                    }.buttonStyle(.plain)
+                                    }.buttonStyle(.plain).hidden()
                                 }.listRowInsets(EdgeInsets()).listRowBackground(Color("BackgroundColor"))
                                     .listRowSeparator(.hidden)
                                 

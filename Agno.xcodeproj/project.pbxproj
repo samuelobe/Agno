@@ -30,6 +30,7 @@
 		3DD1E0A526D2E13500E5CCAD /* APIConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DD1E0A426D2E13500E5CCAD /* APIConstants.swift */; };
 		7876922469F1D927A8E4954F /* Pods_Agno.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 754D5FC58E66A741E64DB578 /* Pods_Agno.framework */; };
 		E938210126EC040B00F76BFA /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E938210026EC040B00F76BFA /* Extensions.swift */; };
+		E938210326EC22A500F76BFA /* BottomSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = E938210226EC22A500F76BFA /* BottomSheet.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -60,6 +61,7 @@
 		754D5FC58E66A741E64DB578 /* Pods_Agno.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Agno.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		97CAB587BB761E3890E9C0DD /* Pods-Agno.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Agno.release.xcconfig"; path = "Target Support Files/Pods-Agno/Pods-Agno.release.xcconfig"; sourceTree = "<group>"; };
 		E938210026EC040B00F76BFA /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		E938210226EC22A500F76BFA /* BottomSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomSheet.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -176,6 +178,7 @@
 			isa = PBXGroup;
 			children = (
 				3DB7A96326CEFF750086F644 /* CelebrityDetailScreen.swift */,
+				E938210226EC22A500F76BFA /* BottomSheet.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -435,6 +438,7 @@
 				3D0762A826D979F400031C57 /* CelebrityListViewModel.swift in Sources */,
 				3DB7A96026CEFA360086F644 /* CameraPreview.swift in Sources */,
 				3DD1E0A526D2E13500E5CCAD /* APIConstants.swift in Sources */,
+				E938210326EC22A500F76BFA /* BottomSheet.swift in Sources */,
 				3DB7A95C26CEC5F00086F644 /* CameraScreen.swift in Sources */,
 				3DB7A94526CE9C790086F644 /* StartScreen.swift in Sources */,
 				3DB7A95E26CED0910086F644 /* CameraViewModel.swift in Sources */,
