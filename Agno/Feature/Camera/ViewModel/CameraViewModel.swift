@@ -78,6 +78,14 @@ class CameraViewModel: NSObject, ObservableObject {
         self.session.startRunning()
         self.isPhotoTaken = false
     }
+    
+    func startCamera(){
+        self.session.startRunning()
+    }
+    
+    func stopCamera(){
+        self.session.stopRunning()
+    }
 }
 
 extension CameraViewModel : AVCapturePhotoCaptureDelegate {

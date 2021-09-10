@@ -12,7 +12,6 @@ struct CameraScreen : View {
     @EnvironmentObject var camera: CameraViewModel
     @EnvironmentObject var celeb : CelebrityListViewModel
     
-    @State private var disableCameraView = false
     @State private var action: Int? = 0
     
     var isSim = Platform.isSimulator
@@ -26,13 +25,7 @@ struct CameraScreen : View {
                 Text("Camera View").foregroundColor(.white)
             }
             else{
-                if disableCameraView {
-                    Color.black
-                }
-                else {
-                    CameraPreview(camera: camera)
-                }
-                
+                CameraPreview(camera: camera)
             }
             VStack{
                 Spacer()
@@ -84,14 +77,16 @@ struct CameraScreen : View {
         .onReceive(NotificationCenter.default.publisher(for: UIApplication.willResignActiveNotification )) {
             _ in
             print("moving to background")
-            //self.disableCameraView.toggle()
-
+            if !camera.isPhotoTaken {
+                self.camera.stopCamera()
+            }
         }
         .onReceive(NotificationCenter.default.publisher(for: UIApplication.didBecomeActiveNotification )) {
             _ in
             print("user returned to app")
-            //self.disableCameraView.toggle()
-            
+            if !camera.isPhotoTaken {
+                self.camera.startCamera()
+            }
         }
     }
     

@@ -13,46 +13,48 @@ struct CelebrityDetailScreen: View {
     var body: some View {
         ZStack {
             Color("BackgroundColor").ignoresSafeArea()
-            VStack {
-                Image("SteveCarell")
-                    .resizable().aspectRatio(contentMode: .fill)
-                ScrollView {
-                    HStack {
-                        Text("Full Name").foregroundColor(Color("SectionColor")).bold().font(.title3)
-                        Spacer()
-                    }.padding(EdgeInsets(top: 20, leading: 20, bottom: 1, trailing: 0))
-                    HStack {
-                        Text("Steve Carell").foregroundColor(Color(.white)).font(.title3)
-                        Spacer()
-                    }.padding(.leading, 20)
-                    HStack {
-                        Text("Birthday").foregroundColor(Color("SectionColor")).bold().font(.title3)
-                        Spacer()
-                    }.padding(EdgeInsets(top: 10, leading: 20, bottom: 1, trailing: 0))
-                    HStack {
-                        Text("♍️ 16 August 1962").foregroundColor(Color(.white)).font(.title3)
-                        Spacer()
-                    }.padding(.leading, 20)
-                    HStack {
-                        Text("Nationality").foregroundColor(Color("SectionColor")).bold().font(.title3)
-                        Spacer()
-                    }.padding(EdgeInsets(top: 10, leading: 20, bottom: 1, trailing: 0))
-                    HStack {
-                        Text("🇺🇸 US").foregroundColor(Color(.white)).font(.title3)
-                        Spacer()
-                    }.padding(.leading, 20)
-                    HStack {
-                        Text("Net Worth").foregroundColor(Color("SectionColor")).bold().font(.title3)
-                        Spacer()
-                    }.padding(EdgeInsets(top: 10, leading: 20, bottom: 1, trailing: 0))
-                    HStack {
-                        Text("💵 2.2 million").foregroundColor(Color(.white)).font(.title3)
-                        Spacer()
-                    }.padding(.leading, 20)
-                    Spacer()
-                }
-
-            }
+                            Image("SteveCarell")
+                .resizable().aspectRatio(contentMode: .fill).ignoresSafeArea()
+            
+            
+//            VStack {
+//                ScrollView {
+//                    HStack {
+//                        Text("Full Name").foregroundColor(Color("SectionColor")).bold().font(.title3)
+//                        Spacer()
+//                    }.padding(EdgeInsets(top: 20, leading: 20, bottom: 1, trailing: 0))
+//                    HStack {
+//                        Text("Steve Carell").foregroundColor(Color(.white)).font(.title3)
+//                        Spacer()
+//                    }.padding(.leading, 20)
+//                    HStack {
+//                        Text("Birthday").foregroundColor(Color("SectionColor")).bold().font(.title3)
+//                        Spacer()
+//                    }.padding(EdgeInsets(top: 10, leading: 20, bottom: 1, trailing: 0))
+//                    HStack {
+//                        Text("♍️ 16 August 1962").foregroundColor(Color(.white)).font(.title3)
+//                        Spacer()
+//                    }.padding(.leading, 20)
+//                    HStack {
+//                        Text("Nationality").foregroundColor(Color("SectionColor")).bold().font(.title3)
+//                        Spacer()
+//                    }.padding(EdgeInsets(top: 10, leading: 20, bottom: 1, trailing: 0))
+//                    HStack {
+//                        Text("🇺🇸 US").foregroundColor(Color(.white)).font(.title3)
+//                        Spacer()
+//                    }.padding(.leading, 20)
+//                    HStack {
+//                        Text("Net Worth").foregroundColor(Color("SectionColor")).bold().font(.title3)
+//                        Spacer()
+//                    }.padding(EdgeInsets(top: 10, leading: 20, bottom: 1, trailing: 0))
+//                    HStack {
+//                        Text("💵 2.2 million").foregroundColor(Color(.white)).font(.title3)
+//                        Spacer()
+//                    }.padding(.leading, 20)
+//                    Spacer()
+//                }
+//
+//            }
         }
     }
 }
