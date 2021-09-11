@@ -31,6 +31,7 @@
 		7876922469F1D927A8E4954F /* Pods_Agno.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 754D5FC58E66A741E64DB578 /* Pods_Agno.framework */; };
 		E938210126EC040B00F76BFA /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E938210026EC040B00F76BFA /* Extensions.swift */; };
 		E938210326EC22A500F76BFA /* BottomSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = E938210226EC22A500F76BFA /* BottomSheet.swift */; };
+		E938210526EC33DB00F76BFA /* CustomCorner.swift in Sources */ = {isa = PBXBuildFile; fileRef = E938210426EC33DB00F76BFA /* CustomCorner.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -62,6 +63,7 @@
 		97CAB587BB761E3890E9C0DD /* Pods-Agno.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Agno.release.xcconfig"; path = "Target Support Files/Pods-Agno/Pods-Agno.release.xcconfig"; sourceTree = "<group>"; };
 		E938210026EC040B00F76BFA /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		E938210226EC22A500F76BFA /* BottomSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomSheet.swift; sourceTree = "<group>"; };
+		E938210426EC33DB00F76BFA /* CustomCorner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCorner.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -179,6 +181,7 @@
 			children = (
 				3DB7A96326CEFF750086F644 /* CelebrityDetailScreen.swift */,
 				E938210226EC22A500F76BFA /* BottomSheet.swift */,
+				E938210426EC33DB00F76BFA /* CustomCorner.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -426,6 +429,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3DB7A94126CE9C790086F644 /* AppDelegate.swift in Sources */,
+				E938210526EC33DB00F76BFA /* CustomCorner.swift in Sources */,
 				E938210126EC040B00F76BFA /* Extensions.swift in Sources */,
 				3D5164A826E2C2840019D663 /* CameraBar.swift in Sources */,
 				3D566FB226D4059500D69502 /* CelebrityRecognition.swift in Sources */,

@@ -29,6 +29,6 @@ struct CameraBar: View {
 
 struct CameraBar_Previews: PreviewProvider {
     static var previews: some View {
-        CameraBar(leftButtonIcon: "photo", rightButtonIcon: "gearshape", leftButtonAction: {}, rightButtonAction: {})
+        CameraBar(leftButtonIcon: "photo", rightButtonIcon: "gearshape", leftButtonAction: {}, rightButtonAction: {}).preferredColorScheme(.dark)
     }
 }
