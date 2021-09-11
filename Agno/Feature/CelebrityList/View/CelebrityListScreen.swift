@@ -16,33 +16,15 @@ struct CelebrityListScreen: View {
             Color("BackgroundColor").ignoresSafeArea()
             VStack{
                 if !celebModel.celebs.isEmpty {
-                    if #available(iOS 15.0, *) {
-                        List{
+                    ScrollView(.vertical, showsIndicators: false) {
+                        LazyVStack {
                             ForEach(celebModel.celebs){ celeb in
-                                ZStack {
-                                    CelebrityCell(celeb: celeb)
-                                    NavigationLink(destination: CelebrityDetailScreen(celeb: celeb)) {
-                                        EmptyView()
-                                    }.buttonStyle(.plain).hidden()
-                                }.listRowInsets(EdgeInsets()).listRowBackground(Color("BackgroundColor"))
-                                    .listRowSeparator(.hidden)
-                                
-                            }
-                        }.listStyle(.plain)
-                    }
-                    else {
-                        ScrollView {
-                            LazyVStack {
-                                ForEach(celebModel.celebs){ celeb in
-                                    NavigationLink(destination: CelebrityDetailScreen(celeb: celeb)) {
-                                            CelebrityCell(celeb: celeb)
-                                    }
+                                NavigationLink(destination: CelebrityDetailScreen(celeb: celeb)) {
+                                        CelebrityCell(celeb: celeb)
                                 }
                             }
-                        }.fixFlickering()
-                    }
-                    
-                    
+                        }
+                    }.fixFlickering()
                 }
                 else {
                     if !celebModel.alert {
