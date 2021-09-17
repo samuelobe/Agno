@@ -21,7 +21,8 @@ struct CelebrityCell: View {
             Spacer()
             Image(systemName: "chevron.right").foregroundColor(.white).font(.system(size: 25)).padding()
             
-        }.frame(maxWidth: .infinity,  alignment: .center).background(Color("SectionColor")).cornerRadius(20).padding(EdgeInsets(top: 0, leading: 10, bottom: 15, trailing: 10))
+        }.frame(maxWidth: .infinity,  alignment: .center).background(Color("SectionColor")).cornerRadius(20).padding(EdgeInsets(top: 15, leading: 10, bottom: 15, trailing: 10))
+        
         
     }
     

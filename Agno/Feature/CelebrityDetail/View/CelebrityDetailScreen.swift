@@ -30,32 +30,32 @@ struct CelebrityDetailScreen: View {
                         }
                     }.cornerRadius(15).padding()
                     
-                    VStack {
+                    VStack(spacing: 10) {
                         
                         HStack {
                             Text("Birthday").foregroundColor(Color("SectionColor")).bold().font(.title3)
                             Spacer()
-                        }.padding(EdgeInsets(top: 0, leading: 5, bottom: 1, trailing: 0))
+                        }
                         HStack {
                             Text("♍️ 16 August 1962").font(.title3)
                             Spacer()
-                        }.padding(.leading, 5)
+                        }
                         HStack {
                             Text("Nationality").foregroundColor(Color("SectionColor")).bold().font(.title3)
                             Spacer()
-                        }.padding(EdgeInsets(top: 10, leading: 5, bottom: 1, trailing: 0))
+                        }
                         HStack {
                             Text("🇺🇸 US").font(.title3)
                             Spacer()
-                        }.padding(.leading, 5)
+                        }
                         HStack {
                             Text("Net Worth").foregroundColor(Color("SectionColor")).bold().font(.title3)
                             Spacer()
-                        }.padding(EdgeInsets(top: 10, leading: 5, bottom: 1, trailing: 0))
+                        }
                         HStack {
                             Text("💵 2.2 million").font(.title3)
                             Spacer()
-                        }.padding(.leading, 5)
+                        }
                         Spacer()
                     }.padding(.horizontal)
                 }

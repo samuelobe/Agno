@@ -34,7 +34,6 @@ class CelebrityRecognition : ObservableObject {
                 print(error!.localizedDescription)
             }
             if result != nil {
-                
                 let faces = result!.celebrityFaces
                 if ((faces?.count)! > 0) {
                     for celeb in faces! {
