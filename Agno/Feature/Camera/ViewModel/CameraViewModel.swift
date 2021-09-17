@@ -17,7 +17,7 @@ class CameraViewModel: NSObject, ObservableObject {
     @Published var output : AVCapturePhotoOutput!
     @Published var preview : AVCaptureVideoPreviewLayer!
     @Published var imageData = Data(count: 0)
-    
+        
     func check(){
         switch AVCaptureDevice.authorizationStatus(for: .video) {
             case .authorized:
@@ -85,6 +85,28 @@ class CameraViewModel: NSObject, ObservableObject {
     
     func stopCamera(){
         self.session.stopRunning()
+    }
+    
+    func toggleTorch(on: Bool) {
+        guard let device = AVCaptureDevice.default(for: .video) else { return }
+
+        if device.hasTorch {
+            do {
+                try device.lockForConfiguration()
+
+                if on {
+                    device.torchMode = .on
+                } else {
+                    device.torchMode = .off
+                }
+
+                device.unlockForConfiguration()
+            } catch {
+                print("Torch could not be used")
+            }
+        } else {
+            print("Torch is not available")
+        }
     }
 }
 

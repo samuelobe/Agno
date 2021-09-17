@@ -14,13 +14,15 @@ struct CameraScreen : View {
     @ObservedObject var launch : LaunchSettings
     
     @State private var action: Int? = 0
+    @State private var isFlashOn = false
     
     var isSim = Platform.isSimulator
     
     var body: some View {
         ZStack {
             ZStack {
-                
+                NavigationLink(destination: CelebrityListScreen(),
+                               tag: 1, selection: $action){}
                 if isSim {
                     Color.gray
                     Text("Camera View").foregroundColor(.white)
@@ -30,32 +32,14 @@ struct CameraScreen : View {
                 }
                 VStack{
                     Spacer()
-                    ZStack {
-                        Color.black.frame(height: 85, alignment: .center).opacity(0.75)
-                        if self.camera.isPhotoTaken {
-                            HStack{
-                                NavigationLink(destination: CelebrityListScreen(),
-                                               tag: 1, selection: $action) {
-                                    Button(action: {
-                                        self.action = 1
-                                    },
-                                           label: {
-                                        Image(systemName: "checkmark.square.fill").font(.system(size: 27.0)).foregroundColor(.white)
-                                    }).padding(.leading, 40)
-                                    
-                                }
-                                Spacer()
-                                Button(action: {
-                                    self.camera.resetCamera()
-                                }, label: {
-                                    Image(systemName: "clear.fill").font(.system(size: 27.0)).foregroundColor(.white)
-                                }).padding(.trailing, 40)
-                            }
-                        }
-                        else {
-                            CameraBar(leftButtonIcon: "photo", rightButtonIcon: "gearshape", leftButtonAction: {}, rightButtonAction: {})
-                        }
-                        
+                    if self.camera.isPhotoTaken {
+                        CameraBar(leftButtonIcon: "checkmark.square.fill", rightButtonIcon: "clear.fill", leftButtonAction: {self.action = 1}, rightButtonAction: {self.camera.resetCamera()})
+                    }
+                    else {
+                        CameraBar(leftButtonIcon: "photo.fill", rightButtonIcon: isFlashOn ? "bolt.slash.fill" : "bolt.fill", leftButtonAction: {}, rightButtonAction: {
+                                isFlashOn.toggle()
+                                self.camera.toggleTorch(on: isFlashOn)
+                        })
                     }
                 }
                 if !self.camera.isPhotoTaken {

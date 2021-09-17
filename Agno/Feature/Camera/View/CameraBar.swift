@@ -14,15 +14,17 @@ struct CameraBar: View {
     let rightButtonAction : () -> Void
     
     var body: some View {
-        
-        HStack{
-            Button(action: leftButtonAction, label: {
-                Image(systemName: leftButtonIcon).font(.system(size: 27.0)).foregroundColor(.white)
-            }).padding(.leading, 40)
-            Spacer()
-            Button(action: rightButtonAction, label: {
-                Image(systemName: rightButtonIcon).font(.system(size: 27.0)).foregroundColor(.white)
-            }).padding(.trailing, 40)
+        ZStack {
+            Color.black.frame(height: 85, alignment: .center).opacity(0.75)
+            HStack{
+                Button(action: leftButtonAction, label: {
+                    Image(systemName: leftButtonIcon).font(.system(size: 27.0)).foregroundColor(.white)
+                }).padding(.leading, 40)
+                Spacer()
+                Button(action: rightButtonAction, label: {
+                    Image(systemName: rightButtonIcon).font(.system(size: 27.0)).foregroundColor(.white)
+                }).padding(.trailing, 40)
+            }
         }
     }
 }
