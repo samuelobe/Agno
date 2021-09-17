@@ -11,13 +11,14 @@ struct ContentView: View {
     @State private var action: Int? = 0
     @StateObject var camera = CameraViewModel()
     @StateObject var celeb = CelebrityListViewModel(recognitionAWS: CelebrityRecognition())
+    @StateObject var launch = LaunchSettings()
     
     var body: some View {
         NavigationView {
             ZStack {
                 Color(.black).ignoresSafeArea()
                 NavigationLink(
-                    destination: CameraScreen(),
+                    destination: CameraScreen(launch: launch),
                     tag: 1, selection: $action
                 ) {}
             }
@@ -28,8 +29,8 @@ struct ContentView: View {
     }
 }
 
-struct ContentView_Previews: PreviewProvider {
-    static var previews: some View {
-        ContentView()
-    }
-}
+//struct ContentView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        ContentView()
+//    }
+//}

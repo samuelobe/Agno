@@ -30,6 +30,8 @@
 		3DD1E0A526D2E13500E5CCAD /* APIConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DD1E0A426D2E13500E5CCAD /* APIConstants.swift */; };
 		7876922469F1D927A8E4954F /* Pods_Agno.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 754D5FC58E66A741E64DB578 /* Pods_Agno.framework */; };
 		E91594EC26F37E7F00785848 /* LoadingIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E91594EB26F37E7F00785848 /* LoadingIndicator.swift */; };
+		E91594F026F4CE6600785848 /* WelcomeCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = E91594EF26F4CE6600785848 /* WelcomeCard.swift */; };
+		E91594F326F5112400785848 /* LaunchSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = E91594F226F5112400785848 /* LaunchSettings.swift */; };
 		E931628826ED64A900E58611 /* Blur.swift in Sources */ = {isa = PBXBuildFile; fileRef = E931628726ED64A900E58611 /* Blur.swift */; };
 		E938210126EC040B00F76BFA /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E938210026EC040B00F76BFA /* Extensions.swift */; };
 /* End PBXBuildFile section */
@@ -62,6 +64,8 @@
 		754D5FC58E66A741E64DB578 /* Pods_Agno.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Agno.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		97CAB587BB761E3890E9C0DD /* Pods-Agno.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Agno.release.xcconfig"; path = "Target Support Files/Pods-Agno/Pods-Agno.release.xcconfig"; sourceTree = "<group>"; };
 		E91594EB26F37E7F00785848 /* LoadingIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingIndicator.swift; sourceTree = "<group>"; };
+		E91594EF26F4CE6600785848 /* WelcomeCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeCard.swift; sourceTree = "<group>"; };
+		E91594F226F5112400785848 /* LaunchSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchSettings.swift; sourceTree = "<group>"; };
 		E931628726ED64A900E58611 /* Blur.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Blur.swift; sourceTree = "<group>"; };
 		E938210026EC040B00F76BFA /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -291,7 +295,9 @@
 		3DD1E0AA26D2E51600E5CCAD /* Introduction */ = {
 			isa = PBXGroup;
 			children = (
+				E91594EF26F4CE6600785848 /* WelcomeCard.swift */,
 				3DB7A94426CE9C790086F644 /* ContentView.swift */,
+				E91594F226F5112400785848 /* LaunchSettings.swift */,
 			);
 			path = Introduction;
 			sourceTree = "<group>";
@@ -436,10 +442,12 @@
 				3D0762A626D979DF00031C57 /* CelebrityListScreen.swift in Sources */,
 				3DB7A94326CE9C790086F644 /* SceneDelegate.swift in Sources */,
 				3DB7A97B26D0445E0086F644 /* CelebrityDetailViewModel.swift in Sources */,
+				E91594F026F4CE6600785848 /* WelcomeCard.swift in Sources */,
 				E931628826ED64A900E58611 /* Blur.swift in Sources */,
 				3DD1E09D26D2DA9C00E5CCAD /* CelebrityService.swift in Sources */,
 				3D20A94226DEC3B400FDEB22 /* CameraButton.swift in Sources */,
 				3D0762A826D979F400031C57 /* CelebrityListViewModel.swift in Sources */,
+				E91594F326F5112400785848 /* LaunchSettings.swift in Sources */,
 				E91594EC26F37E7F00785848 /* LoadingIndicator.swift in Sources */,
 				3DB7A96026CEFA360086F644 /* CameraPreview.swift in Sources */,
 				3DD1E0A526D2E13500E5CCAD /* APIConstants.swift in Sources */,
