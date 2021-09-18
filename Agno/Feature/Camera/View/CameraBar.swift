@@ -12,6 +12,7 @@ struct CameraBar: View {
     let rightButtonIcon : String
     let leftButtonAction : () -> Void
     let rightButtonAction : () -> Void
+    let isCheck : Bool
     
     var body: some View {
         ZStack {
@@ -21,6 +22,11 @@ struct CameraBar: View {
                     Image(systemName: leftButtonIcon).font(.system(size: 27.0)).foregroundColor(.white)
                 }).padding(.leading, 40)
                 Spacer()
+                if isCheck {
+                    Text("Is this photo acceptable?").bold()
+                    Spacer()
+                }
+
                 Button(action: rightButtonAction, label: {
                     Image(systemName: rightButtonIcon).font(.system(size: 27.0)).foregroundColor(.white)
                 }).padding(.trailing, 40)
@@ -31,6 +37,6 @@ struct CameraBar: View {
 
 struct CameraBar_Previews: PreviewProvider {
     static var previews: some View {
-        CameraBar(leftButtonIcon: "photo", rightButtonIcon: "gearshape", leftButtonAction: {}, rightButtonAction: {}).preferredColorScheme(.dark)
+        CameraBar(leftButtonIcon: "photo", rightButtonIcon: "gearshape", leftButtonAction: {}, rightButtonAction: {}, isCheck: true).preferredColorScheme(.dark)
     }
 }

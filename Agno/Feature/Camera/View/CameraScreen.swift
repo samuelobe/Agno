@@ -14,9 +14,17 @@ struct CameraScreen : View {
     @ObservedObject var launch : LaunchSettings
     
     @State private var action: Int? = 0
+    @State private var image: Image? = nil
     @State private var isFlashOn = false
+    @State private var isImagePicked = false
+    @State private var isShowPhotoLibrary = false
     
     var isSim = Platform.isSimulator
+    
+    func turnOffTorch()  {
+        self.isFlashOn = false
+        self.camera.toggleTorch(on: self.isFlashOn)
+    }
     
     var body: some View {
         ZStack {
@@ -26,24 +34,41 @@ struct CameraScreen : View {
                 if isSim {
                     Color.gray
                     Text("Camera View").foregroundColor(.white)
+                    image?.resizable().scaledToFit()
                 }
                 else{
-                    CameraPreview(camera: camera)
+                    ZStack {
+                        CameraPreview(camera: camera)
+                        if isImagePicked {
+                            Color.black
+                            image?.resizable().scaledToFit()
+                        }
+                    }
                 }
                 VStack{
                     Spacer()
-                    if self.camera.isPhotoTaken {
-                        CameraBar(leftButtonIcon: "checkmark.square.fill", rightButtonIcon: "clear.fill", leftButtonAction: {self.action = 1}, rightButtonAction: {self.camera.resetCamera()})
+                    if self.camera.isPhotoTaken || self.isImagePicked  {
+                        CameraBar(leftButtonIcon: "checkmark.square.fill", rightButtonIcon: "clear.fill", leftButtonAction: {self.action = 1}, rightButtonAction: {
+                            self.isImagePicked = false
+                            self.camera.resetCamera()
+                            
+                        }, isCheck: true)
                     }
                     else {
-                        CameraBar(leftButtonIcon: "photo.fill", rightButtonIcon: isFlashOn ? "bolt.slash.fill" : "bolt.fill", leftButtonAction: {}, rightButtonAction: {
-                                isFlashOn.toggle()
-                                self.camera.toggleTorch(on: isFlashOn)
-                        })
+                        CameraBar(leftButtonIcon: "photo.fill", rightButtonIcon: self.isFlashOn ? "bolt.slash.fill" : "bolt.fill", leftButtonAction: {
+                            self.turnOffTorch()
+                            self.isShowPhotoLibrary = true
+                            
+                        }, rightButtonAction: {
+                            self.isFlashOn.toggle()
+                            self.camera.toggleTorch(on: self.isFlashOn)
+                        }, isCheck: false)
                     }
                 }
-                if !self.camera.isPhotoTaken {
-                    CameraButton()
+                if !self.camera.isPhotoTaken && !self.isImagePicked  {
+                    CameraButton(action: {
+                        self.turnOffTorch()
+                        self.camera.takePic()})
                 }
             }.onAppear(perform: {
                 if !self.camera.isChecked {
@@ -64,6 +89,7 @@ struct CameraScreen : View {
                     print("moving to background")
                     if !camera.isPhotoTaken {
                         DispatchQueue.main.async {
+                            self.turnOffTorch()
                             self.camera.stopCamera()
                         }
                         
@@ -82,12 +108,18 @@ struct CameraScreen : View {
                 WelcomeCard(action: {launch.didLaunchBefore.toggle()})
             }
             
+        }.sheet(isPresented: $isShowPhotoLibrary, onDismiss: {}) {
+            ImagePicker(sourceType: .photoLibrary, onImagePicked: {
+                pickedImage in
+                self.image = Image(uiImage: pickedImage)
+                self.isImagePicked = true
+                self.camera.stopCamera()
+                
+            })
         }
     }
     
 }
-
-
 
 
 struct Platform {

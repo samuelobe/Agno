@@ -8,16 +8,15 @@
 import SwiftUI
 
 struct CameraButton: View {
-    @EnvironmentObject var camera: CameraViewModel
+    //@EnvironmentObject var camera: CameraViewModel
+    let action : () -> Void
     
     var body: some View {
         VStack {
             Spacer()
             HStack{
                 ZStack {
-                    Button(action: {
-                        self.camera.takePic()
-                    }, label: {
+                    Button(action: action, label: {
                         Circle().fill(Color("ButtonColor")).frame(width: 70, height: 70, alignment: .center)
                     })
                     
@@ -31,6 +30,6 @@ struct CameraButton: View {
 
 struct CameraButton_Previews: PreviewProvider {
     static var previews: some View {
-        CameraButton()
+        CameraButton(action: {})
     }
 }
