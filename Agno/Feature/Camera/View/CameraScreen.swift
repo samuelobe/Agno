@@ -67,8 +67,11 @@ struct CameraScreen : View {
                 }
                 if !self.camera.isPhotoTaken && !self.isImagePicked  {
                     CameraButton(action: {
-                        self.turnOffTorch()
-                        self.camera.takePic()})
+                        self.camera.takePic()
+                        DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(1), execute: {
+                            self.turnOffTorch()
+                        })
+                    })
                 }
             }.onAppear(perform: {
                 if !self.camera.isChecked {
