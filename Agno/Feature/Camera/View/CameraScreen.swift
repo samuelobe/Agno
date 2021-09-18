@@ -122,7 +122,10 @@ struct CameraScreen : View {
             }
             
         }.sheet(isPresented: $isShowPhotoLibrary, onDismiss: {
-            self.camera.startCamera()
+            if !self.isImagePicked {
+                self.camera.startCamera()
+            }
+            
         }) {
             ImagePicker(sourceType: .photoLibrary, onImagePicked: {
                 pickedImage in
