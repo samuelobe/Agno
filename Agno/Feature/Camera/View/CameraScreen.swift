@@ -8,6 +8,8 @@
 import SwiftUI
 import AVFoundation
 
+
+
 struct CameraScreen : View {
     @EnvironmentObject var camera: CameraViewModel
     @EnvironmentObject var celeb : CelebrityListViewModel
@@ -64,6 +66,7 @@ struct CameraScreen : View {
                     }
                     else {
                         CameraBar(leftButtonIcon: "photo.fill", rightButtonIcon: self.isFlashOn ? "bolt.slash.fill" : "bolt.fill", leftButtonAction: {
+                            self.camera.stopCamera()
                             self.turnOffTorch()
                             self.isShowPhotoLibrary = true
                             
@@ -118,32 +121,20 @@ struct CameraScreen : View {
                 WelcomeCard(action: {launch.didLaunchBefore.toggle()})
             }
             
-        }.sheet(isPresented: $isShowPhotoLibrary, onDismiss: {}) {
+        }.sheet(isPresented: $isShowPhotoLibrary, onDismiss: {
+            self.camera.startCamera()
+        }) {
             ImagePicker(sourceType: .photoLibrary, onImagePicked: {
                 pickedImage in
                 self.image = Image(uiImage: pickedImage)
                 self.camera.imageData = pickedImage.pngData()!
                 self.isImagePicked = true
                 self.camera.stopCamera()
-                
             })
         }
     }
     
 }
-
-
-struct Platform {
-    static let isSimulator: Bool = {
-        var isSim = false
-#if targetEnvironment(simulator)
-        isSim = true
-#endif
-        return isSim
-    }()
-}
-
-
 
 struct CameraView_Previews: PreviewProvider {
     static var previews: some View {

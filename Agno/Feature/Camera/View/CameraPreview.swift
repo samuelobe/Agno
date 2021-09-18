@@ -23,6 +23,7 @@ struct CameraPreview : UIViewRepresentable {
         
         // Start camera session
         camera.session.startRunning()
+        camera.state = .running
         
         
         return view

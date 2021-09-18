@@ -24,8 +24,13 @@ struct ContentView: View {
             }
         }.onAppear(perform: {
             self.action = 1
-        })
-            .preferredColorScheme(.dark).environmentObject(camera).environmentObject(celeb).edgesIgnoringSafeArea(.all).navigationViewStyle(.stack)
+        }).onAppear {
+            AppDelegate.orientationLock = UIInterfaceOrientationMask.portrait
+            UIDevice.current.setValue(UIInterfaceOrientation.landscapeLeft.rawValue, forKey: "orientation")
+            UINavigationController.attemptRotationToDeviceOrientation()
+        }
+        
+        .preferredColorScheme(.dark).environmentObject(camera).environmentObject(celeb).edgesIgnoringSafeArea(.all).navigationViewStyle(.stack)
     }
 }
 

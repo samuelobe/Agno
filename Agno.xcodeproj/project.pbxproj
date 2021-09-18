@@ -35,6 +35,7 @@
 		E91594F526F541F500785848 /* PhotoPreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = E91594F426F541F500785848 /* PhotoPreview.swift */; };
 		E931628826ED64A900E58611 /* Blur.swift in Sources */ = {isa = PBXBuildFile; fileRef = E931628726ED64A900E58611 /* Blur.swift */; };
 		E938210126EC040B00F76BFA /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E938210026EC040B00F76BFA /* Extensions.swift */; };
+		E945B92326F624A00071DD0B /* Platform.swift in Sources */ = {isa = PBXBuildFile; fileRef = E945B92226F624A00071DD0B /* Platform.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -70,6 +71,7 @@
 		E91594F426F541F500785848 /* PhotoPreview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoPreview.swift; sourceTree = "<group>"; };
 		E931628726ED64A900E58611 /* Blur.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Blur.swift; sourceTree = "<group>"; };
 		E938210026EC040B00F76BFA /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		E945B92226F624A00071DD0B /* Platform.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Platform.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -218,6 +220,7 @@
 		3DD1E09E26D2DF4200E5CCAD /* Base */ = {
 			isa = PBXGroup;
 			children = (
+				E945B92126F624920071DD0B /* Helpers */,
 				E93820FF26EC03F800F76BFA /* Extensions */,
 				3DD1E09F26D2DF5300E5CCAD /* Constants */,
 				3DD1E0A326D2DFDA00E5CCAD /* Delegates */,
@@ -320,6 +323,14 @@
 				E938210026EC040B00F76BFA /* Extensions.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		E945B92126F624920071DD0B /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				E945B92226F624A00071DD0B /* Platform.swift */,
+			);
+			path = Helpers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -443,6 +454,7 @@
 				3D566FB226D4059500D69502 /* CelebrityRecognition.swift in Sources */,
 				3DB7A96426CEFF750086F644 /* CelebrityDetailScreen.swift in Sources */,
 				3D0762A626D979DF00031C57 /* CelebrityListScreen.swift in Sources */,
+				E945B92326F624A00071DD0B /* Platform.swift in Sources */,
 				3DB7A94326CE9C790086F644 /* SceneDelegate.swift in Sources */,
 				3DB7A97B26D0445E0086F644 /* CelebrityDetailViewModel.swift in Sources */,
 				E91594F026F4CE6600785848 /* WelcomeCard.swift in Sources */,

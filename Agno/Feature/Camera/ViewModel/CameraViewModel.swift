@@ -9,6 +9,12 @@ import AVFoundation
 import SwiftUI
 import UIKit
 
+enum CameraState {
+    case unchecked
+    case running
+    case stopped
+}
+
 class CameraViewModel: NSObject, ObservableObject {
     @Published var isPhotoTaken = false
     @Published var alert = false
@@ -17,6 +23,11 @@ class CameraViewModel: NSObject, ObservableObject {
     @Published var output : AVCapturePhotoOutput!
     @Published var preview : AVCaptureVideoPreviewLayer!
     @Published var imageData = Data(count: 0)
+    @Published var state : CameraState = .unchecked {
+        didSet {
+            print(self.state)
+        }
+    }
         
     func check(){
         switch AVCaptureDevice.authorizationStatus(for: .video) {
@@ -63,6 +74,7 @@ class CameraViewModel: NSObject, ObservableObject {
 
             self.session.commitConfiguration()
             
+            
         } catch  {
             print(error.localizedDescription)
         }
@@ -75,16 +87,26 @@ class CameraViewModel: NSObject, ObservableObject {
     }
     
     func resetCamera(){
-        self.session.startRunning()
-        self.isPhotoTaken = false
+        if self.state == .stopped {
+            self.session.startRunning()
+            self.isPhotoTaken = false
+            self.state = .running
+        }
     }
     
     func startCamera(){
-        self.session.startRunning()
+        if self.state == .stopped {
+            self.session.startRunning()
+            self.state = .running
+        }
     }
     
     func stopCamera(){
-        self.session.stopRunning()
+        if self.state == .running {
+            self.session.stopRunning()
+            self.state = .stopped
+        }
+        
     }
     
     func toggleTorch(on: Bool) {
@@ -112,7 +134,8 @@ class CameraViewModel: NSObject, ObservableObject {
 
 extension CameraViewModel : AVCapturePhotoCaptureDelegate {
     func photoOutput(_ output: AVCapturePhotoOutput, didFinishProcessingPhoto photo: AVCapturePhoto, error: Error?) {
-        self.session.stopRunning()
+        
+        self.stopCamera()
         
         if error != nil {
             print("Photo output error")
