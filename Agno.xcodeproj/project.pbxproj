@@ -37,6 +37,7 @@
 		E938210126EC040B00F76BFA /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E938210026EC040B00F76BFA /* Extensions.swift */; };
 		E945B92326F624A00071DD0B /* Platform.swift in Sources */ = {isa = PBXBuildFile; fileRef = E945B92226F624A00071DD0B /* Platform.swift */; };
 		E945B92626F64BDC0071DD0B /* BetterSafariView in Frameworks */ = {isa = PBXBuildFile; productRef = E945B92526F64BDC0071DD0B /* BetterSafariView */; };
+		E945B92826F65B2F0071DD0B /* CameraPermission.swift in Sources */ = {isa = PBXBuildFile; fileRef = E945B92726F65B2F0071DD0B /* CameraPermission.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -73,6 +74,7 @@
 		E931628726ED64A900E58611 /* Blur.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Blur.swift; sourceTree = "<group>"; };
 		E938210026EC040B00F76BFA /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		E945B92226F624A00071DD0B /* Platform.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Platform.swift; sourceTree = "<group>"; };
+		E945B92726F65B2F0071DD0B /* CameraPermission.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraPermission.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -288,6 +290,7 @@
 				3DB7A95F26CEFA360086F644 /* CameraPreview.swift */,
 				3D20A94126DEC3B400FDEB22 /* CameraButton.swift */,
 				3D5164A726E2C2840019D663 /* CameraBar.swift */,
+				E945B92726F65B2F0071DD0B /* CameraPermission.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -473,6 +476,7 @@
 				3D0762A826D979F400031C57 /* CelebrityListViewModel.swift in Sources */,
 				E91594F326F5112400785848 /* LaunchSettings.swift in Sources */,
 				E91594EC26F37E7F00785848 /* LoadingIndicator.swift in Sources */,
+				E945B92826F65B2F0071DD0B /* CameraPermission.swift in Sources */,
 				3DB7A96026CEFA360086F644 /* CameraPreview.swift in Sources */,
 				3DD1E0A526D2E13500E5CCAD /* APIConstants.swift in Sources */,
 				3DB7A95C26CEC5F00086F644 /* CameraScreen.swift in Sources */,

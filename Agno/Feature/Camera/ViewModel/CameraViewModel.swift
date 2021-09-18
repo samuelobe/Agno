@@ -36,13 +36,18 @@ class CameraViewModel: NSObject, ObservableObject {
                 return
             case .notDetermined:
                 AVCaptureDevice.requestAccess(for: .video, completionHandler: {
-                    (status) in if status {
+                    (status) in
+                    if status {
                         self.setUp()
+                    }
+                    else {
+                        self.alert.toggle()
                     }
                 })
                 return
             case .denied:
                 self.alert.toggle()
+
                 return
             default:
                 return

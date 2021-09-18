@@ -1,34 +1,32 @@
 //
-//  WelcomeCard.swift
-//  WelcomeCard
+//  CameraPermission.swift
+//  CameraPermission
 //
-//  Created by ELeetDev on 9/17/21.
+//  Created by ELeetDev on 9/18/21.
 //
 
 import SwiftUI
 
-struct WelcomeCard: View {
-    let action : () -> Void
-    
+struct CameraPermission: View {
     var body: some View {
         GeometryReader { geometry in
             VStack {
-                Text("Welcome to Agno").foregroundColor(.white).bold().font(.title2).padding(EdgeInsets(top: 15, leading: 0, bottom: 15, trailing: 0))
-                Text("Agno is a celebrity-image recognition app which detects faces of celebrities with a single click...").foregroundColor(.white).padding().multilineTextAlignment(.center)
-                Button(action: self.action, label: {
-                    Text("Get Started")
+                Text("Please provide Agno access to your camera in the Settings app").foregroundColor(.white).bold().padding().multilineTextAlignment(.center)
+                Button(action: {
+                    UIApplication.shared.open(URL.init(string: UIApplication.openSettingsURLString)!, options: [:], completionHandler: nil)
+                }, label: {
+                    Text("Go to Settings")
                         .font(.body)
                         .bold()
                         .padding(EdgeInsets(top: 15, leading: 50, bottom: 15, trailing: 50))
                         .background(Color("ButtonColor"))
                         .cornerRadius(15)
                         .foregroundColor(.white)
-                        
                     
                 }).padding()
                 
             }.padding()
-            .frame(width: geometry.size.width * 0.8 ).background(Color("BackgroundColor"))
+                .frame(width: geometry.size.width * 0.8 ).background(Color.gray)
             .cornerRadius(15)
             .progressViewStyle(CircularProgressViewStyle(tint: .white))
             .shadow(radius: 10)
@@ -37,8 +35,8 @@ struct WelcomeCard: View {
     }
 }
 
-struct WelcomeCard_Previews: PreviewProvider {
+struct CameraPermission_Previews: PreviewProvider {
     static var previews: some View {
-        WelcomeCard(action: {})
+        CameraPermission()
     }
 }

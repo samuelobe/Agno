@@ -45,7 +45,13 @@ struct CameraScreen : View {
                 }
                 else{
                     ZStack {
-                        CameraPreview(camera: camera)
+                        if !self.camera.alert {
+                            CameraPreview(camera: camera)
+                        }
+                        else {
+                            CameraPermission()
+                        }
+                        
                         if self.isImagePicked {
                             Color.black
                             image?.resizable().scaledToFit()
@@ -75,7 +81,7 @@ struct CameraScreen : View {
                         }, isCheck: false)
                     }
                 }
-                if !self.camera.isPhotoTaken && !self.isImagePicked  {
+                if !self.camera.isPhotoTaken && !self.isImagePicked && !self.camera.alert  {
                     CameraButton(action: {
                         self.camera.takePic()
                         DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(1), execute: {
