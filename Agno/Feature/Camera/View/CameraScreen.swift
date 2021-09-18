@@ -26,6 +26,11 @@ struct CameraScreen : View {
         self.camera.toggleTorch(on: self.isFlashOn)
     }
     
+    func toggleTorch() {
+        self.isFlashOn.toggle()
+        self.camera.toggleTorch(on: self.isFlashOn)
+    }
+    
     var body: some View {
         ZStack {
             ZStack {
@@ -39,7 +44,7 @@ struct CameraScreen : View {
                 else{
                     ZStack {
                         CameraPreview(camera: camera)
-                        if isImagePicked {
+                        if self.isImagePicked {
                             Color.black
                             image?.resizable().scaledToFit()
                         }
@@ -48,7 +53,10 @@ struct CameraScreen : View {
                 VStack{
                     Spacer()
                     if self.camera.isPhotoTaken || self.isImagePicked  {
-                        CameraBar(leftButtonIcon: "checkmark.square.fill", rightButtonIcon: "clear.fill", leftButtonAction: {self.action = 1}, rightButtonAction: {
+                        CameraBar(leftButtonIcon: "checkmark.square.fill", rightButtonIcon: "clear.fill", leftButtonAction: {
+                            self.isImagePicked = false
+                            self.action = 1
+                        }, rightButtonAction: {
                             self.isImagePicked = false
                             self.camera.resetCamera()
                             
@@ -60,8 +68,7 @@ struct CameraScreen : View {
                             self.isShowPhotoLibrary = true
                             
                         }, rightButtonAction: {
-                            self.isFlashOn.toggle()
-                            self.camera.toggleTorch(on: self.isFlashOn)
+                            self.toggleTorch()
                         }, isCheck: false)
                     }
                 }
@@ -115,6 +122,7 @@ struct CameraScreen : View {
             ImagePicker(sourceType: .photoLibrary, onImagePicked: {
                 pickedImage in
                 self.image = Image(uiImage: pickedImage)
+                self.camera.imageData = pickedImage.pngData()!
                 self.isImagePicked = true
                 self.camera.stopCamera()
                 

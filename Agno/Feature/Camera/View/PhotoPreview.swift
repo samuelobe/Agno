@@ -9,7 +9,6 @@ import Foundation
 import SwiftUI
 
 struct ImagePicker: UIViewControllerRepresentable {
-
     @Environment(\.presentationMode)
     private var presentationMode
 
