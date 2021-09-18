@@ -19,16 +19,15 @@ struct CelebrityListScreen: View {
                     ScrollView(.vertical, showsIndicators: false) {
                         LazyVStack {
                             ForEach(celebModel.celebs){ celeb in
-                                NavigationLink(destination: CelebrityDetailScreen(celeb: celeb)) {
-                                        CelebrityCell(celeb: celeb)
-                                }
+                                CelebrityCell(celeb: celeb)
+
                             }
                         }
                     }.fixFlickering()
                 }
                 else {
                     if !celebModel.alert {
-                        ProgressView()
+                        LoadingIndicator()
                     }
                     else {
                         Text("No celebrity faces found in picture")

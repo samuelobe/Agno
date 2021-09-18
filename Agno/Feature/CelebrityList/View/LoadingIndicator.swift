@@ -11,10 +11,9 @@ struct LoadingIndicator: View {
     var body: some View {
         VStack {
             Text("Analyzing Image...").foregroundColor(.white)
-            ProgressView()
-        }.frame(width: 200 , height: 200).background(Color("BackgroundColor"))
+            ProgressView().progressViewStyle(CircularProgressViewStyle(tint: .white))
+        }.frame(width: 200 , height: 200).background(Color("SectionColor"))
             .cornerRadius(15)
-            .progressViewStyle(CircularProgressViewStyle(tint: .white))
         .shadow(radius: 10)
     }
 }

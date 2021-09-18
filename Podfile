@@ -7,5 +7,6 @@ target 'Agno' do
 
   # Pods for Agno
   pod 'AWSRekognition'
+  pod 'ActivityIndicatorView'
 
 end
