@@ -6,40 +6,16 @@
 //
 
 import SwiftUI
+import BetterSafariView
 
 struct CelebrityCell: View {
     let celeb : RecognizedCelebrity
-    
-    func openURL(_ urlString: String) {
-        var urlString = urlString
-        
-        let https = "https://"
-        if !urlString.contains(https) {
-            urlString = https + urlString
-        }
-        guard let url = URL(string: urlString) else {
-            return
-        }
-        UIApplication.shared.open(url, completionHandler: { success in
-            if success {
-                print("opened")
-            } else {
-                print("failed")
-                // showInvalidUrlAlert()
-            }
-        })
-    }
+    @State private var presentingSafariView = false
     
     var body: some View {
         Button(action: {
-            if !celeb.urls.isEmpty{
-                if celeb.imdbLink != "" {
-                    openURL(celeb.imdbLink)
-                }
-                else if celeb.wikidataLink != "" {
-                    openURL(celeb.wikidataLink)
-                }
-            }
+            
+            self.presentingSafariView = true
             
         }){
             HStack(alignment: .center) {
@@ -54,11 +30,26 @@ struct CelebrityCell: View {
                 
             }
         }.frame(maxWidth: .infinity,  alignment: .center).background(Color("SectionColor")).cornerRadius(20).padding(EdgeInsets(top: 15, leading: 10, bottom: 15, trailing: 10))
+            .if(celeb.url != "") {
+                view in view.safariView(isPresented: $presentingSafariView) {
+                    SafariView(
+                        url: URL(string: celeb.url)!,
+                        configuration: SafariView.Configuration(
+                            entersReaderIfAvailable: false,
+                            barCollapsingEnabled: true
+                        )
+                    )
+                        .preferredBarAccentColor(.clear)
+                        .preferredControlAccentColor(.accentColor)
+                        .dismissButtonStyle(.done)
+                }
+            }
+        
     }
 }
 
 struct CelebrityCell_Previews: PreviewProvider {
     static var previews: some View {
-        CelebrityCell(celeb: RecognizedCelebrity(name: "Samuel Obe", confidence: NSNumber.init(value: 99.99999), imdbLink: "", wikidataLink: "", urls: []))
+        CelebrityCell(celeb: RecognizedCelebrity(name: "Samuel Obe", confidence: NSNumber.init(value: 99.99999), url: ""))
     }
 }

@@ -67,6 +67,6 @@ struct CelebrityDetailScreen: View {
 
 struct DetailView_Previews: PreviewProvider {
     static var previews: some View {
-        CelebrityDetailScreen(celeb: RecognizedCelebrity(name: "Steve Carell", confidence: NSNumber.init(value: 99.99),imdbLink: "", wikidataLink: "", urls: []))
+        CelebrityDetailScreen(celeb: RecognizedCelebrity(name: "Steve Carell", confidence: NSNumber.init(value: 99.99), url: ""))
     }
 }

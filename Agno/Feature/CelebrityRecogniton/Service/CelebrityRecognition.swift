@@ -37,20 +37,21 @@ class CelebrityRecognition : ObservableObject {
                 let faces = result!.celebrityFaces
                 if ((faces?.count)! > 0) {
                     for celeb in faces! {
-                        var imdb = ""
-                        var wikidata = ""
-                            
+                        var link = ""
+                        let https = "https://"
+                        
                         for url in celeb.urls! {
                             if url.contains("imdb") {
-                                imdb = url
+                                link = https+url
                             }
                             else if url.contains("wikidata") {
-                                wikidata = url
+                                link = https+url
                             }
-                            
                         }
+                        
+                        
                         // TODO: Figure out a way to extract faces and add to model, then present face in CelebrityCell
-                        let recognizedCeleb = RecognizedCelebrity(name: celeb.name!, confidence: celeb.matchConfidence!, imdbLink: imdb, wikidataLink: wikidata, urls: celeb.urls ?? [])
+                        let recognizedCeleb = RecognizedCelebrity(name: celeb.name!, confidence: celeb.matchConfidence!,  url: link)
                         celebList.insert(recognizedCeleb)
                         
                     }

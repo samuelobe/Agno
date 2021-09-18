@@ -11,22 +11,20 @@ struct RecognizedCelebrity: Identifiable, Hashable {
     var id = UUID()
     let name : String
     let confidence : NSNumber
-    let imdbLink : String
-    let wikidataLink : String
-    let urls : [String]
+    let url : String
     
     func hash(into hasher: inout Hasher) {
         hasher.combine(name)
     }
     
     static func == (lhs: RecognizedCelebrity , rhs: RecognizedCelebrity) -> Bool {
-        return lhs.name == rhs.name && lhs.urls == rhs.urls
+        return lhs.name == rhs.name && lhs.url == rhs.url
     }
 }
 
 let dummyData = [
-    RecognizedCelebrity(name: "Samuel Obe", confidence: NSNumber.init(value: 99.999), imdbLink: "", wikidataLink: "", urls: []),
-    RecognizedCelebrity(name: "Bob Jomama", confidence: NSNumber.init(value: 99.999), imdbLink: "", wikidataLink: "", urls: []),
-    RecognizedCelebrity(name: "Derek Jeter", confidence: NSNumber.init(value: 99.999), imdbLink: "", wikidataLink: "", urls: []),
-    RecognizedCelebrity(name: "Han Solo", confidence: NSNumber.init(value: 99.999), imdbLink: "", wikidataLink: "", urls: [])
+    RecognizedCelebrity(name: "Samuel Obe", confidence: NSNumber.init(value: 99.999), url: ""),
+    RecognizedCelebrity(name: "Bob Jomama", confidence: NSNumber.init(value: 99.999), url: ""),
+    RecognizedCelebrity(name: "Derek Jeter", confidence: NSNumber.init(value: 99.999), url: ""),
+    RecognizedCelebrity(name: "Han Solo", confidence: NSNumber.init(value: 99.999), url: "")
 ]

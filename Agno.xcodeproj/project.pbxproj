@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 51;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -36,6 +36,7 @@
 		E931628826ED64A900E58611 /* Blur.swift in Sources */ = {isa = PBXBuildFile; fileRef = E931628726ED64A900E58611 /* Blur.swift */; };
 		E938210126EC040B00F76BFA /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E938210026EC040B00F76BFA /* Extensions.swift */; };
 		E945B92326F624A00071DD0B /* Platform.swift in Sources */ = {isa = PBXBuildFile; fileRef = E945B92226F624A00071DD0B /* Platform.swift */; };
+		E945B92626F64BDC0071DD0B /* BetterSafariView in Frameworks */ = {isa = PBXBuildFile; productRef = E945B92526F64BDC0071DD0B /* BetterSafariView */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -80,6 +81,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7876922469F1D927A8E4954F /* Pods_Agno.framework in Frameworks */,
+				E945B92626F64BDC0071DD0B /* BetterSafariView in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -351,6 +353,9 @@
 			dependencies = (
 			);
 			name = Agno;
+			packageProductDependencies = (
+				E945B92526F64BDC0071DD0B /* BetterSafariView */,
+			);
 			productName = Agno;
 			productReference = 3DB7A93D26CE9C790086F644 /* Agno.app */;
 			productType = "com.apple.product-type.application";
@@ -378,6 +383,9 @@
 				Base,
 			);
 			mainGroup = 3DB7A93426CE9C790086F644;
+			packageReferences = (
+				E945B92426F64BDC0071DD0B /* XCRemoteSwiftPackageReference "BetterSafariView" */,
+			);
 			productRefGroup = 3DB7A93E26CE9C790086F644 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -671,6 +679,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		E945B92426F64BDC0071DD0B /* XCRemoteSwiftPackageReference "BetterSafariView" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/stleamist/BetterSafariView.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		E945B92526F64BDC0071DD0B /* BetterSafariView */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E945B92426F64BDC0071DD0B /* XCRemoteSwiftPackageReference "BetterSafariView" */;
+			productName = BetterSafariView;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 3DB7A93526CE9C790086F644 /* Project object */;
 }
