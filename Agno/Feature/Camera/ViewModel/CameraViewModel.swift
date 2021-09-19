@@ -66,6 +66,7 @@ class CameraViewModel: NSObject, ObservableObject {
                 return
             }
             
+            
             let input = try AVCaptureDeviceInput(device: backCamera)
             output = AVCapturePhotoOutput()
             

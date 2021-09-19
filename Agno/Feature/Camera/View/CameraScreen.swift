@@ -8,8 +8,6 @@
 import SwiftUI
 import AVFoundation
 
-
-
 struct CameraScreen : View {
     @EnvironmentObject var camera: CameraViewModel
     @EnvironmentObject var celeb : CelebrityListViewModel
