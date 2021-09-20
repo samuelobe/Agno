@@ -11,13 +11,16 @@ struct CelebrityListScreen: View {
     @EnvironmentObject var celebModel : CelebrityListViewModel
     @EnvironmentObject var cameraModel : CameraViewModel
     
+    
+    private let gridItems = [GridItem(.flexible()), GridItem(.flexible())]
+    
     var body: some View {
         ZStack {
             Color("BackgroundColor").ignoresSafeArea()
             VStack{
                 if !celebModel.celebs.isEmpty {
                     ScrollView(.vertical, showsIndicators: false) {
-                        LazyVStack {
+                        LazyVGrid(columns: gridItems, spacing: 20) {
                             ForEach(celebModel.celebs){ celeb in
                                 CelebrityCell(celeb: celeb)
 

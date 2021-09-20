@@ -6,7 +6,11 @@
 //
 
 import Foundation
+import Combine
 import AWSRekognition
+
+typealias JSONDictionary = [String:Any]
+
 
 class CelebrityRecognition : ObservableObject {
     private var rekognitionObject: AWSRekognition?
@@ -15,9 +19,10 @@ class CelebrityRecognition : ObservableObject {
     @Published var picData = Data(count: 0)
     
     // MARK: - AWS Method
-    func sendImageToRekognition(completionHandler: @escaping (Set<RecognizedCelebrity>, Bool) -> Void)  {
-        var celebList : Set<RecognizedCelebrity> = []
+    func sendImageToRekognition(completionHandler: @escaping ([RecognizedCelebrity], Bool) -> Void)  {
+        var celebList : [RecognizedCelebrity] = []
         var alert = true
+        let semaphore = DispatchSemaphore(value: 0)
         
         rekognitionObject = AWSRekognition.default()
         
@@ -38,21 +43,37 @@ class CelebrityRecognition : ObservableObject {
                 if ((faces?.count)! > 0) {
                     for celeb in faces! {
                         var link = ""
+                        var wikidataLink = ""
                         let https = "https://"
+                        
+                        if celebList.contains(where: {celebInList in celebInList.name == celeb.name}) {
+                            continue
+                        }
                         
                         for url in celeb.urls! {
                             if url.contains("imdb") {
-                                link = https+url
+                                link = url
                             }
                             else if url.contains("wikidata") {
-                                link = https+url
+                                link = url
+                                wikidataLink = url
                             }
                         }
                         
+                        if !link.contains(https){
+                            link = https+link
+                        }
                         
-                        // TODO: Figure out a way to extract faces and add to model, then present face in CelebrityCell
-                        let recognizedCeleb = RecognizedCelebrity(name: celeb.name!, confidence: celeb.matchConfidence!,  url: link)
-                        celebList.insert(recognizedCeleb)
+                        // COME BACK AND FIX EDGE CASES FOR FAILURE: BAD LINK, ETC.
+                        self.retrieveImageURL(wikidataLink) {
+                            urlLink in
+                            let recognizedCeleb = RecognizedCelebrity(name: celeb.name!, confidence: celeb.matchConfidence!,  url: link, imageURL: urlLink)
+                            print(recognizedCeleb)
+                            celebList.append(recognizedCeleb)
+                            semaphore.signal()
+                                
+                        }
+                        semaphore.wait()
                         
                     }
                     alert = false
@@ -75,5 +96,68 @@ class CelebrityRecognition : ObservableObject {
             
         }
     }
+    
+    func retrieveImageURL(_ link: String, imageURLCompletion: @escaping (String) -> Void){
+        var finalURL = ""
+        
+        if let range = link.range(of: "Q") {
+            let qCode = "Q"+link[range.upperBound...]
+            //print(qCode)
+            
+            let urlStr = "https://www.wikidata.org/w/api.php?action=wbgetclaims&property=P18&entity=\(qCode)&format=json"
+            let url = URL(string: urlStr)!
+            //print(url)
+
+            let task = URLSession.shared.dataTask(with: url) {
+                (data, response, error) in
+                guard let safeData = data else {
+                    imageURLCompletion(finalURL)
+                    print(error!)
+                    return
+                    
+                }
+                
+                let json = try? JSONSerialization.jsonObject(with: safeData, options: [])
+                
+                guard let dictionary = json as? [String:Any] else {
+                    imageURLCompletion(finalURL)
+                    return}
+                guard let claims = dictionary["claims"] as? JSONDictionary else {
+                    imageURLCompletion(finalURL)
+                    return}
+                guard let p18 = claims["P18"] as? NSArray else {
+                    imageURLCompletion(finalURL)
+                    return}
+                guard let dictId = p18[0] as? JSONDictionary else {
+                    imageURLCompletion(finalURL)
+                    return}
+                guard let mainsnak = dictId["mainsnak"] as? JSONDictionary else {
+                    imageURLCompletion(finalURL)
+                    return}
+                guard let dataValue = mainsnak["datavalue"] as? JSONDictionary else {
+                    imageURLCompletion(finalURL)
+                    return}
+                guard let initialString = dataValue["value"] as? String else {
+                    imageURLCompletion(finalURL)
+                    return}
+                let replacedString = initialString.replacingOccurrences(of: " ", with: "_")
+                let md5Data = MD5(string: replacedString)
+                let md5Hex =  md5Data.map { String(format: "%02hhx", $0) }.joined()
+                finalURL = "https://upload.wikimedia.org/wikipedia/commons/\(md5Hex[0])/\(md5Hex[0])\(md5Hex[1])/\(replacedString)"
+                
+                
+                // How can I make sure that this completion handler always return something even if there is an error
+                imageURLCompletion(finalURL)
+                
+            }
+            
+            task.resume()
+        }
+        else {
+            imageURLCompletion(finalURL)
+        }
+        
+    }
+    
     
 }

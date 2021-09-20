@@ -35,9 +35,10 @@
 		E91594F526F541F500785848 /* PhotoPreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = E91594F426F541F500785848 /* PhotoPreview.swift */; };
 		E931628826ED64A900E58611 /* Blur.swift in Sources */ = {isa = PBXBuildFile; fileRef = E931628726ED64A900E58611 /* Blur.swift */; };
 		E938210126EC040B00F76BFA /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E938210026EC040B00F76BFA /* Extensions.swift */; };
-		E945B92326F624A00071DD0B /* Platform.swift in Sources */ = {isa = PBXBuildFile; fileRef = E945B92226F624A00071DD0B /* Platform.swift */; };
+		E945B92326F624A00071DD0B /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = E945B92226F624A00071DD0B /* Helpers.swift */; };
 		E945B92626F64BDC0071DD0B /* BetterSafariView in Frameworks */ = {isa = PBXBuildFile; productRef = E945B92526F64BDC0071DD0B /* BetterSafariView */; };
 		E945B92826F65B2F0071DD0B /* CameraPermission.swift in Sources */ = {isa = PBXBuildFile; fileRef = E945B92726F65B2F0071DD0B /* CameraPermission.swift */; };
+		E9FD64D226F7DB4500CD0AC1 /* ImageLoaderService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9FD64D126F7DB4500CD0AC1 /* ImageLoaderService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -73,8 +74,9 @@
 		E91594F426F541F500785848 /* PhotoPreview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoPreview.swift; sourceTree = "<group>"; };
 		E931628726ED64A900E58611 /* Blur.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Blur.swift; sourceTree = "<group>"; };
 		E938210026EC040B00F76BFA /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
-		E945B92226F624A00071DD0B /* Platform.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Platform.swift; sourceTree = "<group>"; };
+		E945B92226F624A00071DD0B /* Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helpers.swift; sourceTree = "<group>"; };
 		E945B92726F65B2F0071DD0B /* CameraPermission.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraPermission.swift; sourceTree = "<group>"; };
+		E9FD64D126F7DB4500CD0AC1 /* ImageLoaderService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageLoaderService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -117,6 +119,7 @@
 		3D0762A426D979BF00031C57 /* CelebrityList */ = {
 			isa = PBXGroup;
 			children = (
+				E9FD64D026F7DB3100CD0AC1 /* Service */,
 				3D0762AA26D97A5500031C57 /* ViewModel */,
 				3D0762A926D97A5100031C57 /* View */,
 			);
@@ -126,6 +129,7 @@
 		3D0762A926D97A5100031C57 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				E931628726ED64A900E58611 /* Blur.swift */,
 				E91594EB26F37E7F00785848 /* LoadingIndicator.swift */,
 				3D0762A526D979DF00031C57 /* CelebrityListScreen.swift */,
 				3DCD128326E05C4A00FD26D7 /* CelebrtityCell.swift */,
@@ -193,7 +197,6 @@
 			isa = PBXGroup;
 			children = (
 				3DB7A96326CEFF750086F644 /* CelebrityDetailScreen.swift */,
-				E931628726ED64A900E58611 /* Blur.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -333,9 +336,17 @@
 		E945B92126F624920071DD0B /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
-				E945B92226F624A00071DD0B /* Platform.swift */,
+				E945B92226F624A00071DD0B /* Helpers.swift */,
 			);
 			path = Helpers;
+			sourceTree = "<group>";
+		};
+		E9FD64D026F7DB3100CD0AC1 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				E9FD64D126F7DB4500CD0AC1 /* ImageLoaderService.swift */,
+			);
+			path = Service;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -465,10 +476,11 @@
 				3D566FB226D4059500D69502 /* CelebrityRecognition.swift in Sources */,
 				3DB7A96426CEFF750086F644 /* CelebrityDetailScreen.swift in Sources */,
 				3D0762A626D979DF00031C57 /* CelebrityListScreen.swift in Sources */,
-				E945B92326F624A00071DD0B /* Platform.swift in Sources */,
+				E945B92326F624A00071DD0B /* Helpers.swift in Sources */,
 				3DB7A94326CE9C790086F644 /* SceneDelegate.swift in Sources */,
 				3DB7A97B26D0445E0086F644 /* CelebrityDetailViewModel.swift in Sources */,
 				E91594F026F4CE6600785848 /* WelcomeCard.swift in Sources */,
+				E9FD64D226F7DB4500CD0AC1 /* ImageLoaderService.swift in Sources */,
 				E931628826ED64A900E58611 /* Blur.swift in Sources */,
 				3DD1E09D26D2DA9C00E5CCAD /* CelebrityService.swift in Sources */,
 				3D20A94226DEC3B400FDEB22 /* CameraButton.swift in Sources */,

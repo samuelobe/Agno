@@ -26,11 +26,11 @@ class CelebrityListViewModel: ObservableObject {
             (celebData, alertData) in
             DispatchQueue.main.async {
                 self.alert = alertData
-                self.celebs = Array(celebData)
+                self.celebs = celebData
                 
             }
             
-            print(celebData)
+            //print(celebData)
         }
     }
     
