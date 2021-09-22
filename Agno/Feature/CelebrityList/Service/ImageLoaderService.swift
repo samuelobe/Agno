@@ -10,6 +10,7 @@ import SwiftUI
 
 class ImageLoaderService: ObservableObject {
     @Published var image: UIImage = UIImage()
+    @Published var invalidImage = true
     
     func loadImage(for urlString: String) {
         guard let url = URL(string: urlString) else { return }
@@ -18,6 +19,7 @@ class ImageLoaderService: ObservableObject {
             guard let data = data else { return }
             DispatchQueue.main.async {
                 self.image = UIImage(data: data) ?? UIImage()
+                self.invalidImage = false
             }
         }
         task.resume()

@@ -51,8 +51,8 @@ struct CameraScreen : View {
                         }
                         
                         if self.isImagePicked {
-                            Color.black
-                            image?.resizable().scaledToFit()
+                            Color("BackgroundColor")
+                            image?.resizable().scaledToFit().frame(width: 300)
                         }
                     }
                 }
