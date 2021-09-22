@@ -64,7 +64,6 @@ class CelebrityRecognition : ObservableObject {
                             link = https+link
                         }
                         
-                        // COME BACK AND FIX EDGE CASES FOR FAILURE: BAD LINK, ETC.
                         self.retrieveImageURL(wikidataLink) {
                             urlLink in
                             let recognizedCeleb = RecognizedCelebrity(name: celeb.name!, confidence: celeb.matchConfidence!,  url: link, imageURL: urlLink)
@@ -102,11 +101,12 @@ class CelebrityRecognition : ObservableObject {
         
         if let range = link.range(of: "Q") {
             let qCode = "Q"+link[range.upperBound...]
-            //print(qCode)
             
             let urlStr = "https://www.wikidata.org/w/api.php?action=wbgetclaims&property=P18&entity=\(qCode)&format=json"
-            let url = URL(string: urlStr)!
-            //print(url)
+            guard let url = URL(string: urlStr) else {
+                imageURLCompletion(finalURL)
+                return
+            }
 
             let task = URLSession.shared.dataTask(with: url) {
                 (data, response, error) in
@@ -116,38 +116,43 @@ class CelebrityRecognition : ObservableObject {
                     return
                     
                 }
-                
-                let json = try? JSONSerialization.jsonObject(with: safeData, options: [])
-                
-                guard let dictionary = json as? [String:Any] else {
+                do{
+                    let json = try JSONSerialization.jsonObject(with: safeData, options: [])
+                    guard let dictionary = json as? [String:Any] else {
+                        imageURLCompletion(finalURL)
+                        return}
+                    guard let claims = dictionary["claims"] as? JSONDictionary else {
+                        imageURLCompletion(finalURL)
+                        return}
+                    guard let p18 = claims["P18"] as? NSArray else {
+                        imageURLCompletion(finalURL)
+                        return}
+                    guard let dictId = p18[0] as? JSONDictionary else {
+                        imageURLCompletion(finalURL)
+                        return}
+                    guard let mainsnak = dictId["mainsnak"] as? JSONDictionary else {
+                        imageURLCompletion(finalURL)
+                        return}
+                    guard let dataValue = mainsnak["datavalue"] as? JSONDictionary else {
+                        imageURLCompletion(finalURL)
+                        return}
+                    guard let initialString = dataValue["value"] as? String else {
+                        imageURLCompletion(finalURL)
+                        return}
+                    
+                    let replacedString = initialString.replacingOccurrences(of: " ", with: "_")
+                    let md5Data = MD5(string: replacedString)
+                    let md5Hex =  md5Data.map { String(format: "%02hhx", $0) }.joined()
+                    finalURL = "https://upload.wikimedia.org/wikipedia/commons/\(md5Hex[0])/\(md5Hex[0])\(md5Hex[1])/\(replacedString)"
+                    
+                    
+                    // How can I make sure that this completion handler always return something even if there is an error
                     imageURLCompletion(finalURL)
-                    return}
-                guard let claims = dictionary["claims"] as? JSONDictionary else {
+                }
+                catch{
                     imageURLCompletion(finalURL)
-                    return}
-                guard let p18 = claims["P18"] as? NSArray else {
-                    imageURLCompletion(finalURL)
-                    return}
-                guard let dictId = p18[0] as? JSONDictionary else {
-                    imageURLCompletion(finalURL)
-                    return}
-                guard let mainsnak = dictId["mainsnak"] as? JSONDictionary else {
-                    imageURLCompletion(finalURL)
-                    return}
-                guard let dataValue = mainsnak["datavalue"] as? JSONDictionary else {
-                    imageURLCompletion(finalURL)
-                    return}
-                guard let initialString = dataValue["value"] as? String else {
-                    imageURLCompletion(finalURL)
-                    return}
-                let replacedString = initialString.replacingOccurrences(of: " ", with: "_")
-                let md5Data = MD5(string: replacedString)
-                let md5Hex =  md5Data.map { String(format: "%02hhx", $0) }.joined()
-                finalURL = "https://upload.wikimedia.org/wikipedia/commons/\(md5Hex[0])/\(md5Hex[0])\(md5Hex[1])/\(replacedString)"
-                
-                
-                // How can I make sure that this completion handler always return something even if there is an error
-                imageURLCompletion(finalURL)
+                    return
+                }
                 
             }
             
