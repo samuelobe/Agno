@@ -38,6 +38,7 @@
 		E945B92326F624A00071DD0B /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = E945B92226F624A00071DD0B /* Helpers.swift */; };
 		E945B92626F64BDC0071DD0B /* BetterSafariView in Frameworks */ = {isa = PBXBuildFile; productRef = E945B92526F64BDC0071DD0B /* BetterSafariView */; };
 		E945B92826F65B2F0071DD0B /* CameraPermission.swift in Sources */ = {isa = PBXBuildFile; fileRef = E945B92726F65B2F0071DD0B /* CameraPermission.swift */; };
+		E9D55D0126FBCFD200CCF01C /* CelebrityCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9D55D0026FBCFD200CCF01C /* CelebrityCellViewModel.swift */; };
 		E9FD64D226F7DB4500CD0AC1 /* ImageLoaderService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9FD64D126F7DB4500CD0AC1 /* ImageLoaderService.swift */; };
 /* End PBXBuildFile section */
 
@@ -76,6 +77,7 @@
 		E938210026EC040B00F76BFA /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		E945B92226F624A00071DD0B /* Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helpers.swift; sourceTree = "<group>"; };
 		E945B92726F65B2F0071DD0B /* CameraPermission.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraPermission.swift; sourceTree = "<group>"; };
+		E9D55D0026FBCFD200CCF01C /* CelebrityCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CelebrityCellViewModel.swift; sourceTree = "<group>"; };
 		E9FD64D126F7DB4500CD0AC1 /* ImageLoaderService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageLoaderService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -141,6 +143,7 @@
 			isa = PBXGroup;
 			children = (
 				3D0762A726D979F400031C57 /* CelebrityListViewModel.swift */,
+				E9D55D0026FBCFD200CCF01C /* CelebrityCellViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -490,6 +493,7 @@
 				E91594EC26F37E7F00785848 /* LoadingIndicator.swift in Sources */,
 				E945B92826F65B2F0071DD0B /* CameraPermission.swift in Sources */,
 				3DB7A96026CEFA360086F644 /* CameraPreview.swift in Sources */,
+				E9D55D0126FBCFD200CCF01C /* CelebrityCellViewModel.swift in Sources */,
 				3DD1E0A526D2E13500E5CCAD /* APIConstants.swift in Sources */,
 				3DB7A95C26CEC5F00086F644 /* CameraScreen.swift in Sources */,
 				3DB7A94526CE9C790086F644 /* ContentView.swift in Sources */,

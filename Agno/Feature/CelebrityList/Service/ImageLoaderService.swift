@@ -8,18 +8,23 @@
 import Foundation
 import SwiftUI
 
-class ImageLoaderService: ObservableObject {
-    @Published var image: UIImage = UIImage()
-    @Published var invalidImage = true
+class ImageLoaderService {
     
-    func loadImage(for urlString: String) {
-        guard let url = URL(string: urlString) else { return }
+    func loadImage(_ urlString: String, completionHandler: @escaping (UIImage) -> Void ) {
+        guard let url = URL(string: urlString.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!) else {
+            completionHandler(UIImage())
+            return }
         
         let task = URLSession.shared.dataTask(with: url) { data, response, error in
-            guard let data = data else { return }
+            if let error = error {
+                print(error)
+            }
+            guard let data = data else {
+                completionHandler(UIImage())
+                return }
             DispatchQueue.main.async {
-                self.image = UIImage(data: data) ?? UIImage()
-                self.invalidImage = false
+                
+                completionHandler(UIImage(data: data) ?? UIImage())
             }
         }
         task.resume()

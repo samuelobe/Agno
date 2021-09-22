@@ -12,7 +12,7 @@ struct CelebrityCell: View {
     let celeb : RecognizedCelebrity
     @State private var presentingSafariView = false
     
-    @StateObject var imageLoader = ImageLoaderService()
+    @StateObject var cellViewModel = CelebrityCellViewModel(loaderService: ImageLoaderService())
     
     var body: some View {
         Button(action: {
@@ -20,43 +20,67 @@ struct CelebrityCell: View {
             
         }){
             ZStack {
-                if !self.imageLoader.invalidImage {
-                    Image(uiImage: self.imageLoader.image)
-                        .resizable()
-                        .scaledToFill()
-                        .foregroundColor(.white)
-                        .frame(width: 150, height: 225)
-                        .clipped()
-                        .overlay(Text(celeb.name)
-                        .foregroundColor(.white)
-                        .font(.caption2)
-                        .bold()
-                        .padding()
-                        .lineLimit(1)
-                        .frame(minWidth: 0, maxWidth: .infinity)
-                        .background(
-                        Blur(style: .systemUltraThinMaterialDark)), alignment: .bottom)
-                } else {
-                    Image(systemName: "person.fill")
-                        .resizable()
-                        .foregroundColor(.white)
-                        .scaledToFit()
-                        .frame(width: 150, height: 225)
-                        .overlay(Text(celeb.name)
-                        .foregroundColor(.white)
-                        .font(.caption2)
-                        .bold()
-                        .padding()
-                        .lineLimit(1)
-                        .frame(minWidth: 0, maxWidth: .infinity)
-                        .background(
-                        Blur(style: .systemUltraThinMaterialDark)), alignment: .bottom)
+                if !self.cellViewModel.isLoaded {
+                    ZStack {
+                        Color.gray
+                        ProgressView()
+                            .progressViewStyle(CircularProgressViewStyle(tint: .white))
+                            .frame(width: 150, height: 225)
+                            .overlay(Text(celeb.name)
+                                .foregroundColor(.white)
+                                .font(.caption2)
+                                .bold()
+                                .padding()
+                                .lineLimit(1)
+                                .frame(minWidth: 0, maxWidth: .infinity)
+                                .background(
+                                Blur(style: .systemUltraThinMaterialDark)), alignment: .bottom)
+                    }.frame(width: 150, height: 225)
                 }
+                else {
+                    if !self.cellViewModel.invalidImage {
+                        Image(uiImage: self.cellViewModel.image)
+                            .resizable()
+                            .scaledToFill()
+                            .foregroundColor(.white)
+                            .frame(width: 150, height: 225)
+                            .clipped()
+                            .overlay(Text(celeb.name)
+                            .foregroundColor(.white)
+                            .font(.caption2)
+                            .bold()
+                            .padding()
+                            .lineLimit(1)
+                            .frame(minWidth: 0, maxWidth: .infinity)
+                            .background(
+                            Blur(style: .systemUltraThinMaterialDark)), alignment: .bottom)
+                    } else {
+                        Image(systemName: "person.fill")
+                            .resizable()
+                            .foregroundColor(.white)
+                            .scaledToFit()
+                            .frame(width: 150, height: 225)
+//                            .overlay(RoundedRectangle(cornerRadius: 15)
+//                                .stroke(.gray, lineWidth: 3)
+//                            )
+                            .background(Color.gray)
+                            .overlay(Text(celeb.name)
+                            .foregroundColor(.white)
+                            .font(.caption2)
+                            .bold()
+                            .padding()
+                            .lineLimit(1)
+                            .frame(minWidth: 0, maxWidth: .infinity)
+                            .background(
+                            Blur(style: .systemUltraThinMaterialDark)), alignment: .bottom)
+                    }
+                }
+                
                 
             }.cornerRadius(15)
         }
         .onAppear {
-            imageLoader.loadImage(for: celeb.imageURL)
+            cellViewModel.retrieveImage(for: celeb.imageURL)
         }
         .if(celeb.url != "") {
             view in view.safariView(isPresented: $presentingSafariView) {
@@ -78,6 +102,6 @@ struct CelebrityCell: View {
 
 struct CelebrityCell_Previews: PreviewProvider {
     static var previews: some View {
-        CelebrityCell(celeb: RecognizedCelebrity(name: "Steve Carell", confidence: NSNumber.init(value: 99.99999), url: "", imageURL: "")).preferredColorScheme(.dark)
+        CelebrityCell(celeb: RecognizedCelebrity(name: "Steve Carell", confidence: NSNumber.init(value: 99.99999), url: "", imageURL: ""), cellViewModel: CelebrityCellViewModel(loaderService: ImageLoaderService())).preferredColorScheme(.dark)
     }
 }
