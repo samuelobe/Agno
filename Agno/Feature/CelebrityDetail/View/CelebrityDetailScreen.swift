@@ -59,7 +59,7 @@ struct CelebrityDetailScreen: View {
                         Spacer()
                     }.padding(.horizontal)
                 }
-            }.fixFlickering()
+            }
         }.preferredColorScheme(.dark)
     }
 }

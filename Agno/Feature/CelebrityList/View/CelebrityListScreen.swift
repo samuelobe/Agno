@@ -26,14 +26,14 @@ struct CelebrityListScreen: View {
 
                             }
                         }
-                    }.fixFlickering()
+                    }
                 }
                 else {
                     if !celebModel.alert {
                         LoadingIndicator()
                     }
                     else {
-                        Text("No celebrity faces found in picture")
+                        Text("No celebrity faces found in image")
                     }
                     
                 }
@@ -46,6 +46,10 @@ struct CelebrityListScreen: View {
             }
         })
             .preferredColorScheme(.dark)
+            .navigationBarTitleDisplayMode(.inline)
+            .navigationTitle("Celebrities")
+            
+            
         
     }
 }

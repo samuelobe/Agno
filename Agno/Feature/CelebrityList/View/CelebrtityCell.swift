@@ -30,7 +30,7 @@ struct CelebrityCell: View {
                                 .foregroundColor(.white)
                                 .font(.caption2)
                                 .bold()
-                                .padding()
+                                .padding(.vertical, 10)
                                 .lineLimit(1)
                                 .frame(minWidth: 0, maxWidth: .infinity)
                                 .background(
@@ -60,9 +60,6 @@ struct CelebrityCell: View {
                             .foregroundColor(.white)
                             .scaledToFit()
                             .frame(width: 150, height: 225)
-//                            .overlay(RoundedRectangle(cornerRadius: 15)
-//                                .stroke(.gray, lineWidth: 3)
-//                            )
                             .background(Color.gray)
                             .overlay(Text(celeb.name)
                             .foregroundColor(.white)

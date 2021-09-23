@@ -121,6 +121,7 @@
 		3D0762A426D979BF00031C57 /* CelebrityList */ = {
 			isa = PBXGroup;
 			children = (
+				3D0762A226D88B2200031C57 /* Model */,
 				E9FD64D026F7DB3100CD0AC1 /* Service */,
 				3D0762AA26D97A5500031C57 /* ViewModel */,
 				3D0762A926D97A5100031C57 /* View */,
@@ -152,7 +153,6 @@
 			isa = PBXGroup;
 			children = (
 				3D0762A326D88B4A00031C57 /* Service */,
-				3D0762A226D88B2200031C57 /* Model */,
 			);
 			path = CelebrityRecogniton;
 			sourceTree = "<group>";
