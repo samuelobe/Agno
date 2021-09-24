@@ -30,7 +30,7 @@ struct CameraPreview : UIViewRepresentable {
     }
     
     func updateUIView(_ uiView: UIViewType, context: Context) {
-        
+
     }
     
     

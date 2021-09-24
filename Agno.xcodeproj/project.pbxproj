@@ -33,6 +33,7 @@
 		E91594F026F4CE6600785848 /* WelcomeCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = E91594EF26F4CE6600785848 /* WelcomeCard.swift */; };
 		E91594F326F5112400785848 /* LaunchSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = E91594F226F5112400785848 /* LaunchSettings.swift */; };
 		E91594F526F541F500785848 /* PhotoPreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = E91594F426F541F500785848 /* PhotoPreview.swift */; };
+		E926464C26FE8A17003D0D3F /* SettingsScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = E926464B26FE8A17003D0D3F /* SettingsScreen.swift */; };
 		E931628826ED64A900E58611 /* Blur.swift in Sources */ = {isa = PBXBuildFile; fileRef = E931628726ED64A900E58611 /* Blur.swift */; };
 		E938210126EC040B00F76BFA /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E938210026EC040B00F76BFA /* Extensions.swift */; };
 		E945B92326F624A00071DD0B /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = E945B92226F624A00071DD0B /* Helpers.swift */; };
@@ -73,6 +74,7 @@
 		E91594EF26F4CE6600785848 /* WelcomeCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeCard.swift; sourceTree = "<group>"; };
 		E91594F226F5112400785848 /* LaunchSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchSettings.swift; sourceTree = "<group>"; };
 		E91594F426F541F500785848 /* PhotoPreview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoPreview.swift; sourceTree = "<group>"; };
+		E926464B26FE8A17003D0D3F /* SettingsScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsScreen.swift; sourceTree = "<group>"; };
 		E931628726ED64A900E58611 /* Blur.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Blur.swift; sourceTree = "<group>"; };
 		E938210026EC040B00F76BFA /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		E945B92226F624A00071DD0B /* Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helpers.swift; sourceTree = "<group>"; };
@@ -251,6 +253,7 @@
 		3DD1E0A126D2DF9200E5CCAD /* Feature */ = {
 			isa = PBXGroup;
 			children = (
+				E926464A26FE89F9003D0D3F /* Settings */,
 				3D0762A426D979BF00031C57 /* CelebrityList */,
 				3D566FB026D4056B00D69502 /* CelebrityRecogniton */,
 				3DD1E0A626D2E2A600E5CCAD /* Camera */,
@@ -326,6 +329,14 @@
 				97CAB587BB761E3890E9C0DD /* Pods-Agno.release.xcconfig */,
 			);
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		E926464A26FE89F9003D0D3F /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				E926464B26FE8A17003D0D3F /* SettingsScreen.swift */,
+			);
+			path = Settings;
 			sourceTree = "<group>";
 		};
 		E93820FF26EC03F800F76BFA /* Extensions */ = {
@@ -481,6 +492,7 @@
 				3D0762A626D979DF00031C57 /* CelebrityListScreen.swift in Sources */,
 				E945B92326F624A00071DD0B /* Helpers.swift in Sources */,
 				3DB7A94326CE9C790086F644 /* SceneDelegate.swift in Sources */,
+				E926464C26FE8A17003D0D3F /* SettingsScreen.swift in Sources */,
 				3DB7A97B26D0445E0086F644 /* CelebrityDetailViewModel.swift in Sources */,
 				E91594F026F4CE6600785848 /* WelcomeCard.swift in Sources */,
 				E9FD64D226F7DB4500CD0AC1 /* ImageLoaderService.swift in Sources */,

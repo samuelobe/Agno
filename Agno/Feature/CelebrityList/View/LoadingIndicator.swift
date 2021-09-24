@@ -26,7 +26,7 @@ struct LoadingIndicator: View {
             .frame(width: 125, height: 125, alignment: .center)
                 .drawingGroup()
                 .onAppear() {
-                    withAnimation(.linear(duration: 1).repeatForever(autoreverses: false)) {
+                    withAnimation(.linear(duration: 0.75).repeatForever(autoreverses: false)) {
                         self.isLoading.toggle()
                     }
             }

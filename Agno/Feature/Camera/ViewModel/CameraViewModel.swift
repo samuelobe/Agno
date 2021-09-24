@@ -32,13 +32,13 @@ class CameraViewModel: NSObject, ObservableObject {
     func check(){
         switch AVCaptureDevice.authorizationStatus(for: .video) {
             case .authorized:
-                setUp()
+                setUp(cameraFlipRequested: false)
                 return
             case .notDetermined:
                 AVCaptureDevice.requestAccess(for: .video, completionHandler: {
                     (status) in
                     if status {
-                        self.setUp()
+                        self.setUp(cameraFlipRequested: false)
                     }
                     else {
                         self.alert.toggle()
@@ -54,12 +54,13 @@ class CameraViewModel: NSObject, ObservableObject {
             }
     }
     
-    func setUp(){
+    func setUp(cameraFlipRequested : Bool){
         do {
+            
             self.session.beginConfiguration()
             self.session.sessionPreset = .high
             
-            guard let backCamera = AVCaptureDevice.default(.builtInWideAngleCamera, for: .video, position: .back )
+            guard let backCamera = AVCaptureDevice.default(.builtInWideAngleCamera, for: .video, position: .front )
             else {
                 self.alert.toggle()
                 print("Unable to access back camera!")
@@ -82,6 +83,7 @@ class CameraViewModel: NSObject, ObservableObject {
             
             
         } catch  {
+            self.alert.toggle()
             print(error.localizedDescription)
         }
     }
@@ -114,6 +116,12 @@ class CameraViewModel: NSObject, ObservableObject {
         }
         
     }
+    
+//    func flipCamera(){
+//        self.stopCamera()
+//        self.isFrontCamera.toggle()
+//        self.setUp(cameraFlipRequested: true)
+//    }
     
     func toggleTorch(on: Bool) {
         guard let device = AVCaptureDevice.default(for: .video) else { return }

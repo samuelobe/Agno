@@ -19,16 +19,16 @@ struct CameraBar: View {
             Color.black.frame(height: 85, alignment: .center).opacity(0.75)
             HStack{
                 Button(action: leftButtonAction, label: {
-                    Image(systemName: leftButtonIcon).font(.system(size: 27.0)).foregroundColor(.white)
+                    Image(systemName: leftButtonIcon).font(.title).foregroundColor(.white)
                 }).padding(.leading, 40)
                 Spacer()
                 if isCheck {
-                    Text("Is this photo acceptable?").bold()
+                    Text("Is this image acceptable?").font(.caption).bold()
                     Spacer()
                 }
 
                 Button(action: rightButtonAction, label: {
-                    Image(systemName: rightButtonIcon).font(.system(size: 27.0)).foregroundColor(.white)
+                    Image(systemName: rightButtonIcon).font(.title).foregroundColor(.white)
                 }).padding(.trailing, 40)
             }
         }

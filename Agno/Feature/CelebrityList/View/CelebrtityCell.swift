@@ -74,7 +74,7 @@ struct CelebrityCell: View {
                 }
                 
                 
-            }.cornerRadius(15)
+            }.cornerRadius(15).padding(.top, 15)
         }
         .onAppear {
             cellViewModel.retrieveImage(for: celeb.imageURL)

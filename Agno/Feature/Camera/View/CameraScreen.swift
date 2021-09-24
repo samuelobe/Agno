@@ -15,9 +15,12 @@ struct CameraScreen : View {
     
     @State private var action: Int? = 0
     @State private var image: Image? = nil
+    
     @State private var isFlashOn = false
     @State private var isImagePicked = false
     @State private var isShowPhotoLibrary = false
+    @State private var isSettings = false
+    
     
     var isSim = Platform.isSimulator
     
@@ -52,11 +55,19 @@ struct CameraScreen : View {
                         
                         if self.isImagePicked {
                             Color("BackgroundColor")
-                            image?.resizable().scaledToFit().frame(width: 300)
+                            image?.resizable().scaledToFit().frame(width: 250)
                         }
                     }
                 }
+                
                 VStack{
+                    HStack {
+                        Spacer()
+                        Button(action: {self.isSettings.toggle()}){
+                            Image(systemName: "gearshape.fill").foregroundColor(.white).font(.title).padding()
+                        }
+                        
+                    }.padding(EdgeInsets(top: 50, leading: 0, bottom: 0, trailing: 15))
                     Spacer()
                     if self.camera.isPhotoTaken || self.isImagePicked  {
                         CameraBar(leftButtonIcon: "checkmark.square.fill", rightButtonIcon: "clear.fill", leftButtonAction: {
@@ -79,6 +90,9 @@ struct CameraScreen : View {
                         }, isCheck: false)
                     }
                 }
+                
+               
+                
                 if !self.camera.isPhotoTaken && !self.isImagePicked && !self.camera.alert  {
                     CameraButton(action: {
                         self.camera.takePic()
@@ -87,6 +101,8 @@ struct CameraScreen : View {
                         })
                     })
                 }
+                
+
             }.onAppear(perform: {
                 if !self.camera.isChecked {
                     self.camera.check()
@@ -99,7 +115,7 @@ struct CameraScreen : View {
                 }
                 
             })
-                .navigationBarBackButtonHidden(true)
+                .navigationBarHidden(true)
                 .ignoresSafeArea(.all ,edges: .all)
                 .onReceive(NotificationCenter.default.publisher(for: UIApplication.willResignActiveNotification )) {
                     _ in
@@ -138,6 +154,9 @@ struct CameraScreen : View {
                 self.isImagePicked = true
                 self.camera.stopCamera()
             })
+        }
+        .sheet(isPresented: $isSettings ) {
+            SettingsScreen()
         }
     }
     
