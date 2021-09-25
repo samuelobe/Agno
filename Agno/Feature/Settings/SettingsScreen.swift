@@ -18,7 +18,10 @@ struct SettingsScreen: View {
                     Text("Content in Settings")
                 }
                 .navigationBarTitle("Settings", displayMode: .inline )
-                .navigationBarItems(trailing: Button(action: {self.presentationMode.wrappedValue.dismiss()}) {
+                .navigationBarItems(trailing: Button(action: {
+                    self.presentationMode.wrappedValue.dismiss()
+                    
+                }) {
                     Text("Done").bold()
                 })
             }.ignoresSafeArea()

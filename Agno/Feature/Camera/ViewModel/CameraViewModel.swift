@@ -60,7 +60,7 @@ class CameraViewModel: NSObject, ObservableObject {
             self.session.beginConfiguration()
             self.session.sessionPreset = .high
             
-            guard let backCamera = AVCaptureDevice.default(.builtInWideAngleCamera, for: .video, position: .front )
+            guard let backCamera = AVCaptureDevice.default(.builtInWideAngleCamera, for: .video, position: .back )
             else {
                 self.alert.toggle()
                 print("Unable to access back camera!")
@@ -117,11 +117,7 @@ class CameraViewModel: NSObject, ObservableObject {
         
     }
     
-//    func flipCamera(){
-//        self.stopCamera()
-//        self.isFrontCamera.toggle()
-//        self.setUp(cameraFlipRequested: true)
-//    }
+
     
     func toggleTorch(on: Bool) {
         guard let device = AVCaptureDevice.default(for: .video) else { return }

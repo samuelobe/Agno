@@ -55,7 +55,7 @@ struct CameraScreen : View {
                         
                         if self.isImagePicked {
                             Color("BackgroundColor")
-                            image?.resizable().scaledToFit().frame(width: 250)
+                            image?.resizable().scaledToFit().frame(width: 250).cornerRadius(15).padding()
                         }
                     }
                 }
@@ -63,11 +63,15 @@ struct CameraScreen : View {
                 VStack{
                     HStack {
                         Spacer()
-                        Button(action: {self.isSettings.toggle()}){
-                            Image(systemName: "gearshape.fill").foregroundColor(.white).font(.title).padding()
+                        Button(action: {
+                            self.turnOffTorch()
+                            self.camera.stopCamera()
+                            self.isSettings.toggle()
+                        }){
+                            Image(systemName: "gearshape").foregroundColor(.white).font(.title).padding()
                         }
                         
-                    }.padding(EdgeInsets(top: 50, leading: 0, bottom: 0, trailing: 15))
+                    }.padding(EdgeInsets(top: 40, leading: 0, bottom: 0, trailing: 0))
                     Spacer()
                     if self.camera.isPhotoTaken || self.isImagePicked  {
                         CameraBar(leftButtonIcon: "checkmark.square.fill", rightButtonIcon: "clear.fill", leftButtonAction: {
@@ -91,7 +95,7 @@ struct CameraScreen : View {
                     }
                 }
                 
-               
+                
                 
                 if !self.camera.isPhotoTaken && !self.isImagePicked && !self.camera.alert  {
                     CameraButton(action: {
@@ -102,7 +106,7 @@ struct CameraScreen : View {
                     })
                 }
                 
-
+                
             }.onAppear(perform: {
                 if !self.camera.isChecked {
                     self.camera.check()
@@ -115,28 +119,28 @@ struct CameraScreen : View {
                 }
                 
             })
-                .navigationBarHidden(true)
-                .ignoresSafeArea(.all ,edges: .all)
-                .onReceive(NotificationCenter.default.publisher(for: UIApplication.willResignActiveNotification )) {
-                    _ in
-                    print("moving to background")
-                    if !camera.isPhotoTaken {
-                        DispatchQueue.main.async {
-                            self.turnOffTorch()
-                            self.camera.stopCamera()
-                        }
-                        
+            .navigationBarHidden(true)
+            .ignoresSafeArea(.all ,edges: .all)
+            .onReceive(NotificationCenter.default.publisher(for: UIApplication.willResignActiveNotification )) {
+                _ in
+                print("moving to background")
+                if !camera.isPhotoTaken {
+                    DispatchQueue.main.async {
+                        self.turnOffTorch()
+                        self.camera.stopCamera()
+                    }
+                    
+                }
+            }
+            .onReceive(NotificationCenter.default.publisher(for: UIApplication.didBecomeActiveNotification )) {
+                _ in
+                print("user returned to app")
+                if !camera.isPhotoTaken {
+                    DispatchQueue.main.async {
+                        self.camera.startCamera()
                     }
                 }
-                .onReceive(NotificationCenter.default.publisher(for: UIApplication.didBecomeActiveNotification )) {
-                    _ in
-                    print("user returned to app")
-                    if !camera.isPhotoTaken {
-                        DispatchQueue.main.async {
-                            self.camera.startCamera()
-                        }
-                    }
-                }
+            }
             if !launch.didLaunchBefore {
                 WelcomeCard(action: {launch.didLaunchBefore.toggle()})
             }
@@ -155,7 +159,9 @@ struct CameraScreen : View {
                 self.camera.stopCamera()
             })
         }
-        .sheet(isPresented: $isSettings ) {
+        .sheet(isPresented: $isSettings, onDismiss: {
+            self.camera.startCamera()
+        } ) {
             SettingsScreen()
         }
     }
