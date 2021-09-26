@@ -81,7 +81,7 @@ struct CameraScreen : View {
                             self.isImagePicked = false
                             self.camera.resetCamera()
                             
-                        }, isCheck: true)
+                        }, isCheck: true).disabled(!launch.didLaunchBefore)
                     }
                     else {
                         CameraBar(leftButtonIcon: "photo.fill", rightButtonIcon: self.isFlashOn ? "bolt.slash.fill" : "bolt.fill", leftButtonAction: {
@@ -91,7 +91,7 @@ struct CameraScreen : View {
                             
                         }, rightButtonAction: {
                             self.toggleTorch()
-                        }, isCheck: false)
+                        }, isCheck: false).disabled(!launch.didLaunchBefore)
                     }
                 }
                 
@@ -103,7 +103,7 @@ struct CameraScreen : View {
                         DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(1), execute: {
                             self.turnOffTorch()
                         })
-                    })
+                    }).disabled(!launch.didLaunchBefore)
                 }
                 
                 
