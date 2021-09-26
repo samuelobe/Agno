@@ -10,6 +10,7 @@ import SwiftUI
 struct CelebrityListScreen: View {
     @EnvironmentObject var celebModel : CelebrityListViewModel
     @EnvironmentObject var cameraModel : CameraViewModel
+
     
     
     private let gridItems = [GridItem(.flexible()), GridItem(.flexible())]

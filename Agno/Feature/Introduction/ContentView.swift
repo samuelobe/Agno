@@ -12,6 +12,7 @@ struct ContentView: View {
     @StateObject var camera = CameraViewModel()
     @StateObject var celeb = CelebrityListViewModel(recognitionAWS: CelebrityRecognition())
     @StateObject var launch = LaunchSettings()
+    @StateObject var settings = SettingsViewModel()
     
     var body: some View {
         NavigationView {
@@ -30,7 +31,7 @@ struct ContentView: View {
             UINavigationController.attemptRotationToDeviceOrientation()
         }
         
-        .preferredColorScheme(.dark).environmentObject(camera).environmentObject(celeb).edgesIgnoringSafeArea(.all).navigationViewStyle(.stack)
+        .preferredColorScheme(.dark).environmentObject(camera).environmentObject(celeb).environmentObject(settings).edgesIgnoringSafeArea(.all).navigationViewStyle(.stack)
     }
 }
 
