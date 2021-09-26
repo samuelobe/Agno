@@ -98,8 +98,7 @@ struct CelebrityText: View {
                     .font(.caption2)
             }
         }
-        
-        .padding()
+        .padding(12)
         .background(
             Blur(style: .systemUltraThinMaterialDark))
     }
