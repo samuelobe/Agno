@@ -34,6 +34,8 @@
 		E91594F326F5112400785848 /* LaunchSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = E91594F226F5112400785848 /* LaunchSettings.swift */; };
 		E91594F526F541F500785848 /* PhotoPreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = E91594F426F541F500785848 /* PhotoPreview.swift */; };
 		E926464C26FE8A17003D0D3F /* SettingsScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = E926464B26FE8A17003D0D3F /* SettingsScreen.swift */; };
+		E9294EB62700E6D000C50D84 /* GoogleMobileAds in Frameworks */ = {isa = PBXBuildFile; productRef = E9294EB52700E6D000C50D84 /* GoogleMobileAds */; };
+		E9294EB92700E99C00C50D84 /* AdView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9294EB82700E99C00C50D84 /* AdView.swift */; };
 		E931628826ED64A900E58611 /* Blur.swift in Sources */ = {isa = PBXBuildFile; fileRef = E931628726ED64A900E58611 /* Blur.swift */; };
 		E938210126EC040B00F76BFA /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E938210026EC040B00F76BFA /* Extensions.swift */; };
 		E945B92326F624A00071DD0B /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = E945B92226F624A00071DD0B /* Helpers.swift */; };
@@ -76,6 +78,7 @@
 		E91594F226F5112400785848 /* LaunchSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchSettings.swift; sourceTree = "<group>"; };
 		E91594F426F541F500785848 /* PhotoPreview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoPreview.swift; sourceTree = "<group>"; };
 		E926464B26FE8A17003D0D3F /* SettingsScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsScreen.swift; sourceTree = "<group>"; };
+		E9294EB82700E99C00C50D84 /* AdView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdView.swift; sourceTree = "<group>"; };
 		E931628726ED64A900E58611 /* Blur.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Blur.swift; sourceTree = "<group>"; };
 		E938210026EC040B00F76BFA /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		E945B92226F624A00071DD0B /* Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helpers.swift; sourceTree = "<group>"; };
@@ -90,6 +93,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E9294EB62700E6D000C50D84 /* GoogleMobileAds in Frameworks */,
 				7876922469F1D927A8E4954F /* Pods_Agno.framework in Frameworks */,
 				E945B92626F64BDC0071DD0B /* BetterSafariView in Frameworks */,
 			);
@@ -255,6 +259,7 @@
 		3DD1E0A126D2DF9200E5CCAD /* Feature */ = {
 			isa = PBXGroup;
 			children = (
+				E9294EB72700E98C00C50D84 /* Advertisement */,
 				E926464A26FE89F9003D0D3F /* Settings */,
 				3D0762A426D979BF00031C57 /* CelebrityList */,
 				3D566FB026D4056B00D69502 /* CelebrityRecogniton */,
@@ -342,6 +347,14 @@
 			path = Settings;
 			sourceTree = "<group>";
 		};
+		E9294EB72700E98C00C50D84 /* Advertisement */ = {
+			isa = PBXGroup;
+			children = (
+				E9294EB82700E99C00C50D84 /* AdView.swift */,
+			);
+			path = Advertisement;
+			sourceTree = "<group>";
+		};
 		E93820FF26EC03F800F76BFA /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
@@ -402,6 +415,7 @@
 			name = Agno;
 			packageProductDependencies = (
 				E945B92526F64BDC0071DD0B /* BetterSafariView */,
+				E9294EB52700E6D000C50D84 /* GoogleMobileAds */,
 			);
 			productName = Agno;
 			productReference = 3DB7A93D26CE9C790086F644 /* Agno.app */;
@@ -432,6 +446,7 @@
 			mainGroup = 3DB7A93426CE9C790086F644;
 			packageReferences = (
 				E945B92426F64BDC0071DD0B /* XCRemoteSwiftPackageReference "BetterSafariView" */,
+				E9294EB42700E6D000C50D84 /* XCRemoteSwiftPackageReference "GoogleMobileAds" */,
 			);
 			productRefGroup = 3DB7A93E26CE9C790086F644 /* Products */;
 			projectDirPath = "";
@@ -518,6 +533,7 @@
 				E931628826ED64A900E58611 /* Blur.swift in Sources */,
 				3DD1E09D26D2DA9C00E5CCAD /* CelebrityService.swift in Sources */,
 				3D20A94226DEC3B400FDEB22 /* CameraButton.swift in Sources */,
+				E9294EB92700E99C00C50D84 /* AdView.swift in Sources */,
 				E91594F526F541F500785848 /* PhotoPreview.swift in Sources */,
 				E9CA1BFF2700AD9200809C78 /* SettingsViewModel.swift in Sources */,
 				3D0762A826D979F400031C57 /* CelebrityListViewModel.swift in Sources */,
@@ -604,6 +620,7 @@
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
+				OTHER_LDFLAGS = "-ObjC";
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -658,6 +675,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
+				OTHER_LDFLAGS = "-ObjC";
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
@@ -673,7 +691,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"Agno/Preview Content\"";
-				DEVELOPMENT_TEAM = BD28NRDFP3;
+				DEVELOPMENT_TEAM = Y65R63Y23T;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = Agno/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
@@ -681,7 +699,8 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.samuelobe.Agno;
+				MARKETING_VERSION = 1.0.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.agno.ayosoftware;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -696,7 +715,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"Agno/Preview Content\"";
-				DEVELOPMENT_TEAM = BD28NRDFP3;
+				DEVELOPMENT_TEAM = Y65R63Y23T;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = Agno/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
@@ -704,7 +723,8 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.samuelobe.Agno;
+				MARKETING_VERSION = 1.0.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.agno.ayosoftware;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -735,6 +755,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		E9294EB42700E6D000C50D84 /* XCRemoteSwiftPackageReference "GoogleMobileAds" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/quanghits/GoogleMobileAds";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 8.0.0;
+			};
+		};
 		E945B92426F64BDC0071DD0B /* XCRemoteSwiftPackageReference "BetterSafariView" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/stleamist/BetterSafariView.git";
@@ -746,6 +774,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		E9294EB52700E6D000C50D84 /* GoogleMobileAds */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E9294EB42700E6D000C50D84 /* XCRemoteSwiftPackageReference "GoogleMobileAds" */;
+			productName = GoogleMobileAds;
+		};
 		E945B92526F64BDC0071DD0B /* BetterSafariView */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = E945B92426F64BDC0071DD0B /* XCRemoteSwiftPackageReference "BetterSafariView" */;

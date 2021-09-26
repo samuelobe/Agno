@@ -41,7 +41,9 @@ class CameraViewModel: NSObject, ObservableObject {
                         self.setUp(cameraFlipRequested: false)
                     }
                     else {
-                        self.alert.toggle()
+                        DispatchQueue.main.async {
+                            self.alert.toggle()
+                        }
                     }
                 })
                 return
@@ -62,7 +64,9 @@ class CameraViewModel: NSObject, ObservableObject {
             
             guard let backCamera = AVCaptureDevice.default(.builtInWideAngleCamera, for: .video, position: .back )
             else {
-                self.alert.toggle()
+                DispatchQueue.main.async {
+                    self.alert.toggle()
+                }
                 print("Unable to access back camera!")
                 return
             }
@@ -83,7 +87,9 @@ class CameraViewModel: NSObject, ObservableObject {
             
             
         } catch  {
-            self.alert.toggle()
+            DispatchQueue.main.async {
+                self.alert.toggle()
+            }
             print(error.localizedDescription)
         }
     }

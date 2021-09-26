@@ -39,6 +39,10 @@ struct CelebrityListScreen: View {
                     
                 }
             }
+            VStack {
+                Spacer()
+                AdView().frame(width: 150, height: 50, alignment: .bottom)
+            }
         }.onAppear(perform: {
             if !Platform.isSimulator && !self.celebModel.didRecieveData {
                 self.celebModel.imageData = self.cameraModel.imageData

@@ -8,6 +8,7 @@
 import UIKit
 import CoreData
 import AWSCore
+import GoogleMobileAds
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -21,6 +22,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let configuration = AWSServiceConfiguration(region:.USWest2, credentialsProvider:credentialsProvider)
         
         AWSServiceManager.default().defaultServiceConfiguration = configuration
+        GADMobileAds.sharedInstance().start(completionHandler: nil)
         
         // Override point for customization after application launch.
         return true
