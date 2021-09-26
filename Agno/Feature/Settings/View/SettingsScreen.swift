@@ -28,9 +28,9 @@ struct SettingsScreen: View {
                             self.presentingSafariView.toggle()
                         }) {
                             HStack {
-                                Text("Privacy Policy")
+                                Text("Privacy Policy").foregroundColor(Color("SectionColor"))
                                 Spacer()
-                                Image(systemName: "chevron.right")
+                                Image(systemName: "chevron.right").foregroundColor(Color("SectionColor"))
                             }
                         }
                         HStack {
@@ -47,7 +47,7 @@ struct SettingsScreen: View {
             .navigationBarItems(trailing: Button(action: {
                 self.presentationMode.wrappedValue.dismiss()
                 
-            }) {Text("Done").bold()})
+            }) {Text("Done").bold().foregroundColor(Color("SectionColor"))})
         }.safariView(isPresented: $presentingSafariView) {
             SafariView(
                 url: URL(string: privacyPolicyLink)!,

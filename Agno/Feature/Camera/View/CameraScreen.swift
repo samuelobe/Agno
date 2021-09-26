@@ -63,15 +63,13 @@ struct CameraScreen : View {
                 VStack{
                     HStack {
                         Spacer()
-                        Button(action: {
+                        SettingsButton(){
                             self.turnOffTorch()
                             self.camera.stopCamera()
                             self.isSettings.toggle()
-                        }){
-                            Image(systemName: "gearshape").foregroundColor(.white).font(.title).padding()
-                        }
+                        }.disabled(!launch.didLaunchBefore)
                         
-                    }.padding(EdgeInsets(top: 40, leading: 0, bottom: 0, trailing: 0))
+                    }.padding(EdgeInsets(top: 50, leading: 0, bottom: 0, trailing: 20))
                     Spacer()
                     if self.camera.isPhotoTaken || self.isImagePicked  {
                         CameraBar(leftButtonIcon: "checkmark.square.fill", rightButtonIcon: "clear.fill", leftButtonAction: {
@@ -98,12 +96,10 @@ struct CameraScreen : View {
                 
                 
                 if !self.camera.isPhotoTaken && !self.isImagePicked && !self.camera.alert  {
-                    CameraButton(action: {
+                    CameraButton(){
                         self.camera.takePic()
-                        DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(1), execute: {
-                            self.turnOffTorch()
-                        })
-                    }).disabled(!launch.didLaunchBefore)
+                        DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(1), execute: {self.turnOffTorch()})
+                    }.disabled(!launch.didLaunchBefore)
                 }
                 
                 
