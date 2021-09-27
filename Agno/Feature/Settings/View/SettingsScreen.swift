@@ -24,7 +24,7 @@ struct SettingsScreen: View {
                         Toggle(isOn: $settings.displayConfidence, label: {Text("Display confidence values")})
                     }
                     Section(header: Text("accessibility"), footer: Text("Swaps the positioning of the \"accept\" and \"deny\" buttons to cater towards left-handed users")) {
-                        Toggle(isOn: $settings.displayConfidence, label: {Text("Left-handed mode")})
+                        Toggle(isOn: $settings.swapButtons, label: {Text("Left-handed mode")})
                     }
                     Section(header: Text("ABOUT")) {
                         Button(action: {

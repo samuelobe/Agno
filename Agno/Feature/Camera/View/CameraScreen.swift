@@ -21,6 +21,7 @@ struct CameraScreen : View {
     @State private var isImagePicked = false
     @State private var isShowPhotoLibrary = false
     @State private var isSettings = false
+
     
     
     var isSim = Platform.isSimulator
@@ -73,14 +74,25 @@ struct CameraScreen : View {
                     }.padding(EdgeInsets(top: 50, leading: 0, bottom: 0, trailing: 20))
                     Spacer()
                     if self.camera.isPhotoTaken || self.isImagePicked  {
-                        CameraBar(leftButtonIcon: "checkmark.square.fill", rightButtonIcon: "clear.fill", leftButtonAction: {
-                            self.isImagePicked = false
-                            self.action = 1
-                        }, rightButtonAction: {
-                            self.isImagePicked = false
-                            self.camera.resetCamera()
-                            
-                        }, isCheck: true).disabled(!launch.didLaunchBefore)
+                        
+                        if self.settings.swapButtons {
+                            CameraBar(leftButtonIcon: "checkmark.square.fill", rightButtonIcon: "clear.fill", leftButtonAction: {
+                                self.isImagePicked = false
+                                self.action = 1
+                            }, rightButtonAction: {
+                                self.isImagePicked = false
+                                self.camera.resetCamera()
+                            }, isCheck: true).disabled(!launch.didLaunchBefore)
+                        }
+                        else {
+                            CameraBar(leftButtonIcon: "clear.fill", rightButtonIcon: "checkmark.square.fill", leftButtonAction: {
+                                self.isImagePicked = false
+                                self.camera.resetCamera()
+                            }, rightButtonAction: {
+                                self.isImagePicked = false
+                                self.action = 1
+                            }, isCheck: true).disabled(!launch.didLaunchBefore)
+                        }
                     }
                     else {
                         CameraBar(leftButtonIcon: "photo.fill", rightButtonIcon: self.isFlashOn ? "bolt.slash.fill" : "bolt.fill", leftButtonAction: {
