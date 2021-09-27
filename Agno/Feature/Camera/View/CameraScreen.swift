@@ -11,6 +11,7 @@ import AVFoundation
 struct CameraScreen : View {
     @EnvironmentObject var camera: CameraViewModel
     @EnvironmentObject var celeb : CelebrityListViewModel
+    @EnvironmentObject var settings : SettingsViewModel
     @ObservedObject var launch : LaunchSettings
     
     @State private var action: Int? = 0
@@ -167,10 +168,15 @@ struct CameraScreen : View {
 struct CameraView_Previews: PreviewProvider {
     static var previews: some View {
         CameraScreen(launch: LaunchSettings(), isSim: true ).environmentObject(CameraViewModel()).environmentObject(CelebrityListViewModel(recognitionAWS: CelebrityRecognition()))
+            .environmentObject(SettingsViewModel())
+            .previewDevice(PreviewDevice(rawValue: "iPhone 8"))
+            .previewDisplayName("iPhone 8")
         CameraScreen(launch: LaunchSettings(), isSim: true ).environmentObject(CameraViewModel()).environmentObject(CelebrityListViewModel(recognitionAWS: CelebrityRecognition()))
+            .environmentObject(SettingsViewModel())
                     .previewDevice(PreviewDevice(rawValue: "iPhone 12"))
                     .previewDisplayName("iPhone 12")
         CameraScreen(launch: LaunchSettings(), isSim: true ).environmentObject(CameraViewModel()).environmentObject(CelebrityListViewModel(recognitionAWS: CelebrityRecognition()))
+            .environmentObject(SettingsViewModel())
             .previewDevice(PreviewDevice(rawValue: "iPhone 12 Pro Max"))
             .previewDisplayName("iPhone 12 Pro Max")
     }

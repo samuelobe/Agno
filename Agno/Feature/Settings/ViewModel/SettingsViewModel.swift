@@ -10,6 +10,7 @@ import Combine
 
 class SettingsViewModel : ObservableObject {
     let displayKey = "displayConfidence"
+    let swapKey = "swapButtons"
 
     @Published var displayConfidence : Bool  {
         didSet {
@@ -17,9 +18,16 @@ class SettingsViewModel : ObservableObject {
         }
     }
     
+    @Published var swapButtons : Bool {
+        didSet {
+            UserDefaults.standard.set(swapButtons, forKey: swapKey)
+        }
+    }
+    
     
     init() {
         self.displayConfidence = UserDefaults.standard.bool(forKey: displayKey)
+        self.swapButtons = UserDefaults.standard.bool(forKey: swapKey)
     }
     
     

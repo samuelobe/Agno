@@ -23,6 +23,9 @@ struct SettingsScreen: View {
                     Section(header: Text("CELEBRITY"), footer: Text("Confidence values represent the accuracy of each celebrity result")) {
                         Toggle(isOn: $settings.displayConfidence, label: {Text("Display confidence values")})
                     }
+                    Section(header: Text("accessibility"), footer: Text("Swaps the positioning of the \"accept\" and \"deny\" buttons to cater towards left-handed users")) {
+                        Toggle(isOn: $settings.displayConfidence, label: {Text("Left-handed mode")})
+                    }
                     Section(header: Text("ABOUT")) {
                         Button(action: {
                             self.presentingSafariView.toggle()
