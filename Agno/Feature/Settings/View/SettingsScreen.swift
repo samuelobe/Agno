@@ -16,6 +16,8 @@ struct SettingsScreen: View {
     let privacyPolicyLink = "https://ayosoftware.com/privacy-policy"
     let appVersion = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String
     
+
+    
     var body: some View {
         NavigationView {
             VStack {
@@ -23,7 +25,7 @@ struct SettingsScreen: View {
                     Section(header: Text("CELEBRITY"), footer: Text("Confidence values represent the accuracy of each celebrity result")) {
                         Toggle(isOn: $settings.displayConfidence, label: {Text("Display confidence values")})
                     }
-                    Section(header: Text("accessibility"), footer: Text("Swaps the positioning of the \"accept\" and \"deny\" buttons to cater towards left-handed users")) {
+                    Section(header: Text("accessibility"), footer: Text("Swaps the positioning of the \"check\" and \"cross\" buttons to cater towards left-handed users")) {
                         Toggle(isOn: $settings.swapButtons, label: {Text("Left-handed mode")})
                     }
                     Section(header: Text("ABOUT")) {
@@ -31,9 +33,9 @@ struct SettingsScreen: View {
                             self.presentingSafariView.toggle()
                         }) {
                             HStack {
-                                Text("Privacy Policy").foregroundColor(Color("SectionColor"))
+                                Text("Privacy Policy").foregroundColor(Color("ButtonColor"))
                                 Spacer()
-                                Image(systemName: "chevron.right").foregroundColor(Color("SectionColor"))
+                                Image(systemName: "chevron.right").foregroundColor(Color("ButtonColor"))
                             }
                         }
                         HStack {
@@ -42,15 +44,23 @@ struct SettingsScreen: View {
                             Text(appVersion!)
                         }
                     }
-                }.background(Color("BackgroundColor"))
+                }
                 
             }
             .ignoresSafeArea(.all, edges: .top)
             .navigationBarTitle("Settings", displayMode: .inline )
-            .navigationBarItems(trailing: Button(action: {
-                self.presentationMode.wrappedValue.dismiss()
-                
-            }) {Text("Done").bold().foregroundColor(Color("SectionColor"))})
+            .toolbar{
+                ToolbarItem(placement: .navigationBarLeading) {Button(action: {
+                    self.presentationMode.wrappedValue.dismiss()
+                    
+                }) {Text("Done")
+                    .bold()
+                    .foregroundColor(Color("SectionColor"))
+                    
+                }
+                }
+            }
+            
         }.safariView(isPresented: $presentingSafariView) {
             SafariView(
                 url: URL(string: privacyPolicyLink)!,

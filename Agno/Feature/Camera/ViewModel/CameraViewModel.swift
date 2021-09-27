@@ -17,6 +17,7 @@ enum CameraState {
 
 class CameraViewModel: NSObject, ObservableObject {
     @Published var isPhotoTaken = false
+    @Published var isFlashOn = false
     @Published var alert = false
     @Published var isChecked = false
     @Published var session = AVCaptureSession()
@@ -95,8 +96,18 @@ class CameraViewModel: NSObject, ObservableObject {
     }
     
     func takePic(){
-        self.output.capturePhoto(with: AVCapturePhotoSettings(), delegate: self)
+        if self.isFlashOn {
+            self.toggleTorch(on: true)
+            self.output.capturePhoto(with: AVCapturePhotoSettings(), delegate: self)
+            DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(1), execute: {self.toggleTorch(on: false)})
+        }
+        else {
+            self.output.capturePhoto(with: AVCapturePhotoSettings(), delegate: self)
+        }
+        
         self.isPhotoTaken = true
+        
+        
         print("photo captured")
     }
     

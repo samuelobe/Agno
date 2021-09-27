@@ -17,7 +17,7 @@ struct CameraScreen : View {
     @State private var action: Int? = 0
     @State private var image: Image? = nil
     
-    @State private var isFlashOn = false
+
     @State private var isImagePicked = false
     @State private var isShowPhotoLibrary = false
     @State private var isSettings = false
@@ -25,16 +25,6 @@ struct CameraScreen : View {
     
     
     var isSim = Platform.isSimulator
-    
-    func turnOffTorch()  {
-        self.isFlashOn = false
-        self.camera.toggleTorch(on: self.isFlashOn)
-    }
-    
-    func toggleTorch() {
-        self.isFlashOn.toggle()
-        self.camera.toggleTorch(on: self.isFlashOn)
-    }
     
     var body: some View {
         ZStack {
@@ -66,7 +56,6 @@ struct CameraScreen : View {
                     HStack {
                         Spacer()
                         SettingsButton(){
-                            self.turnOffTorch()
                             self.camera.stopCamera()
                             self.isSettings.toggle()
                         }.disabled(!launch.didLaunchBefore)
@@ -95,13 +84,12 @@ struct CameraScreen : View {
                         }
                     }
                     else {
-                        CameraBar(leftButtonIcon: "photo.fill", rightButtonIcon: self.isFlashOn ? "bolt.fill" : "bolt.slash.fill", leftButtonAction: {
+                        CameraBar(leftButtonIcon: "photo.fill", rightButtonIcon: self.camera.isFlashOn ? "bolt.fill" : "bolt.slash.fill", leftButtonAction: {
                             self.camera.stopCamera()
-                            self.turnOffTorch()
                             self.isShowPhotoLibrary = true
                             
                         }, rightButtonAction: {
-                            self.toggleTorch()
+                            self.camera.isFlashOn.toggle()
                         }, isCheck: false).disabled(!launch.didLaunchBefore)
                     }
                 }
@@ -111,7 +99,6 @@ struct CameraScreen : View {
                 if !self.camera.isPhotoTaken && !self.isImagePicked && !self.camera.alert  {
                     CameraButton(){
                         self.camera.takePic()
-                        DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(1), execute: {self.turnOffTorch()})
                     }.disabled(!launch.didLaunchBefore)
                 }
                 
@@ -135,7 +122,6 @@ struct CameraScreen : View {
                 print("moving to background")
                 if !camera.isPhotoTaken {
                     DispatchQueue.main.async {
-                        self.turnOffTorch()
                         self.camera.stopCamera()
                     }
                     
