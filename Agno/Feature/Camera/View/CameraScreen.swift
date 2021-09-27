@@ -95,7 +95,7 @@ struct CameraScreen : View {
                         }
                     }
                     else {
-                        CameraBar(leftButtonIcon: "photo.fill", rightButtonIcon: self.isFlashOn ? "bolt.slash.fill" : "bolt.fill", leftButtonAction: {
+                        CameraBar(leftButtonIcon: "photo.fill", rightButtonIcon: self.isFlashOn ? "bolt.fill" : "bolt.slash.fill", leftButtonAction: {
                             self.camera.stopCamera()
                             self.turnOffTorch()
                             self.isShowPhotoLibrary = true
