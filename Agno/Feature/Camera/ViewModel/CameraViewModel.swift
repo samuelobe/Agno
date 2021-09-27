@@ -29,17 +29,19 @@ class CameraViewModel: NSObject, ObservableObject {
             print(self.state)
         }
     }
+    
+    @Published var cameraPostion : AVCaptureDevice.Position = .back
         
     func check(){
         switch AVCaptureDevice.authorizationStatus(for: .video) {
             case .authorized:
-                setUp(cameraFlipRequested: false)
+                setUp()
                 return
             case .notDetermined:
                 AVCaptureDevice.requestAccess(for: .video, completionHandler: {
                     (status) in
                     if status {
-                        self.setUp(cameraFlipRequested: false)
+                        self.setUp()
                     }
                     else {
                         DispatchQueue.main.async {
@@ -57,7 +59,45 @@ class CameraViewModel: NSObject, ObservableObject {
             }
     }
     
-    func setUp(cameraFlipRequested : Bool){
+    func setUp(){
+        do {
+            
+            self.session.beginConfiguration()
+            self.session.sessionPreset = .high
+            
+            guard let backCamera = AVCaptureDevice.default(.builtInWideAngleCamera, for: .video, position: .back )
+            else {
+                DispatchQueue.main.async {
+                    self.alert.toggle()
+                }
+                print("Unable to access back camera!")
+                return
+            }
+            
+            
+            let input = try AVCaptureDeviceInput(device: backCamera)
+            output = AVCapturePhotoOutput()
+            
+            if self.session.canAddInput(input) && self.session.canAddOutput(output) {
+                self.session.addInput(input)
+                self.session.addOutput(output)
+            }
+            else {
+                print("Cannot add input and output")
+            }
+
+            self.session.commitConfiguration()
+            
+            
+        } catch  {
+            DispatchQueue.main.async {
+                self.alert.toggle()
+            }
+            print(error.localizedDescription)
+        }
+    }
+    
+    func swapCamera() {
         do {
             
             self.session.beginConfiguration()
@@ -157,6 +197,20 @@ class CameraViewModel: NSObject, ObservableObject {
             print("Torch is not available")
         }
     }
+    
+//    func set(zoom: CGFloat){
+//            let factor = zoom < 1 ? 1 : zoom
+//            let device = self.videoDeviceInput.device
+//            
+//            do {
+//                try device.lockForConfiguration()
+//                device.videoZoomFactor = factor
+//                device.unlockForConfiguration()
+//            }
+//            catch {
+//                print(error.localizedDescription)
+//            }
+//    }
 }
 
 extension CameraViewModel : AVCapturePhotoCaptureDelegate {

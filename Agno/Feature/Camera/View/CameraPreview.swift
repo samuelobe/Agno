@@ -11,6 +11,10 @@ import SwiftUI
 struct CameraPreview : UIViewRepresentable {
     @ObservedObject var camera : CameraViewModel
     
+    let minimumZoom: CGFloat = 1.0
+    let maximumZoom: CGFloat = 3.0
+    var lastZoomFactor: CGFloat = 1.0
+    
     func makeUIView(context: Context) -> UIView {
         let view = UIView(frame: UIScreen.main.bounds)
         
@@ -26,11 +30,12 @@ struct CameraPreview : UIViewRepresentable {
         camera.state = .running
         
         
+        
         return view
     }
     
     func updateUIView(_ uiView: UIViewType, context: Context) {
-
+        
     }
     
     
