@@ -24,6 +24,12 @@ struct CameraScreen : View {
     @State var lastScaleValue: CGFloat = 0
     @State var globalScaleValue : CGFloat = 1
     
+    func resetZoom() {
+        self.globalScaleValue = 1
+        self.camera.set(zoom: self.globalScaleValue)
+        self.lastScaleValue = 0
+    }
+    
     var isSim = Platform.isSimulator
     
     var body: some View {
@@ -61,7 +67,7 @@ struct CameraScreen : View {
                                         
                                         self.lastScaleValue = val
                                         
-                                        print("Global Value: \(self.globalScaleValue) , Local Value: \(self.lastScaleValue)")
+//                                        print("Global Value: \(self.globalScaleValue) , Local Value: \(self.lastScaleValue)")
                                     
                                     }
                                 )
@@ -84,18 +90,22 @@ struct CameraScreen : View {
                             
                             if self.settings.swapButtons {
                                 CameraBar(leftButtonIcon: "checkmark.square.fill", rightButtonIcon: "clear.fill", leftButtonAction: {
+                                    self.resetZoom()
                                     self.isImagePicked = false
                                     self.action = 1
                                 }, rightButtonAction: {
+                                    self.resetZoom()
                                     self.isImagePicked = false
                                     self.camera.resetCamera()
                                 }, isCheck: true).disabled(!launch.didLaunchBefore)
                             }
                             else {
                                 CameraBar(leftButtonIcon: "clear.fill", rightButtonIcon: "checkmark.square.fill", leftButtonAction: {
+                                    self.resetZoom()
                                     self.isImagePicked = false
                                     self.camera.resetCamera()
                                 }, rightButtonAction: {
+                                    self.resetZoom()
                                     self.isImagePicked = false
                                     self.action = 1
                                 }, isCheck: true).disabled(!launch.didLaunchBefore)
