@@ -11,6 +11,8 @@ import Combine
 class SettingsViewModel : ObservableObject {
     let displayKey = "displayConfidence"
     let swapKey = "swapButtons"
+    let useDefaultLanguageKey = "useDefaultLanguageKey"
+    let languageKey = "currentLanguage"
 
     @Published var displayConfidence : Bool  {
         didSet {
@@ -24,10 +26,19 @@ class SettingsViewModel : ObservableObject {
         }
     }
     
+    @Published var useDefaultLanguage : Bool {
+        didSet {
+            UserDefaults.standard.set(useDefaultLanguage, forKey: useDefaultLanguageKey)
+        }
+    }
+    
+    
+    
     
     init() {
         self.displayConfidence = UserDefaults.standard.bool(forKey: displayKey)
         self.swapButtons = UserDefaults.standard.bool(forKey: swapKey)
+        self.useDefaultLanguage = true
     }
     
     

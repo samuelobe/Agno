@@ -84,7 +84,10 @@ struct CameraScreen : View {
                     }
                     
                     VStack{
-                        
+                        Rectangle()
+                            .fill(Color.black)
+                            .frame(width: UIScreen.main.bounds.width, height: reader.safeAreaInsets.top)
+                            .opacity(0.25)
                         Spacer()
                         if self.camera.isPhotoTaken || self.isImagePicked  {
                             

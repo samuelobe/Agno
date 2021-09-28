@@ -25,8 +25,8 @@ struct AdView: UIViewRepresentable {
     
 }
 
-struct AdView_Previews: PreviewProvider {
-    static var previews: some View {
-        AdView()
-    }
-}
+//struct AdView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        AdView().preferredColorScheme(.dark)
+//    }
+//}
