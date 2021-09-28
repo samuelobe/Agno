@@ -44,6 +44,7 @@
 		E945B92826F65B2F0071DD0B /* CameraPermission.swift in Sources */ = {isa = PBXBuildFile; fileRef = E945B92726F65B2F0071DD0B /* CameraPermission.swift */; };
 		E9CA1BFF2700AD9200809C78 /* SettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9CA1BFE2700AD9200809C78 /* SettingsViewModel.swift */; };
 		E9D55D0126FBCFD200CCF01C /* CelebrityCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9D55D0026FBCFD200CCF01C /* CelebrityCellViewModel.swift */; };
+		E9E5DAC32703CE5600294679 /* LargeCelebrityCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9E5DAC22703CE5600294679 /* LargeCelebrityCell.swift */; };
 		E9FD64D226F7DB4500CD0AC1 /* ImageLoaderService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9FD64D126F7DB4500CD0AC1 /* ImageLoaderService.swift */; };
 /* End PBXBuildFile section */
 
@@ -87,6 +88,7 @@
 		E945B92726F65B2F0071DD0B /* CameraPermission.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraPermission.swift; sourceTree = "<group>"; };
 		E9CA1BFE2700AD9200809C78 /* SettingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewModel.swift; sourceTree = "<group>"; };
 		E9D55D0026FBCFD200CCF01C /* CelebrityCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CelebrityCellViewModel.swift; sourceTree = "<group>"; };
+		E9E5DAC22703CE5600294679 /* LargeCelebrityCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LargeCelebrityCell.swift; sourceTree = "<group>"; };
 		E9FD64D126F7DB4500CD0AC1 /* ImageLoaderService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageLoaderService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -146,6 +148,7 @@
 				E91594EB26F37E7F00785848 /* LoadingIndicator.swift */,
 				3D0762A526D979DF00031C57 /* CelebrityListScreen.swift */,
 				3DCD128326E05C4A00FD26D7 /* CelebrtityCell.swift */,
+				E9E5DAC22703CE5600294679 /* LargeCelebrityCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -522,6 +525,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3DB7A94126CE9C790086F644 /* AppDelegate.swift in Sources */,
+				E9E5DAC32703CE5600294679 /* LargeCelebrityCell.swift in Sources */,
 				E938210126EC040B00F76BFA /* Extensions.swift in Sources */,
 				3D5164A826E2C2840019D663 /* CameraBar.swift in Sources */,
 				3D566FB226D4059500D69502 /* CelebrityRecognition.swift in Sources */,

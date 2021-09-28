@@ -25,7 +25,7 @@ struct RecognizedCelebrity: Identifiable, Hashable {
 
 let dummyData = [
     RecognizedCelebrity(name: "Samuel Obe", confidence: NSNumber.init(value: 99.999), url: "", imageURL: ""),
-    RecognizedCelebrity(name: "Bob Jomama", confidence: NSNumber.init(value: 99.999), url: "", imageURL: ""),
-    RecognizedCelebrity(name: "Derek Jeter", confidence: NSNumber.init(value: 99.999), url: "", imageURL: ""),
-    RecognizedCelebrity(name: "Han Solo", confidence: NSNumber.init(value: 99.999), url: "", imageURL: "")
+ //   RecognizedCelebrity(name: "Bob Jomama", confidence: NSNumber.init(value: 99.999), url: "", imageURL: ""),
+//    RecognizedCelebrity(name: "Derek Jeter", confidence: NSNumber.init(value: 99.999), url: "", imageURL: ""),
+//    RecognizedCelebrity(name: "Han Solo", confidence: NSNumber.init(value: 99.999), url: "", imageURL: "")
 ]

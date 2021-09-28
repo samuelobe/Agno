@@ -11,8 +11,6 @@ struct CelebrityListScreen: View {
     @EnvironmentObject var celebModel : CelebrityListViewModel
     @EnvironmentObject var cameraModel : CameraViewModel
 
-    
-    
     private let gridItems = [GridItem(.flexible()), GridItem(.flexible())]
     
     var body: some View {
@@ -20,11 +18,19 @@ struct CelebrityListScreen: View {
             Color("BackgroundColor").ignoresSafeArea()
             VStack{
                 if !celebModel.celebs.isEmpty {
-                    ScrollView(.vertical, showsIndicators: false) {
-                        LazyVGrid(columns: gridItems, spacing: 20) {
-                            ForEach(celebModel.celebs){ celeb in
-                                CelebrityCell(celeb: celeb)
+                    
+                    switch celebModel.celebs.count {
+                    
+                    case 1:
+                        LargeCelebrityCell(celeb: celebModel.celebs[0])
+                        
+                    default:
+                        ScrollView(.vertical, showsIndicators: false) {
+                            LazyVGrid(columns: gridItems, spacing: 20) {
+                                ForEach(celebModel.celebs){ celeb in
+                                    CelebrityCell(celeb: celeb)
 
+                                }
                             }
                         }
                     }
@@ -39,6 +45,7 @@ struct CelebrityListScreen: View {
                     
                 }
             }
+            
             VStack {
                 Spacer()
                 AdView().frame(width: 150, height: 50, alignment: .bottom)
@@ -67,7 +74,14 @@ struct CelebrityListScreen_Previews: PreviewProvider {
         return model
     }
     static var previews: some View {
-        CelebrityListScreen().environmentObject(previewModel()).environmentObject(CameraViewModel())
-            .onAppear(perform: {})
+        CelebrityListScreen().environmentObject(previewModel()).environmentObject(CameraViewModel()).environmentObject(SettingsViewModel())
+            .onAppear(perform: {}).previewDevice(PreviewDevice(rawValue: "iPhone 8"))
+            .previewDisplayName("iPhone 8")
+        CelebrityListScreen().environmentObject(previewModel()).environmentObject(CameraViewModel()).environmentObject(SettingsViewModel())
+            .onAppear(perform: {}).previewDevice(PreviewDevice(rawValue: "iPhone 12"))
+            .previewDisplayName("iPhone 12")
+        CelebrityListScreen().environmentObject(previewModel()).environmentObject(CameraViewModel()).environmentObject(SettingsViewModel())
+            .onAppear(perform: {}).previewDevice(PreviewDevice(rawValue: "iPhone 12 Pro Max"))
+            .previewDisplayName("iPhone 12 Pro Max")
     }
 }
