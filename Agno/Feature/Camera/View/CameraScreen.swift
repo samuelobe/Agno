@@ -17,18 +17,12 @@ struct CameraScreen : View {
     @State private var action: Int? = 0
     @State private var image: Image? = nil
     
-
     @State private var isImagePicked = false
     @State private var isShowPhotoLibrary = false
     @State private var isSettings = false
     
-    @State var lastScaleValue: CGFloat = 1.0 {
-        didSet {
-            print(self.lastScaleValue)
-        }
-    }
-
-    
+    @State var lastScaleValue: CGFloat = 0
+    @State var globalScaleValue : CGFloat = 1
     
     var isSim = Platform.isSimulator
     
@@ -46,17 +40,29 @@ struct CameraScreen : View {
                     else{
                         ZStack {
                             if !self.camera.alert {
-                                CameraPreview(camera: camera).gesture(
-                                    MagnificationGesture().onChanged { val in
-                                        let zoomFactor: CGFloat = min(max(val, 1), 5)
-                                        self.lastScaleValue = zoomFactor
+                                CameraPreview(camera: camera)
+                                    .disabled(!launch.didLaunchBefore)
+                                    .gesture(MagnificationGesture().onChanged { val in
                                         
-
-                                    //... anything else e.g. clamping the newScale
-                                    }.onEnded { val in
-                                      // without this the next gesture will be broken
+                                        if lastScaleValue < val {
+                                            if self.globalScaleValue < 5 {
+                                                self.camera.set(zoom: self.globalScaleValue)
+                                                self.globalScaleValue += 0.05
+                                            }
+                                            
+                                        }
+                                        else {
+                                            if self.globalScaleValue >= 1 {
+                                                self.camera.set(zoom: self.globalScaleValue)
+                                                self.globalScaleValue -= 0.05
+                                            }
+                                            
+                                        }
                                         
-                                        self.lastScaleValue = 1.0
+                                        self.lastScaleValue = val
+                                        
+                                        print("Global Value: \(self.globalScaleValue) , Local Value: \(self.lastScaleValue)")
+                                    
                                     }
                                 )
                             }
@@ -72,14 +78,7 @@ struct CameraScreen : View {
                     }
                     
                     VStack{
-                        HStack {
-                            Spacer()
-                            SettingsButton(){
-                                self.camera.stopCamera()
-                                self.isSettings.toggle()
-                            }.disabled(!launch.didLaunchBefore)
-                            
-                        }.padding(EdgeInsets(top: 50, leading: 0, bottom: 0, trailing: 20))
+                        
                         Spacer()
                         if self.camera.isPhotoTaken || self.isImagePicked  {
                             
@@ -157,6 +156,18 @@ struct CameraScreen : View {
                 }
                 if !launch.didLaunchBefore {
                     WelcomeCard(action: {launch.didLaunchBefore.toggle()})
+                }
+                
+                VStack {
+                    HStack {
+                        Spacer()
+                        SettingsButton(){
+                            self.camera.stopCamera()
+                            self.isSettings.toggle()
+                        }.disabled(!launch.didLaunchBefore)
+                        
+                    }.padding()
+                    Spacer()
                 }
                 
             }.sheet(isPresented: $isShowPhotoLibrary, onDismiss: {

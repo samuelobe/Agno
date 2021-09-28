@@ -22,6 +22,7 @@ class CameraViewModel: NSObject, ObservableObject {
     @Published var isChecked = false
     @Published var session = AVCaptureSession()
     @Published var output : AVCapturePhotoOutput!
+    @Published var deviceInput : AVCaptureDeviceInput!
     @Published var preview : AVCaptureVideoPreviewLayer!
     @Published var imageData = Data(count: 0)
     @Published var state : CameraState = .unchecked {
@@ -79,6 +80,7 @@ class CameraViewModel: NSObject, ObservableObject {
             output = AVCapturePhotoOutput()
             
             if self.session.canAddInput(input) && self.session.canAddOutput(output) {
+                self.deviceInput = input
                 self.session.addInput(input)
                 self.session.addOutput(output)
             }
@@ -97,43 +99,46 @@ class CameraViewModel: NSObject, ObservableObject {
         }
     }
     
-    func swapCamera() {
-        do {
-            
-            self.session.beginConfiguration()
-            self.session.sessionPreset = .high
-            
-            guard let backCamera = AVCaptureDevice.default(.builtInWideAngleCamera, for: .video, position: .back )
-            else {
-                DispatchQueue.main.async {
-                    self.alert.toggle()
-                }
-                print("Unable to access back camera!")
-                return
-            }
-            
-            
-            let input = try AVCaptureDeviceInput(device: backCamera)
-            output = AVCapturePhotoOutput()
-            
-            if self.session.canAddInput(input) && self.session.canAddOutput(output) {
-                self.session.addInput(input)
-                self.session.addOutput(output)
-            }
-            else {
-                print("Cannot add input and output")
-            }
-
-            self.session.commitConfiguration()
-            
-            
-        } catch  {
-            DispatchQueue.main.async {
-                self.alert.toggle()
-            }
-            print(error.localizedDescription)
-        }
-    }
+//    func swapCamera() {
+//        do {
+//
+//            self.session.beginConfiguration()
+//            self.session.sessionPreset = .high
+//
+//            guard let backCamera = AVCaptureDevice.default(.builtInWideAngleCamera, for: .video, position: .back )
+//            else {
+//                DispatchQueue.main.async {
+//                    self.alert.toggle()
+//                }
+//                print("Unable to access back camera!")
+//                return
+//            }
+//
+//
+//            let input = try AVCaptureDeviceInput(device: backCamera)
+//            output = AVCapturePhotoOutput()
+//
+//            if self.session.canAddInput(input) && self.session.canAddOutput(output) {
+//                self.session.addInput(input)
+//                self.session.addOutput(output)
+//            }
+//            else {
+//                DispatchQueue.main.async {
+//                    self.alert.toggle()
+//                }
+//                print("Cannot add input and output")
+//            }
+//
+//            self.session.commitConfiguration()
+//
+//
+//        } catch  {
+//            DispatchQueue.main.async {
+//                self.alert.toggle()
+//            }
+//            print(error.localizedDescription)
+//        }
+//    }
     
     func takePic(){
         if self.isFlashOn {
@@ -198,19 +203,19 @@ class CameraViewModel: NSObject, ObservableObject {
         }
     }
     
-//    func set(zoom: CGFloat){
-//            let factor = zoom < 1 ? 1 : zoom
-//            let device = self.videoDeviceInput.device
-//            
-//            do {
-//                try device.lockForConfiguration()
-//                device.videoZoomFactor = factor
-//                device.unlockForConfiguration()
-//            }
-//            catch {
-//                print(error.localizedDescription)
-//            }
-//    }
+    func set(zoom: CGFloat){
+        let factor = zoom < 1 ? 1 : zoom
+        let device = self.deviceInput.device
+        
+        do {
+            try device.lockForConfiguration()
+            device.videoZoomFactor = factor
+            device.unlockForConfiguration()
+        }
+        catch {
+            print(error.localizedDescription)
+        }
+    }
 }
 
 extension CameraViewModel : AVCapturePhotoCaptureDelegate {
