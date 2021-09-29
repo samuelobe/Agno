@@ -45,6 +45,7 @@
 		E9CA1BFF2700AD9200809C78 /* SettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9CA1BFE2700AD9200809C78 /* SettingsViewModel.swift */; };
 		E9D55D0126FBCFD200CCF01C /* CelebrityCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9D55D0026FBCFD200CCF01C /* CelebrityCellViewModel.swift */; };
 		E9E5DAC32703CE5600294679 /* LargeCelebrityCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9E5DAC22703CE5600294679 /* LargeCelebrityCell.swift */; };
+		E9E5DAC92703DE7D00294679 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = E9E5DACB2703DE7D00294679 /* Localizable.strings */; };
 		E9FD64D226F7DB4500CD0AC1 /* ImageLoaderService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9FD64D126F7DB4500CD0AC1 /* ImageLoaderService.swift */; };
 /* End PBXBuildFile section */
 
@@ -89,6 +90,13 @@
 		E9CA1BFE2700AD9200809C78 /* SettingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewModel.swift; sourceTree = "<group>"; };
 		E9D55D0026FBCFD200CCF01C /* CelebrityCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CelebrityCellViewModel.swift; sourceTree = "<group>"; };
 		E9E5DAC22703CE5600294679 /* LargeCelebrityCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LargeCelebrityCell.swift; sourceTree = "<group>"; };
+		E9E5DAC42703D9CF00294679 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		E9E5DAC52703DA0E00294679 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		E9E5DAC62703DAC900294679 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
+		E9E5DACC2703DEA400294679 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		E9E5DACF2703DF5600294679 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
+		E9E5DAD02703DF5900294679 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Localizable.strings; sourceTree = "<group>"; };
+		E9E5DAD12703DF5B00294679 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/Localizable.strings; sourceTree = "<group>"; };
 		E9FD64D126F7DB4500CD0AC1 /* ImageLoaderService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageLoaderService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -191,6 +199,7 @@
 		3DB7A93F26CE9C790086F644 /* Agno */ = {
 			isa = PBXGroup;
 			children = (
+				E9E5DACB2703DE7D00294679 /* Localizable.strings */,
 				3DB7A95126CE9C790086F644 /* Info.plist */,
 				3DB7A94926CE9C790086F644 /* Assets.xcassets */,
 				3DB7A94E26CE9C790086F644 /* LaunchScreen.storyboard */,
@@ -448,6 +457,9 @@
 			knownRegions = (
 				en,
 				Base,
+				es,
+				fr,
+				"zh-Hans",
 			);
 			mainGroup = 3DB7A93426CE9C790086F644;
 			packageReferences = (
@@ -468,6 +480,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E9E5DAC92703DE7D00294679 /* Localizable.strings in Resources */,
 				3DB7A95026CE9C790086F644 /* LaunchScreen.storyboard in Resources */,
 				3DB7A97426CFDACD0086F644 /* CustomFont.otf in Resources */,
 				3DB7A94D26CE9C790086F644 /* Preview Assets.xcassets in Resources */,
@@ -566,8 +579,22 @@
 			isa = PBXVariantGroup;
 			children = (
 				3DB7A94F26CE9C790086F644 /* Base */,
+				E9E5DAC42703D9CF00294679 /* es */,
+				E9E5DAC52703DA0E00294679 /* fr */,
+				E9E5DAC62703DAC900294679 /* zh-Hans */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		E9E5DACB2703DE7D00294679 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				E9E5DACC2703DEA400294679 /* en */,
+				E9E5DACF2703DF5600294679 /* zh-Hans */,
+				E9E5DAD02703DF5900294679 /* fr */,
+				E9E5DAD12703DF5B00294679 /* es */,
+			);
+			name = Localizable.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -577,6 +604,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -639,6 +667,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";

@@ -140,6 +140,7 @@ class CameraViewModel: NSObject, ObservableObject {
 //        }
 //    }
     
+    
     func takePic(){
         if self.isFlashOn {
             self.toggleTorch(on: true)
@@ -224,6 +225,7 @@ extension CameraViewModel : AVCapturePhotoCaptureDelegate {
         self.stopCamera()
         
         if error != nil {
+            print(error!)
             print("Photo output error")
             return
         }

@@ -1,0 +1,42 @@
+/* 
+  Localizable.strings
+  Agno
+
+  Created by ELeetDev on 9/28/21.
+  
+*/
+
+
+// SettingsScreen
+"settings" = "Settings";
+"celeb" = "CELEBRITY";
+"confidence" = "Confidence values represent the accuracy of each celebrity result";
+"access" = "ACCESSIBILITY";
+"swap" = "Swaps the positioning of the \"check\" and \"cross\" buttons to cater towards left-handed users";
+"lang" = "IN-APP LANGUAGE";
+"langChoice" = "Change Agno to your language of choice";
+"langDevice" = "Use device language settings";
+"langChange" = "Change language";
+"about" = "ABOUT";
+"policy" = "Privacy Policy";
+"version" = "Version";
+
+// WelcomeCard
+"welcome" = "Welcome to Agno";
+"agno" = "Agno is a celebrity-image recognition app which detects faces of celebrities with a single click...";
+"start" = "Get Started";
+
+// CameraPermission
+"cameraAccess" = "Please provide Agno access to your camera in the Settings app";
+"settings" = "Go to Settings";
+
+// CameraBar
+"scan" = "Scan for celebs in this photo?";
+
+// CelebrityCell/LargeCelebrityCell
+"confidence" = "Confidence:";
+
+// CelebrityListScreen
+"celebrities" = "Celebrities";
+"noCeleb" = "No celebrity faces found in image";
+

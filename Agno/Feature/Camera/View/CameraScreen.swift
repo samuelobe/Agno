@@ -53,21 +53,21 @@ struct CameraScreen : View {
                                         if lastScaleValue < val {
                                             if self.globalScaleValue < 5 {
                                                 self.camera.set(zoom: self.globalScaleValue)
-                                                self.globalScaleValue += 0.05
+                                                self.globalScaleValue += 0.04
                                             }
                                             
                                         }
                                         else {
                                             if self.globalScaleValue >= 1 {
                                                 self.camera.set(zoom: self.globalScaleValue)
-                                                self.globalScaleValue -= 0.05
+                                                self.globalScaleValue -= 0.04
                                             }
                                             
                                         }
                                         
                                         self.lastScaleValue = val
                                         
-//                                        print("Global Value: \(self.globalScaleValue) , Local Value: \(self.lastScaleValue)")
+                                        print("Global Value: \(self.globalScaleValue) , Local Value: \(self.lastScaleValue)")
                                     
                                     }
                                 )
@@ -170,19 +170,19 @@ struct CameraScreen : View {
                 if !launch.didLaunchBefore {
                     WelcomeCard(action: {launch.didLaunchBefore.toggle()})
                 }
-                
-                VStack {
-                    HStack {
+                if !self.camera.isPhotoTaken && !self.isImagePicked  {
+                    VStack {
+                        HStack {
+                            Spacer()
+                            SettingsButton(){
+                                self.camera.stopCamera()
+                                self.isSettings.toggle()
+                            }.disabled(!launch.didLaunchBefore)
+                            
+                        }.padding()
                         Spacer()
-                        SettingsButton(){
-                            self.camera.stopCamera()
-                            self.isSettings.toggle()
-                        }.disabled(!launch.didLaunchBefore)
-                        
-                    }.padding()
-                    Spacer()
+                    }
                 }
-                
             }.sheet(isPresented: $isShowPhotoLibrary, onDismiss: {
                 if !self.isImagePicked {
                     self.camera.startCamera()

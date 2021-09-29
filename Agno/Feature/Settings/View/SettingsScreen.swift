@@ -30,15 +30,15 @@ struct SettingsScreen: View {
                     Section(header: Text("accessibility"), footer: Text("Swaps the positioning of the \"check\" and \"cross\" buttons to cater towards left-handed users")) {
                         Toggle(isOn: $settings.swapButtons, label: {Text("Left-handed mode")})
                     }
-                    Section(header: Text("IN-APP LANGUAGE"), footer: Text("Change Agno to your language of choice")) {
-                        Toggle(isOn: $settings.useDefaultLanguage, label: {Text("Use device language settings")})
-                        Picker(selection: $languageIndex, label: Text("Change language")) {
-                            ForEach(0 ..< languageOptions.count) {
-                                Text(self.languageOptions[$0])
-                            }
-                        }
-                        
-                    }
+//                    Section(header: Text("IN-APP LANGUAGE"), footer: Text("Change Agno to your language of choice")) {
+//                        Toggle(isOn: $settings.useDefaultLanguage, label: {Text("Use device language settings")})
+//                        Picker(selection: $languageIndex, label: Text("Change language")) {
+//                            ForEach(0 ..< languageOptions.count) {
+//                                Text(self.languageOptions[$0])
+//                            }
+//                        }
+//
+//                    }
                     Section(header: Text("ABOUT")) {
                         Button(action: {
                             self.presentingSafariView.toggle()

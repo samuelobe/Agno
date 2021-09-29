@@ -23,7 +23,7 @@ struct CameraBar: View {
                 }).padding(.leading, 40)
                 Spacer()
                 if isCheck {
-                    Text("Is this image acceptable?").font(.caption).bold()
+                    Text("Scan for celebs in this photo?").font(.caption).bold()
                     Spacer()
                 }
 
@@ -37,6 +37,13 @@ struct CameraBar: View {
 
 struct CameraBar_Previews: PreviewProvider {
     static var previews: some View {
-        CameraBar(leftButtonIcon: "photo", rightButtonIcon: "gearshape", leftButtonAction: {}, rightButtonAction: {}, isCheck: true).preferredColorScheme(.dark)
+        CameraBar(leftButtonIcon: "photo", rightButtonIcon: "gearshape", leftButtonAction: {}, rightButtonAction: {}, isCheck: true).preferredColorScheme(.dark).previewDevice(PreviewDevice(rawValue: "iPhone 8"))
+            .previewDisplayName("iPhone 8")
+        
+        CameraBar(leftButtonIcon: "photo", rightButtonIcon: "gearshape", leftButtonAction: {}, rightButtonAction: {}, isCheck: true).preferredColorScheme(.dark).previewDevice(PreviewDevice(rawValue: "iPhone 12"))
+            .previewDisplayName("iPhone 12")
+        
+        CameraBar(leftButtonIcon: "photo", rightButtonIcon: "gearshape", leftButtonAction: {}, rightButtonAction: {}, isCheck: true).preferredColorScheme(.dark).previewDevice(PreviewDevice(rawValue: "iPhone 12 Pro"))
+            .previewDisplayName("iPhone 12 Pro")
     }
 }
