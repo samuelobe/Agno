@@ -21,7 +21,7 @@ class CameraViewModel: NSObject, ObservableObject {
     @Published var alert = false
     @Published var isChecked = false
     @Published var session = AVCaptureSession()
-    @Published var output : AVCapturePhotoOutput!
+    @Published var output = AVCapturePhotoOutput()
     @Published var deviceInput : AVCaptureDeviceInput!
     @Published var preview : AVCaptureVideoPreviewLayer!
     @Published var imageData = Data(count: 0)
@@ -36,13 +36,13 @@ class CameraViewModel: NSObject, ObservableObject {
     func check(){
         switch AVCaptureDevice.authorizationStatus(for: .video) {
             case .authorized:
-                setUp()
+                setUp(isToggle: false)
                 return
             case .notDetermined:
                 AVCaptureDevice.requestAccess(for: .video, completionHandler: {
                     (status) in
                     if status {
-                        self.setUp()
+                        self.setUp(isToggle: false)
                     }
                     else {
                         DispatchQueue.main.async {
@@ -60,13 +60,17 @@ class CameraViewModel: NSObject, ObservableObject {
             }
     }
     
-    func setUp(){
+    func setUp(isToggle: Bool){
         do {
             
             self.session.beginConfiguration()
             self.session.sessionPreset = .high
             
-            guard let backCamera = AVCaptureDevice.default(.builtInWideAngleCamera, for: .video, position: .back )
+            if isToggle {
+                self.session.removeInput(self.deviceInput)
+            }
+            
+            guard let camera = AVCaptureDevice.default(.builtInWideAngleCamera, for: .video, position: cameraPostion )
             else {
                 DispatchQueue.main.async {
                     self.alert.toggle()
@@ -76,17 +80,18 @@ class CameraViewModel: NSObject, ObservableObject {
             }
             
             
-            let input = try AVCaptureDeviceInput(device: backCamera)
-            output = AVCapturePhotoOutput()
+            let input = try AVCaptureDeviceInput(device: camera)
             
-            if self.session.canAddInput(input) && self.session.canAddOutput(output) {
+            if self.session.canAddInput(input)  {
                 self.deviceInput = input
                 self.session.addInput(input)
+                
+            }
+            
+            if self.session.canAddOutput(output) {
                 self.session.addOutput(output)
             }
-            else {
-                print("Cannot add input and output")
-            }
+           
 
             self.session.commitConfiguration()
             
@@ -99,46 +104,11 @@ class CameraViewModel: NSObject, ObservableObject {
         }
     }
     
-//    func swapCamera() {
-//        do {
-//
-//            self.session.beginConfiguration()
-//            self.session.sessionPreset = .high
-//
-//            guard let backCamera = AVCaptureDevice.default(.builtInWideAngleCamera, for: .video, position: .back )
-//            else {
-//                DispatchQueue.main.async {
-//                    self.alert.toggle()
-//                }
-//                print("Unable to access back camera!")
-//                return
-//            }
-//
-//
-//            let input = try AVCaptureDeviceInput(device: backCamera)
-//            output = AVCapturePhotoOutput()
-//
-//            if self.session.canAddInput(input) && self.session.canAddOutput(output) {
-//                self.session.addInput(input)
-//                self.session.addOutput(output)
-//            }
-//            else {
-//                DispatchQueue.main.async {
-//                    self.alert.toggle()
-//                }
-//                print("Cannot add input and output")
-//            }
-//
-//            self.session.commitConfiguration()
-//
-//
-//        } catch  {
-//            DispatchQueue.main.async {
-//                self.alert.toggle()
-//            }
-//            print(error.localizedDescription)
-//        }
-//    }
+    func swapCamera() {
+        let newPosition : AVCaptureDevice.Position = self.cameraPostion == .front ? .back : .front
+        self.cameraPostion = newPosition
+        self.setUp(isToggle: true)
+    }
     
     
     func takePic(){

@@ -12,7 +12,7 @@ struct SettingsButton: View {
     let action : () -> Void
     var body: some View {
         Button(action: action){
-            Image(systemName: "gearshape.fill").foregroundColor(.white).font(.title).padding(5).background(Circle().fill(Color.black.opacity(0.33))  )
+            Image(systemName: "gearshape.fill").foregroundColor(.white).font(.system(size: 30)).padding(10).background(Circle().fill(Color.black.opacity(0.33))  )
         }
     }
 }

@@ -20,6 +20,7 @@ struct CameraScreen : View {
     @State private var isImagePicked = false
     @State private var isShowPhotoLibrary = false
     @State private var isSettings = false
+    @State private var isBackground = false
     
     @State var lastScaleValue: CGFloat = 0
     @State var globalScaleValue : CGFloat = 1
@@ -53,21 +54,21 @@ struct CameraScreen : View {
                                         if lastScaleValue < val {
                                             if self.globalScaleValue < 5 {
                                                 self.camera.set(zoom: self.globalScaleValue)
-                                                self.globalScaleValue += 0.04
+                                                self.globalScaleValue += 0.05
                                             }
                                             
                                         }
                                         else {
-                                            if self.globalScaleValue >= 1 {
+                                            if self.globalScaleValue > 1 {
                                                 self.camera.set(zoom: self.globalScaleValue)
-                                                self.globalScaleValue -= 0.04
+                                                self.globalScaleValue -= 0.05
                                             }
                                             
                                         }
                                         
                                         self.lastScaleValue = val
                                         
-                                        print("Global Value: \(self.globalScaleValue) , Local Value: \(self.lastScaleValue)")
+//                                        print("Global Value: \(self.globalScaleValue) , Local Value: \(self.lastScaleValue)")
                                     
                                     }
                                 )
@@ -154,6 +155,7 @@ struct CameraScreen : View {
                     if !camera.isPhotoTaken {
                         DispatchQueue.main.async {
                             self.camera.stopCamera()
+                            self.isBackground = true
                         }
                         
                     }
@@ -163,7 +165,9 @@ struct CameraScreen : View {
                     print("user returned to app")
                     if !camera.isPhotoTaken {
                         DispatchQueue.main.async {
+                            self.isBackground = false
                             self.camera.startCamera()
+                            
                         }
                     }
                 }
@@ -180,9 +184,17 @@ struct CameraScreen : View {
                             }.disabled(!launch.didLaunchBefore)
                             
                         }.padding()
+                        HStack {
+                            Spacer()
+                            SwapCameraButton(){
+                                self.camera.swapCamera()
+                            }.disabled(!launch.didLaunchBefore)
+                            
+                        }.padding()
                         Spacer()
                     }
                 }
+                
             }.sheet(isPresented: $isShowPhotoLibrary, onDismiss: {
                 if !self.isImagePicked {
                     self.camera.startCamera()
