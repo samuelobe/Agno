@@ -27,7 +27,7 @@ class CameraViewModel: NSObject, ObservableObject {
     @Published var imageData = Data(count: 0)
     @Published var state : CameraState = .unchecked {
         didSet {
-            print(self.state)
+            //print(self.state)
         }
     }
     
@@ -75,7 +75,7 @@ class CameraViewModel: NSObject, ObservableObject {
                 DispatchQueue.main.async {
                     self.alert.toggle()
                 }
-                print("Unable to access back camera!")
+                //print("Unable to access back camera!")
                 return
             }
             
@@ -87,11 +87,23 @@ class CameraViewModel: NSObject, ObservableObject {
                 self.session.addInput(input)
                 
             }
-            
-            if self.session.canAddOutput(output) {
-                self.session.addOutput(output)
+            else{
+                DispatchQueue.main.async {
+                    self.alert.toggle()
+                }
             }
-           
+            
+            if !isToggle {
+                if self.session.canAddOutput(output) {
+                    self.session.addOutput(output)
+                }
+                else{
+                    DispatchQueue.main.async {
+                        self.alert.toggle()
+                    }
+                }
+            }
+            
 
             self.session.commitConfiguration()
             
@@ -100,7 +112,7 @@ class CameraViewModel: NSObject, ObservableObject {
             DispatchQueue.main.async {
                 self.alert.toggle()
             }
-            print(error.localizedDescription)
+            //print(error.localizedDescription)
         }
     }
     
@@ -124,7 +136,7 @@ class CameraViewModel: NSObject, ObservableObject {
         self.isPhotoTaken = true
         
         
-        print("photo captured")
+        //print("photo captured")
     }
     
     func resetCamera(){
@@ -167,25 +179,27 @@ class CameraViewModel: NSObject, ObservableObject {
 
                 device.unlockForConfiguration()
             } catch {
-                print("Torch could not be used")
+                //print("Torch could not be used")
             }
         } else {
-            print("Torch is not available")
+            //print("Torch is not available")
         }
     }
     
     func set(zoom: CGFloat){
         let factor = zoom < 1 ? 1 : zoom
-        let device = self.deviceInput.device
+        if let deviceInput = self.deviceInput {
+            do {
+                try deviceInput.device.lockForConfiguration()
+                deviceInput.device.videoZoomFactor = factor
+                deviceInput.device.unlockForConfiguration()
+            }
+            catch {
+                //print(error.localizedDescription)
+            }
+        }
         
-        do {
-            try device.lockForConfiguration()
-            device.videoZoomFactor = factor
-            device.unlockForConfiguration()
-        }
-        catch {
-            print(error.localizedDescription)
-        }
+       
     }
 }
 
@@ -195,16 +209,16 @@ extension CameraViewModel : AVCapturePhotoCaptureDelegate {
         self.stopCamera()
         
         if error != nil {
-            print(error!)
-            print("Photo output error")
+            //print(error!)
+            //print("Photo output error")
             return
         }
         
         guard let data = photo.fileDataRepresentation() else {
-            print("Data representation error")
+            //print("Data representation error")
             return}
         self.imageData = data
         
-        print("image data captured")
+        //print("image data captured")
     }
 }

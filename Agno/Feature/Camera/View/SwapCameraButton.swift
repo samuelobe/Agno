@@ -11,7 +11,10 @@ struct SwapCameraButton: View {
     let action : () -> Void
     var body: some View {
         Button(action: action){
-            Image(systemName: "arrow.triangle.2.circlepath.camera.fill").foregroundColor(.white).font(.system(size: 30)).padding(10).background(Circle().fill(Color.black.opacity(0.33))  )
+            ZStack {
+                Circle().fill(Color.black.opacity(0.33)).frame(width: 50, height: 50, alignment: .center)
+                Image(systemName: "arrow.triangle.2.circlepath.camera.fill").foregroundColor(.white).font(.system(size: 25)).padding(10)
+            }
         }
     }
 }

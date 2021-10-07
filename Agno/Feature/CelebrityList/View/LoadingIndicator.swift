@@ -12,24 +12,8 @@ struct LoadingIndicator: View {
     
     var body: some View {
         VStack {
+            ProgressView().scaleEffect(1.5)
             Text("Analyzing Image...").foregroundColor(.white).padding()
-            ZStack {
-                Circle()
-                    .stroke(Color(.systemGray5), lineWidth: 16)
-                Circle()
-                    .trim(from: 0, to: 0.2)
-                    .stroke(style: StrokeStyle(lineWidth: 8.0, lineCap: .round, lineJoin: .round))
-                    .foregroundColor(Color("SectionColor"))
-                    .rotationEffect(Angle(degrees: isLoading ? 360 : 0))
-            }
-            .padding()
-            .frame(width: 125, height: 125, alignment: .center)
-                .drawingGroup()
-                .onAppear() {
-                    withAnimation(.linear(duration: 0.8).repeatForever(autoreverses: false)) {
-                        self.isLoading.toggle()
-                    }
-            }
         }
     }
 }

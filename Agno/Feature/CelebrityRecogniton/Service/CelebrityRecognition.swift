@@ -27,16 +27,16 @@ class CelebrityRecognition : ObservableObject {
         rekognitionObject = AWSRekognition.default()
         
         celebImageAWS?.bytes = self.picData
-        print("AWS pic data added")
+        //print("AWS pic data added")
 
         celebRequest?.image = celebImageAWS
-        print("Request Created")
+        //print("Request Created")
         
         rekognitionObject?.recognizeCelebrities(celebRequest!){
             (result, error) in
             if error != nil {
                 
-                print(error!.localizedDescription)
+                //print(error!.localizedDescription)
             }
             if result != nil {
                 let faces = result!.celebrityFaces
@@ -67,7 +67,7 @@ class CelebrityRecognition : ObservableObject {
                         self.retrieveImageURL(wikidataLink) {
                             urlLink in
                             let recognizedCeleb = RecognizedCelebrity(name: celeb.name!, confidence: celeb.matchConfidence!,  url: link, imageURL: urlLink)
-                            print(recognizedCeleb)
+                            //print(recognizedCeleb)
                             celebList.append(recognizedCeleb)
                             semaphore.signal()
                                 
@@ -76,20 +76,20 @@ class CelebrityRecognition : ObservableObject {
                         
                     }
                     alert = false
-                    print("Celebs found")
+                    //print("Celebs found")
                 }
                 else if ((result!.unrecognizedFaces?.count)! > 0) {
                     
-                    print("Other faces found")
+                    //print("Other faces found")
                 }
                 else {
                     
-                    print("No faces found in picture")
+                    //print("No faces found in picture")
                 }
             }
             else {
                 
-                print("No result")
+                //print("No result")
             }
             completionHandler(celebList, alert)
             
@@ -112,7 +112,7 @@ class CelebrityRecognition : ObservableObject {
                 (data, response, error) in
                 guard let safeData = data else {
                     imageURLCompletion(finalURL)
-                    print(error!)
+                    //print(error!)
                     return
                     
                 }

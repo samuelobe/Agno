@@ -17,7 +17,7 @@ class ImageLoaderService {
         
         let task = URLSession.shared.dataTask(with: url) { data, response, error in
             if let error = error {
-                print(error)
+                //print(error)
             }
             guard let data = data else {
                 completionHandler(UIImage())

@@ -60,9 +60,6 @@ struct CelebrityListScreen: View {
             .preferredColorScheme(.dark)
             .navigationBarTitleDisplayMode(.inline)
             .navigationTitle("Celebrities")
-            
-            
-        
     }
 }
 
