@@ -2,7 +2,7 @@
 //  LargeCelebrityCell.swift
 //  Agno
 //
-//  Created by ELeetDev on 9/28/21.
+//  Created by Samuel Obe on 9/28/21.
 //
 
 import SwiftUI

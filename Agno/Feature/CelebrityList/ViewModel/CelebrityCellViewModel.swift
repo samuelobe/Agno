@@ -2,7 +2,7 @@
 //  CelebrityCellViewModel.swift
 //  CelebrityCellViewModel
 //
-//  Created by ELeetDev on 9/22/21.
+//  Created by Samuel Obe on 9/22/21.
 //
 
 import Foundation

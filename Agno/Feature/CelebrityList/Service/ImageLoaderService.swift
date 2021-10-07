@@ -2,7 +2,7 @@
 //  ImageLoaderService.swift
 //  ImageLoaderService
 //
-//  Created by ELeetDev on 9/19/21.
+//  Created by Samuel Obe on 9/19/21.
 //
 
 import Foundation

@@ -2,7 +2,7 @@
 //  Blur.swift
 //  Blur
 //
-//  Created by ELeetDev on 9/11/21.
+//  Created by Samuel Obe on 9/11/21.
 //
 
 import SwiftUI

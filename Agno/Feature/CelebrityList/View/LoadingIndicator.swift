@@ -2,7 +2,7 @@
 //  LoadingIndicator.swift
 //  LoadingIndicator
 //
-//  Created by ELeetDev on 9/16/21.
+//  Created by Samuel Obe on 9/16/21.
 //
 
 import SwiftUI

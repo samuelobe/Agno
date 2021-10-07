@@ -2,7 +2,7 @@
 //  WelcomeCard.swift
 //  WelcomeCard
 //
-//  Created by ELeetDev on 9/17/21.
+//  Created by Samuel Obe on 9/17/21.
 //
 
 import SwiftUI

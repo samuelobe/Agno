@@ -2,7 +2,7 @@
 //  SettingsScreen.swift
 //  SettingsScreen
 //
-//  Created by ELeetDev on 9/24/21.
+//  Created by Samuel Obe on 9/24/21.
 //
 
 import SwiftUI

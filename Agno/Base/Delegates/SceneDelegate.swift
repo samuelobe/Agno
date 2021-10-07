@@ -68,12 +68,4 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
 }
 
-extension UINavigationController {
-
-  open override func viewWillLayoutSubviews() {
-    navigationBar.topItem?.backButtonDisplayMode = .minimal
-    navigationBar.tintColor = .white
-  }
-
-}
 

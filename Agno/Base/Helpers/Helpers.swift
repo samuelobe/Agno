@@ -2,7 +2,7 @@
 //  Platform.swift
 //  Platform
 //
-//  Created by ELeetDev on 9/18/21.
+//  Created by Samuel Obe on 9/18/21.
 //
 
 import Foundation
