@@ -27,7 +27,7 @@ class CameraViewModel: NSObject, ObservableObject {
     @Published var imageData = Data(count: 0)
     @Published var state : CameraState = .unchecked {
         didSet {
-            //print(self.state)
+            print(self.state)
         }
     }
     

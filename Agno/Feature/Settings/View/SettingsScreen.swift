@@ -13,11 +13,11 @@ struct SettingsScreen: View {
     @EnvironmentObject var settings : SettingsViewModel
     @State private var presentingSafariView = false
     
-    let privacyPolicyLink = "https://ayosoftware.com/privacy-policy"
-    let appVersion = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String
+    private let privacyPolicyLink = "https://ayosoftware.com/privacy-policy"
+    private let appVersion = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String
     
     @State private var languageIndex = 0
-    var languageOptions = ["English", "Español", "Français", "中文"]
+    private var languageOptions = ["English", "Español", "Français", "中文"]
 
     
     var body: some View {
@@ -44,9 +44,9 @@ struct SettingsScreen: View {
                             self.presentingSafariView.toggle()
                         }) {
                             HStack {
-                                Text("Privacy Policy").foregroundColor(Color("ButtonColor"))
+                                Text("Privacy Policy")
                                 Spacer()
-                                Image(systemName: "chevron.right").foregroundColor(Color("ButtonColor"))
+                                Image(systemName: "chevron.right")
                             }
                         }
                         HStack {
@@ -66,7 +66,6 @@ struct SettingsScreen: View {
                     
                 }) {Text("Done")
                     .bold()
-                    .foregroundColor(Color("SectionColor"))
                     
                 }
                 }

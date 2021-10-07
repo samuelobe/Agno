@@ -9,7 +9,7 @@ import Foundation
 import Combine
 import AWSRekognition
 
-typealias JSONDictionary = [String:Any]
+private typealias JSONDictionary = [String:Any]
 
 
 class CelebrityRecognition : ObservableObject {
@@ -96,7 +96,7 @@ class CelebrityRecognition : ObservableObject {
         }
     }
     
-    func retrieveImageURL(_ link: String, imageURLCompletion: @escaping (String) -> Void){
+    private func retrieveImageURL(_ link: String, imageURLCompletion: @escaping (String) -> Void){
         var finalURL = ""
         
         if let range = link.range(of: "Q") {

@@ -67,9 +67,6 @@ struct CameraScreen : View {
                                         }
                                         
                                         self.lastScaleValue = val
-                                        
-//                                        print("Global Value: \(self.globalScaleValue) , Local Value: \(self.lastScaleValue)")
-                                    
                                     }
                                 )
                             }
@@ -79,7 +76,7 @@ struct CameraScreen : View {
                             
                             if self.isImagePicked {
                                 Color("BackgroundColor")
-                                image?.resizable().scaledToFit().cornerRadius(15).padding(25)
+                                image?.resizable().scaledToFit().cornerRadius(15).padding(50)
                             }
                         }
                     }
@@ -117,7 +114,6 @@ struct CameraScreen : View {
                         }
                         else {
                             CameraBar(leftButtonIcon: "photo.fill", rightButtonIcon: self.camera.isFlashOn ? "bolt.fill" : "bolt.slash.fill", leftButtonAction: {
-                                self.camera.stopCamera()
                                 self.isShowPhotoLibrary = true
                                 
                             }, rightButtonAction: {
@@ -195,23 +191,15 @@ struct CameraScreen : View {
                     }
                 }
                 
-            }.sheet(isPresented: $isShowPhotoLibrary, onDismiss: {
-                if !self.isImagePicked {
-                    self.camera.startCamera()
-                }
-                
-            }) {
+            }.sheet(isPresented: $isShowPhotoLibrary) {
                 ImagePicker(sourceType: .photoLibrary, onImagePicked: {
                     pickedImage in
                     self.image = Image(uiImage: pickedImage)
                     self.camera.imageData = pickedImage.pngData()!
                     self.isImagePicked = true
-                    self.camera.stopCamera()
                 })
             }
-            .sheet(isPresented: $isSettings, onDismiss: {
-                self.camera.startCamera()
-            } ) {
+            .sheet(isPresented: $isSettings) {
                 SettingsScreen()
         }
         }

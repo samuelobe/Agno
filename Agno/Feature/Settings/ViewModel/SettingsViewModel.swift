@@ -32,9 +32,6 @@ class SettingsViewModel : ObservableObject {
         }
     }
     
-    
-    
-    
     init() {
         self.displayConfidence = UserDefaults.standard.bool(forKey: displayKey)
         self.swapButtons = UserDefaults.standard.bool(forKey: swapKey)
