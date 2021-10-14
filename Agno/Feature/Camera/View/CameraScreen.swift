@@ -78,6 +78,8 @@ struct CameraScreen : View {
                                 Color("BackgroundColor")
                                 image?.resizable().scaledToFit().cornerRadius(15).padding(50)
                             }
+                            
+                            
                         }
                     }
                     
@@ -121,8 +123,6 @@ struct CameraScreen : View {
                             }, isCheck: false).disabled(!launch.didLaunchBefore)
                         }
                     }
-                    
-                    
                     
                     if !self.camera.isPhotoTaken && !self.isImagePicked && !self.camera.alert  {
                         CameraButton(){
@@ -175,7 +175,6 @@ struct CameraScreen : View {
                         HStack {
                             Spacer()
                             SettingsButton(){
-                                //self.camera.stopCamera()
                                 self.isSettings.toggle()
                             }.disabled(!launch.didLaunchBefore)
                             
@@ -190,6 +189,7 @@ struct CameraScreen : View {
                         Spacer()
                     }
                 }
+
                 
             }.sheet(isPresented: $isShowPhotoLibrary) {
                 ImagePicker(sourceType: .photoLibrary, onImagePicked: {
@@ -201,7 +201,7 @@ struct CameraScreen : View {
             }
             .sheet(isPresented: $isSettings) {
                 SettingsScreen()
-        }
+            }
         }
     }
     

@@ -20,6 +20,7 @@ class CameraViewModel: NSObject, ObservableObject {
     @Published var isFlashOn = false
     @Published var alert = false
     @Published var isChecked = false
+    @Published var isFrontFlashOn = false
     @Published var session = AVCaptureSession()
     @Published var output = AVCapturePhotoOutput()
     @Published var deviceInput : AVCaptureDeviceInput!
@@ -124,19 +125,17 @@ class CameraViewModel: NSObject, ObservableObject {
     
     
     func takePic(){
+        let settings = AVCapturePhotoSettings()
+        
         if self.isFlashOn {
-            self.toggleTorch(on: true)
-            self.output.capturePhoto(with: AVCapturePhotoSettings(), delegate: self)
-            DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(1), execute: {self.toggleTorch(on: false)})
+            settings.flashMode = .on
         }
         else {
-            self.output.capturePhoto(with: AVCapturePhotoSettings(), delegate: self)
+            settings.flashMode = .off
         }
         
+        self.output.capturePhoto(with: settings, delegate: self)
         self.isPhotoTaken = true
-        
-        
-        //print("photo captured")
     }
     
     func resetCamera(){

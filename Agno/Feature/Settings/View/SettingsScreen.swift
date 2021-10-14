@@ -13,7 +13,7 @@ struct SettingsScreen: View {
     @EnvironmentObject var settings : SettingsViewModel
     @State private var presentingSafariView = false
     
-    private let privacyPolicyLink = "https://ayosoftware.com/privacy-policy"
+    private let privacyPolicyLink = "https://ayosoftware.com/agno-privacy-policy"
     private let appVersion = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String
     
     @State private var languageIndex = 0
