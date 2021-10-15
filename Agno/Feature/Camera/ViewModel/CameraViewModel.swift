@@ -20,18 +20,12 @@ class CameraViewModel: NSObject, ObservableObject {
     @Published var isFlashOn = false
     @Published var alert = false
     @Published var isChecked = false
-    @Published var isFrontFlashOn = false
     @Published var session = AVCaptureSession()
     @Published var output = AVCapturePhotoOutput()
     @Published var deviceInput : AVCaptureDeviceInput!
     @Published var preview : AVCaptureVideoPreviewLayer!
     @Published var imageData = Data(count: 0)
-    @Published var state : CameraState = .unchecked {
-        didSet {
-            print(self.state)
-        }
-    }
-    
+    @Published var state : CameraState = .unchecked
     @Published var cameraPostion : AVCaptureDevice.Position = .back
         
     func check(){
