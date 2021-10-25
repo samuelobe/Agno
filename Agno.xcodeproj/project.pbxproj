@@ -43,6 +43,7 @@
 		E945B92326F624A00071DD0B /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = E945B92226F624A00071DD0B /* Helpers.swift */; };
 		E945B92626F64BDC0071DD0B /* BetterSafariView in Frameworks */ = {isa = PBXBuildFile; productRef = E945B92526F64BDC0071DD0B /* BetterSafariView */; };
 		E945B92826F65B2F0071DD0B /* CameraPermission.swift in Sources */ = {isa = PBXBuildFile; fileRef = E945B92726F65B2F0071DD0B /* CameraPermission.swift */; };
+		E94D24EA27273EF100359DB5 /* ZoomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E94D24E927273EF100359DB5 /* ZoomView.swift */; };
 		E98305E827063F4C00C90736 /* SwapCameraButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E98305E727063F4C00C90736 /* SwapCameraButton.swift */; };
 		E9CA1BFF2700AD9200809C78 /* SettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9CA1BFE2700AD9200809C78 /* SettingsViewModel.swift */; };
 		E9D55D0126FBCFD200CCF01C /* CelebrityCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9D55D0026FBCFD200CCF01C /* CelebrityCellViewModel.swift */; };
@@ -90,6 +91,7 @@
 		E938210026EC040B00F76BFA /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		E945B92226F624A00071DD0B /* Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helpers.swift; sourceTree = "<group>"; };
 		E945B92726F65B2F0071DD0B /* CameraPermission.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraPermission.swift; sourceTree = "<group>"; };
+		E94D24E927273EF100359DB5 /* ZoomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZoomView.swift; sourceTree = "<group>"; };
 		E98305E727063F4C00C90736 /* SwapCameraButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwapCameraButton.swift; sourceTree = "<group>"; };
 		E9CA1BFE2700AD9200809C78 /* SettingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewModel.swift; sourceTree = "<group>"; };
 		E9D55D0026FBCFD200CCF01C /* CelebrityCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CelebrityCellViewModel.swift; sourceTree = "<group>"; };
@@ -327,6 +329,7 @@
 				E945B92726F65B2F0071DD0B /* CameraPermission.swift */,
 				E9294EBA2700F60E00C50D84 /* SettingsButton.swift */,
 				E98305E727063F4C00C90736 /* SwapCameraButton.swift */,
+				E94D24E927273EF100359DB5 /* ZoomView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -563,6 +566,7 @@
 				3D20A94226DEC3B400FDEB22 /* CameraButton.swift in Sources */,
 				E9294EB92700E99C00C50D84 /* AdView.swift in Sources */,
 				E91594F526F541F500785848 /* PhotoPreview.swift in Sources */,
+				E94D24EA27273EF100359DB5 /* ZoomView.swift in Sources */,
 				E90CBD7F2719AC390092F043 /* AdViewPopUp.swift in Sources */,
 				E9CA1BFF2700AD9200809C78 /* SettingsViewModel.swift in Sources */,
 				3D0762A826D979F400031C57 /* CelebrityListViewModel.swift in Sources */,

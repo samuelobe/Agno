@@ -12,8 +12,8 @@ struct CameraPreview : UIViewRepresentable {
     @ObservedObject var camera : CameraViewModel
     
     func makeUIView(context: Context) -> UIView {
-        let view = UIView(frame: UIScreen.main.bounds)
-        
+        let view = ZoomView(camera: camera)
+
         camera.preview = AVCaptureVideoPreviewLayer(session: camera.session)
         camera.preview.frame = view.frame
         camera.preview.videoGravity = .resizeAspectFill
@@ -25,14 +25,14 @@ struct CameraPreview : UIViewRepresentable {
         camera.session.startRunning()
         camera.state = .running
         
-        
-        
         return view
     }
     
     func updateUIView(_ uiView: UIViewType, context: Context) {
         
     }
+    
+    
     
     
 }
