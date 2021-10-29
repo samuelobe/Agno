@@ -27,32 +27,33 @@ class CameraViewModel: NSObject, ObservableObject {
     @Published var imageData = Data(count: 0)
     @Published var state : CameraState = .unchecked
     @Published var cameraPostion : AVCaptureDevice.Position = .back
-        
-    func check(){
+    
+    override init() {
+        super.init()
         switch AVCaptureDevice.authorizationStatus(for: .video) {
-            case .authorized:
-                setUp(isToggle: false)
-                return
-            case .notDetermined:
-                AVCaptureDevice.requestAccess(for: .video, completionHandler: {
-                    (status) in
-                    if status {
-                        self.setUp(isToggle: false)
+        case .authorized:
+            setUp(isToggle: false)
+            return
+        case .notDetermined:
+            AVCaptureDevice.requestAccess(for: .video, completionHandler: {
+                (status) in
+                if status {
+                    self.setUp(isToggle: false)
+                }
+                else {
+                    DispatchQueue.main.async {
+                        self.alert.toggle()
                     }
-                    else {
-                        DispatchQueue.main.async {
-                            self.alert.toggle()
-                        }
-                    }
-                })
-                return
-            case .denied:
-                self.alert.toggle()
-
-                return
-            default:
-                return
-            }
+                }
+            })
+            return
+        case .denied:
+            self.alert.toggle()
+            
+            return
+        default:
+            return
+        }
     }
     
     func setUp(isToggle: Bool){
@@ -99,7 +100,7 @@ class CameraViewModel: NSObject, ObservableObject {
                 }
             }
             
-
+            
             self.session.commitConfiguration()
             
             
@@ -155,47 +156,9 @@ class CameraViewModel: NSObject, ObservableObject {
         
     }
     
-
-    
-    func toggleTorch(on: Bool) {
-        guard let device = AVCaptureDevice.default(for: .video) else { return }
-
-        if device.hasTorch {
-            do {
-                try device.lockForConfiguration()
-
-                if on {
-                    device.torchMode = .on
-                } else {
-                    device.torchMode = .off
-                }
-
-                device.unlockForConfiguration()
-            } catch {
-                //print("Torch could not be used")
-            }
-        } else {
-            //print("Torch is not available")
-        }
-    }
-    
-    func set(zoom: CGFloat){
-        let factor = zoom < 1 ? 1 : zoom
-        if let deviceInput = self.deviceInput {
-            do {
-                try deviceInput.device.lockForConfiguration()
-                deviceInput.device.videoZoomFactor = factor
-                deviceInput.device.unlockForConfiguration()
-            }
-            catch {
-                //print(error.localizedDescription)
-            }
-        }
-        
-       
-    }
 }
 
+/// Photo callback
 extension CameraViewModel : AVCapturePhotoCaptureDelegate {
     func photoOutput(_ output: AVCapturePhotoOutput, didFinishProcessingPhoto photo: AVCapturePhoto, error: Error?) {
         
@@ -208,10 +171,11 @@ extension CameraViewModel : AVCapturePhotoCaptureDelegate {
         }
         
         guard let data = photo.fileDataRepresentation() else {
-            //print("Data representation error")
-            return}
+            return
+        }
         self.imageData = data
         
         //print("image data captured")
     }
 }
+

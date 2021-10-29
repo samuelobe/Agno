@@ -16,13 +16,12 @@ struct CameraScreen : View {
     
     @State private var action: Int? = 0
     @State private var image: Image? = nil
-    
     @State private var isImagePicked = false
     @State private var isShowPhotoLibrary = false
     @State private var isSettings = false
     @State private var isBackground = false
     
-    
+    var cameraPreview = CameraPreview()
     var isSim = Platform.isSimulator
     
     var body: some View {
@@ -39,7 +38,7 @@ struct CameraScreen : View {
                     else{
                         ZStack {
                             if !self.camera.alert {
-                                CameraPreview(camera: camera)
+                                cameraPreview
                                     .disabled(!launch.didLaunchBefore)
                             }
                             else {
@@ -100,16 +99,9 @@ struct CameraScreen : View {
                     
                     
                 }.onAppear(perform: {
-                    if !self.camera.isChecked {
-                        self.camera.check()
-                        self.camera.isChecked.toggle()
-                    }
-                    else {
-                        self.celeb.resetCelebs()
-                        self.camera.resetCamera()
-                        self.celeb.didRecieveData = false
-                    }
-                    
+                    self.celeb.resetCelebs()
+                    self.camera.resetCamera()
+                    self.celeb.didRecieveData = false
                 })
                 .navigationBarHidden(true)
                 .ignoresSafeArea(.all ,edges: .all)
@@ -138,7 +130,7 @@ struct CameraScreen : View {
                 if !launch.didLaunchBefore {
                     WelcomeCard(action: {launch.didLaunchBefore.toggle()})
                 }
-                if !self.camera.isPhotoTaken && !self.isImagePicked  {
+                if !self.camera.isPhotoTaken && !self.isImagePicked && !self.camera.alert  {
                     VStack {
                         HStack {
                             Spacer()

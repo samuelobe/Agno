@@ -26,25 +26,25 @@ class ZoomView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
+    // Return zoom value between the minimum and maximum zoom values
+    func minMaxZoom(_ factor: CGFloat) -> CGFloat {
+        let device = camera.deviceInput.device
+        return min(min(max(factor, minimumZoom), maximumZoom), device.activeFormat.videoMaxZoomFactor)
+    }
+
+    func update(scale factor: CGFloat) {
+        let device = camera.deviceInput.device
+        do {
+            try device.lockForConfiguration()
+            defer { device.unlockForConfiguration() }
+            device.videoZoomFactor = factor
+        } catch {
+            print("\(error.localizedDescription)")
+        }
+    }
+    
     @objc func pinch(_ pinch: UIPinchGestureRecognizer) {
         
-        let device = camera.deviceInput.device
-
-        // Return zoom value between the minimum and maximum zoom values
-        func minMaxZoom(_ factor: CGFloat) -> CGFloat {
-            return min(min(max(factor, minimumZoom), maximumZoom), device.activeFormat.videoMaxZoomFactor)
-        }
-
-        func update(scale factor: CGFloat) {
-            do {
-                try device.lockForConfiguration()
-                defer { device.unlockForConfiguration() }
-                device.videoZoomFactor = factor
-            } catch {
-                print("\(error.localizedDescription)")
-            }
-        }
-
         let newScaleFactor = minMaxZoom(pinch.scale * lastZoomFactor)
 
         switch pinch.state {

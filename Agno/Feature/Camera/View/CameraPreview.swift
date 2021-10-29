@@ -9,9 +9,9 @@ import AVFoundation
 import SwiftUI
 
 struct CameraPreview : UIViewRepresentable {
-    @ObservedObject var camera : CameraViewModel
+    @EnvironmentObject var camera : CameraViewModel
     
-    func makeUIView(context: Context) -> UIView {
+    func makeUIView(context: Context) -> ZoomView {
         let view = ZoomView(camera: camera)
 
         camera.preview = AVCaptureVideoPreviewLayer(session: camera.session)
@@ -28,9 +28,14 @@ struct CameraPreview : UIViewRepresentable {
         return view
     }
     
-    func updateUIView(_ uiView: UIViewType, context: Context) {
+    func updateUIView(_ uiView: ZoomView, context: Context) {
+
+    }
+    
+    func resetCamera() {
         
     }
+    
     
     
     
