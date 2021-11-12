@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+//import AdSupport
 
 struct ContentView: View {
     @State private var action: Int? = 0
@@ -13,8 +14,10 @@ struct ContentView: View {
     @StateObject var celeb = CelebrityListViewModel(recognitionAWS: CelebrityRecognition())
     @StateObject var launch = LaunchSettings()
     @StateObject var settings = SettingsViewModel()
+    //var asIDManager = ASIdentifierManager()
     
     var body: some View {
+        
         NavigationView {
             ZStack {
                 Color(.black).ignoresSafeArea()

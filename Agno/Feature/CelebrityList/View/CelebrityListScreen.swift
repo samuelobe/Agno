@@ -6,10 +6,13 @@
 //
 
 import SwiftUI
+import AppTrackingTransparency
+import AdSupport
 
 struct CelebrityListScreen: View {
     @EnvironmentObject var celebModel : CelebrityListViewModel
     @EnvironmentObject var cameraModel : CameraViewModel
+    @State var loadAds: Bool = false
 
     private let gridItems = [GridItem(.flexible()), GridItem(.flexible())]
     
@@ -48,9 +51,15 @@ struct CelebrityListScreen: View {
             
             VStack {
                 Spacer()
-                AdView().frame(width: 150, height: 50, alignment: .bottom)
+                if loadAds {
+                    AdView().frame(width: 150, height: 50, alignment: .bottom)
+                }
+                
             }
         }.onAppear(perform: {
+            ATTrackingManager.requestTrackingAuthorization(completionHandler: { status in
+                self.loadAds.toggle()
+              })
             if !Platform.isSimulator && !self.celebModel.didRecieveData {
                 self.celebModel.imageData = self.cameraModel.imageData
                 self.celebModel.getAWSData()

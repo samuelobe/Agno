@@ -26,8 +26,10 @@
 	<string></string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
+	<key>NSUserTrackingUsageDescription</key>
+	<string>This identifier will be used to deliver personalized ads to you.</string>
 	<key>NSCameraUsageDescription</key>
-	<string>App requires access to camera so user can find celebrities in images.</string>
+	<string>App requires access to camera so user can find celebrities in your photos.</string>
 	<key>SKAdNetworkItems</key>
 	<array>
 		<dict>
