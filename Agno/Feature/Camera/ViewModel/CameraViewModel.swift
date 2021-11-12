@@ -27,11 +27,12 @@ class CameraViewModel: NSObject, ObservableObject {
     @Published var imageData = Data(count: 0)
     @Published var state : CameraState = .unchecked
     @Published var cameraPostion : AVCaptureDevice.Position = .back
-    @Published var lastZoomFactor: CGFloat = 1.0 {
-        didSet {
-            print(lastZoomFactor, "last zoom factor")
-        }
-    }
+    @Published var lastZoomFactor: CGFloat = 1.0
+//    {
+//        didSet {
+//            print(lastZoomFactor, "last zoom factor")
+//        }
+//    }
     
     override init() {
         super.init()

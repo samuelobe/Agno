@@ -40,7 +40,7 @@ struct CelebrityListScreen: View {
                         LoadingIndicator()
                     }
                     else {
-                        Text("No celebrity faces found in image")
+                        Text("No celebrity faces found in photo")
                     }
                     
                 }

@@ -66,22 +66,24 @@ struct CameraScreen : View {
                             
                             if self.settings.swapButtons {
                                 CameraBar(leftButtonIcon: "checkmark.square.fill", rightButtonIcon: "clear.fill", leftButtonAction: {
+                                    self.camera.resetZoom()
                                     self.isImagePicked = false
                                     self.action = 1
                                 }, rightButtonAction: {
+                                    self.camera.resetZoom()
                                     self.isImagePicked = false
                                     self.camera.resetCamera()
                                 }, isCheck: true).disabled(!launch.didLaunchBefore)
                             }
                             else {
                                 CameraBar(leftButtonIcon: "clear.fill", rightButtonIcon: "checkmark.square.fill", leftButtonAction: {
+                                    self.camera.resetZoom()
                                     self.isImagePicked = false
                                     self.camera.resetCamera()
-                                    self.camera.resetZoom()
                                 }, rightButtonAction: {
+                                    self.camera.resetZoom()
                                     self.isImagePicked = false
                                     self.action = 1
-                                    self.camera.resetZoom()
                                 }, isCheck: true).disabled(!launch.didLaunchBefore)
                             }
                         }
@@ -146,6 +148,7 @@ struct CameraScreen : View {
                         HStack {
                             Spacer()
                             SwapCameraButton(){
+                                self.camera.resetZoom()
                                 self.camera.swapCamera()
                             }.disabled(!launch.didLaunchBefore)
                             

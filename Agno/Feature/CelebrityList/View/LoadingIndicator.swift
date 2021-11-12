@@ -13,7 +13,7 @@ struct LoadingIndicator: View {
     var body: some View {
         VStack {
             ProgressView().scaleEffect(1.25)
-            Text("Analyzing Image...").foregroundColor(.white).padding()
+            Text("Analyzing Photo...").foregroundColor(.white).padding()
         }
     }
 }
