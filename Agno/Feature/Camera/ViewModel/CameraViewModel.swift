@@ -27,6 +27,11 @@ class CameraViewModel: NSObject, ObservableObject {
     @Published var imageData = Data(count: 0)
     @Published var state : CameraState = .unchecked
     @Published var cameraPostion : AVCaptureDevice.Position = .back
+    @Published var lastZoomFactor: CGFloat = 1.0 {
+        didSet {
+            print(lastZoomFactor, "last zoom factor")
+        }
+    }
     
     override init() {
         super.init()
@@ -176,6 +181,36 @@ extension CameraViewModel : AVCapturePhotoCaptureDelegate {
         self.imageData = data
         
         //print("image data captured")
+    }
+}
+
+/// Zoom Methods
+extension CameraViewModel {
+    
+    /// Return zoom value between the minimum and maximum zoom values
+    func minMaxZoom(_ factor: CGFloat) -> CGFloat {
+        let minimumZoom: CGFloat = 1.0
+        let maximumZoom: CGFloat = 3.0
+        
+        let device = self.deviceInput.device
+        return min(min(max(factor, minimumZoom), maximumZoom), device.activeFormat.videoMaxZoomFactor)
+    }
+
+    func update(scale factor: CGFloat) {
+        //print(factor)
+        let device = self.deviceInput.device
+        do {
+            try device.lockForConfiguration()
+            defer { device.unlockForConfiguration() }
+            device.videoZoomFactor = factor
+        } catch {
+            print("\(error.localizedDescription)")
+        }
+    }
+    
+    func resetZoom() {
+        self.lastZoomFactor = 1.0
+        self.update(scale: 1.0)
     }
 }
 

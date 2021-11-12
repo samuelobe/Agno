@@ -21,10 +21,12 @@ struct CameraScreen : View {
     @State private var isSettings = false
     @State private var isBackground = false
     
-    var cameraPreview = CameraPreview()
     var isSim = Platform.isSimulator
     
     var body: some View {
+        
+        let cameraPreview = CameraPreview(camera: camera)
+        
         GeometryReader { reader in
             ZStack {
                 ZStack {
@@ -75,9 +77,11 @@ struct CameraScreen : View {
                                 CameraBar(leftButtonIcon: "clear.fill", rightButtonIcon: "checkmark.square.fill", leftButtonAction: {
                                     self.isImagePicked = false
                                     self.camera.resetCamera()
+                                    self.camera.resetZoom()
                                 }, rightButtonAction: {
                                     self.isImagePicked = false
                                     self.action = 1
+                                    self.camera.resetZoom()
                                 }, isCheck: true).disabled(!launch.didLaunchBefore)
                             }
                         }
@@ -166,6 +170,7 @@ struct CameraScreen : View {
     }
     
 }
+
 
 struct CameraView_Previews: PreviewProvider {
     static var previews: some View {

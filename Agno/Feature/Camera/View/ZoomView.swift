@@ -10,15 +10,12 @@ import UIKit
 
 class ZoomView: UIView {
     
-    var minimumZoom: CGFloat = 1.0
-    var maximumZoom: CGFloat = 3.0
-    var lastZoomFactor: CGFloat = 1.0
     var camera : CameraViewModel
     
     init(camera : CameraViewModel){
         self.camera = camera
         super.init(frame: UIScreen.main.bounds)
-        let pinchRecognizer = UIPinchGestureRecognizer(target: self, action:#selector(pinch(_:)))
+        let pinchRecognizer = UIPinchGestureRecognizer(target: self, action: #selector(pinch(_:)))
         addGestureRecognizer(pinchRecognizer)
     }
     
@@ -26,34 +23,16 @@ class ZoomView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    // Return zoom value between the minimum and maximum zoom values
-    func minMaxZoom(_ factor: CGFloat) -> CGFloat {
-        let device = camera.deviceInput.device
-        return min(min(max(factor, minimumZoom), maximumZoom), device.activeFormat.videoMaxZoomFactor)
-    }
-
-    func update(scale factor: CGFloat) {
-        let device = camera.deviceInput.device
-        do {
-            try device.lockForConfiguration()
-            defer { device.unlockForConfiguration() }
-            device.videoZoomFactor = factor
-        } catch {
-            print("\(error.localizedDescription)")
-        }
-    }
-    
     @objc func pinch(_ pinch: UIPinchGestureRecognizer) {
-        
-        let newScaleFactor = minMaxZoom(pinch.scale * lastZoomFactor)
-
+        let newScaleFactor = camera.minMaxZoom(pinch.scale * camera.lastZoomFactor)
         switch pinch.state {
-        case .began: fallthrough
-        case .changed: update(scale: newScaleFactor)
-        case .ended:
-            lastZoomFactor = minMaxZoom(newScaleFactor)
-            update(scale: lastZoomFactor)
-        default: break
+            case .began: fallthrough
+        case .changed: camera.update(scale: newScaleFactor)
+            case .ended:
+            camera.lastZoomFactor = camera.minMaxZoom(newScaleFactor)
+            camera.update(scale: camera.lastZoomFactor)
+            default: break
         }
     }
 }
+
