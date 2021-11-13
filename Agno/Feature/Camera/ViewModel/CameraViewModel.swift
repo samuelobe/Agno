@@ -56,9 +56,11 @@ class CameraViewModel: NSObject, ObservableObject {
             return
         }
     }
-    
+
     func selectCamera() -> AVCaptureDevice? {
-        if let device = AVCaptureDevice.default(.builtInDualCamera, for: .video, position: cameraPostion) {
+        if let device = AVCaptureDevice.default(.builtInTripleCamera, for: .video, position: cameraPostion) {
+            return device
+        } else if let device = AVCaptureDevice.default(.builtInDualCamera, for: .video, position: cameraPostion) {
             return device
         } else if let device = AVCaptureDevice.default(.builtInWideAngleCamera, for: .video, position: cameraPostion) {
             return device
