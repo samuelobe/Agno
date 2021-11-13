@@ -44,6 +44,4 @@
 "noCeleb" = "No celebrity faces found in photo";
 
 // Loading Indicator
-"analyze" = "Analyzing Photo...";
-
-
+"analyze" = "Analyzing photo...";
