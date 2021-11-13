@@ -23,7 +23,7 @@ struct CameraBar: View {
                 }).padding(.leading, 40)
                 Spacer()
                 if isCheck {
-                    Text("Scan for celebs in this photo?").font(.caption).bold()
+                    Text(LocalizedStringKey("scan")).font(.caption).bold()
                     Spacer()
                 }
 

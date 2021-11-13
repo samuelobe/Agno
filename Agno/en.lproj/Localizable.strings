@@ -8,11 +8,14 @@
 
 
 // SettingsScreen
+"done"="Done";
 "settings" = "Settings";
 "celeb" = "CELEBRITY";
-"confidence" = "Confidence values represent the accuracy of each celebrity result";
+"confidenceSetting" = "Confidence values represent the accuracy of each celebrity result";
 "access" = "ACCESSIBILITY";
+"display" = "Display confidence values";
 "swap" = "Swaps the positioning of the \"check\" and \"cross\" buttons to cater towards left-handed users";
+"mode" = "Left-handed mode";
 "lang" = "IN-APP LANGUAGE";
 "langChoice" = "Change Agno to your language of choice";
 "langDevice" = "Use device language settings";
@@ -28,7 +31,7 @@
 
 // CameraPermission
 "cameraAccess" = "Please provide Agno access to your camera in the Settings app";
-"settings" = "Go to Settings";
+"cameraSettings" = "Go to Settings";
 
 // CameraBar
 "scan" = "Scan for celebs in this photo?";
@@ -38,5 +41,9 @@
 
 // CelebrityListScreen
 "celebrities" = "Celebrities";
-"noCeleb" = "No celebrity faces found in image";
+"noCeleb" = "No celebrity faces found in photo";
+
+// Loading Indicator
+"analyze" = "Analyzing Photo...";
+
 

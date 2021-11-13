@@ -16,41 +16,41 @@ struct SettingsScreen: View {
     private let privacyPolicyLink = "https://ayosoftware.com/agno-privacy-policy"
     private let appVersion = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String
     
-    @State private var languageIndex = 0
-    private var languageOptions = ["English", "Español", "Français", "中文"]
-
-    
     var body: some View {
         NavigationView {
             VStack {
                 Form {
-                    Section(header: Text("CELEBRITY"), footer: Text("Confidence values represent the accuracy of each celebrity result")) {
-                        Toggle(isOn: $settings.displayConfidence, label: {Text("Display confidence values")})
+                    Section(header: Text(LocalizedStringKey("celeb")), footer: Text(LocalizedStringKey("confidenceSetting"))) {
+                        Toggle(isOn: $settings.displayConfidence, label: {Text(LocalizedStringKey("display"))})
                     }
-                    Section(header: Text("accessibility"), footer: Text("Swaps the positioning of the \"check\" and \"cross\" buttons to cater towards left-handed users")) {
-                        Toggle(isOn: $settings.swapButtons, label: {Text("Left-handed mode")})
+                    Section(header: Text(LocalizedStringKey("access")), footer: Text(LocalizedStringKey("swap"))) {
+                        Toggle(isOn: $settings.swapButtons, label: {Text(LocalizedStringKey("mode"))})
                     }
-//                    Section(header: Text("IN-APP LANGUAGE"), footer: Text("Change Agno to your language of choice")) {
-//                        Toggle(isOn: $settings.useDefaultLanguage, label: {Text("Use device language settings")})
-//                        Picker(selection: $languageIndex, label: Text("Change language")) {
-//                            ForEach(0 ..< languageOptions.count) {
-//                                Text(self.languageOptions[$0])
+//                    Section(header: Text(LocalizedStringKey("lang")), footer: Text(LocalizedStringKey("langChoice"))) {
+//                        Button(action: {
+//                            if let settingsUrl = URL(string: UIApplication.openSettingsURLString) {
+//                               UIApplication.shared.open(settingsUrl)
+//                             }
+//                        }) {
+//                            HStack {
+//                                Text(LocalizedStringKey("langChange"))
+//                                Spacer()
+//                                Image(systemName: "chevron.right")
 //                            }
 //                        }
-//
 //                    }
-                    Section(header: Text("ABOUT")) {
+                    Section(header: Text(LocalizedStringKey("about"))) {
                         Button(action: {
                             self.presentingSafariView.toggle()
                         }) {
                             HStack {
-                                Text("Privacy Policy")
+                                Text(LocalizedStringKey("policy"))
                                 Spacer()
                                 Image(systemName: "chevron.right")
                             }
                         }
                         HStack {
-                            Text("Version")
+                            Text(LocalizedStringKey("version"))
                             Spacer()
                             Text(appVersion!)
                         }
@@ -59,12 +59,12 @@ struct SettingsScreen: View {
                 
             }
             .ignoresSafeArea(.all, edges: .top)
-            .navigationBarTitle("Settings", displayMode: .inline )
+            .navigationBarTitle(LocalizedStringKey("settings"), displayMode: .inline )
             .toolbar{
                 ToolbarItem(placement: .navigationBarLeading) {Button(action: {
                     self.presentationMode.wrappedValue.dismiss()
                     
-                }) {Text("Done")
+                }) {Text(LocalizedStringKey("done"))
                     .bold()
                     
                 }

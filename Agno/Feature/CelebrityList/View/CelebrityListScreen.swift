@@ -43,7 +43,7 @@ struct CelebrityListScreen: View {
                         LoadingIndicator()
                     }
                     else {
-                        Text("No celebrity faces found in photo")
+                        Text(LocalizedStringKey("noCeleb"))
                     }
                     
                 }
@@ -68,7 +68,7 @@ struct CelebrityListScreen: View {
         })
             .preferredColorScheme(.dark)
             .navigationBarTitleDisplayMode(.inline)
-            .navigationTitle("Celebrities")
+            .navigationTitle(LocalizedStringKey("celebrities"))
     }
 }
 

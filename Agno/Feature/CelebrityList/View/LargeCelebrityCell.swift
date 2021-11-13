@@ -91,7 +91,10 @@ struct LargeCelebrityText: View {
                 .frame(minWidth: 0, maxWidth: .infinity)
                 .padding(.bottom, 1)
             if settingsModel.displayConfidence {
-                Text("Confidence: \(confidence.intValue)%")
+                HStack(spacing: 2) {
+                    Text(LocalizedStringKey("confidence"))
+                    Text("\(confidence.intValue)%")
+                }
                     .foregroundColor(.white)
                     .font(.caption)
             }

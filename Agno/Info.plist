@@ -29,7 +29,7 @@
 	<key>NSUserTrackingUsageDescription</key>
 	<string>This identifier will be used to deliver personalized ads to you.</string>
 	<key>NSCameraUsageDescription</key>
-	<string>App requires access to camera so user can find celebrities in your photos.</string>
+	<string>Agno is requesting access to your camera for celebrity recognition.</string>
 	<key>SKAdNetworkItems</key>
 	<array>
 		<dict>

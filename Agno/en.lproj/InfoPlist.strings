@@ -1,0 +1,10 @@
+/* 
+  InfoPlist.strings
+  Agno
+
+  Created by ELeetDev on 11/12/21.
+  
+*/
+
+NSUserTrackingUsageDescription = "This identifier will be used to deliver personalized ads to you.";
+NSCameraUsageDescription = "Agno is requesting access to your camera for celebrity recognition.";

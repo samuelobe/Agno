@@ -11,11 +11,13 @@ struct CameraPermission: View {
     var body: some View {
         GeometryReader { geometry in
             VStack {
-                Text("Please provide Agno access to your camera in the Settings app").foregroundColor(.white).bold().padding().multilineTextAlignment(.center)
+                Text(LocalizedStringKey("cameraAccess")).foregroundColor(.white).bold().padding().multilineTextAlignment(.center)
                 Button(action: {
-                    UIApplication.shared.open(URL.init(string: UIApplication.openSettingsURLString)!, options: [:], completionHandler: nil)
+                    if let settingsUrl = URL(string: UIApplication.openSettingsURLString) {
+                       UIApplication.shared.open(settingsUrl)
+                     }
                 }, label: {
-                    Text("Go to Settings")
+                    Text(LocalizedStringKey("cameraSettings"))
                         .font(.body)
                         .bold()
                         .padding(EdgeInsets(top: 15, leading: 50, bottom: 15, trailing: 50))
