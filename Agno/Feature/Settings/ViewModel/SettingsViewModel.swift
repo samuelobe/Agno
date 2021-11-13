@@ -9,10 +9,10 @@ import SwiftUI
 import Combine
 
 class SettingsViewModel : ObservableObject {
-    let displayKey = "displayConfidence"
-    let swapKey = "swapButtons"
-    let useDefaultLanguageKey = "useDefaultLanguageKey"
-    let languageKey = "currentLanguage"
+    private let displayKey = "displayConfidence"
+    private let swapKey = "swapButtons"
+    private let useDefaultLanguageKey = "useDefaultLanguageKey"
+    private let languageKey = "currentLanguage"
 
     @Published var displayConfidence : Bool  {
         didSet {

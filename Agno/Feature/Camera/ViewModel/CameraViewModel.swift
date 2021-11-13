@@ -28,11 +28,6 @@ class CameraViewModel: NSObject, ObservableObject {
     @Published var state : CameraState = .unchecked
     @Published var cameraPostion : AVCaptureDevice.Position = .back
     @Published var lastZoomFactor: CGFloat = 1.0
-//    {
-//        didSet {
-//            print(lastZoomFactor, "last zoom factor")
-//        }
-//    }
     
     override init() {
         super.init()
@@ -62,6 +57,15 @@ class CameraViewModel: NSObject, ObservableObject {
         }
     }
     
+    func selectCamera() -> AVCaptureDevice? {
+        if let device = AVCaptureDevice.default(.builtInDualCamera, for: .video, position: cameraPostion) {
+            return device
+        } else if let device = AVCaptureDevice.default(.builtInWideAngleCamera, for: .video, position: cameraPostion) {
+            return device
+        }
+        return nil
+    }
+    
     func setUp(isToggle: Bool){
         do {
             
@@ -72,7 +76,7 @@ class CameraViewModel: NSObject, ObservableObject {
                 self.session.removeInput(self.deviceInput)
             }
             
-            guard let camera = AVCaptureDevice.default(.builtInWideAngleCamera, for: .video, position: cameraPostion )
+            guard let camera = selectCamera()
             else {
                 DispatchQueue.main.async {
                     self.alert.toggle()
@@ -196,7 +200,7 @@ extension CameraViewModel {
         let device = self.deviceInput.device
         return min(min(max(factor, minimumZoom), maximumZoom), device.activeFormat.videoMaxZoomFactor)
     }
-
+    
     func update(scale factor: CGFloat) {
         //print(factor)
         let device = self.deviceInput.device

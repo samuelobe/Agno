@@ -12,7 +12,6 @@ class CelebrityCellViewModel: ObservableObject {
     @Published var image: UIImage = UIImage()
     @Published var invalidImage = true
     @Published var isLoaded = false
-    
     private var service : ImageLoaderService
     
     init(loaderService : ImageLoaderService){

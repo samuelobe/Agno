@@ -29,7 +29,6 @@
 		3DD1E09D26D2DA9C00E5CCAD /* CelebrityService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DD1E09C26D2DA9C00E5CCAD /* CelebrityService.swift */; };
 		3DD1E0A526D2E13500E5CCAD /* APIConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DD1E0A426D2E13500E5CCAD /* APIConstants.swift */; };
 		7876922469F1D927A8E4954F /* Pods_Agno.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 754D5FC58E66A741E64DB578 /* Pods_Agno.framework */; };
-		E90CBD7F2719AC390092F043 /* AdViewPopUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E90CBD7E2719AC390092F043 /* AdViewPopUp.swift */; };
 		E91594EC26F37E7F00785848 /* LoadingIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E91594EB26F37E7F00785848 /* LoadingIndicator.swift */; };
 		E91594F026F4CE6600785848 /* WelcomeCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = E91594EF26F4CE6600785848 /* WelcomeCard.swift */; };
 		E91594F326F5112400785848 /* LaunchSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = E91594F226F5112400785848 /* LaunchSettings.swift */; };
@@ -80,7 +79,6 @@
 		3DD1E0A426D2E13500E5CCAD /* APIConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIConstants.swift; sourceTree = "<group>"; };
 		754D5FC58E66A741E64DB578 /* Pods_Agno.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Agno.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		97CAB587BB761E3890E9C0DD /* Pods-Agno.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Agno.release.xcconfig"; path = "Target Support Files/Pods-Agno/Pods-Agno.release.xcconfig"; sourceTree = "<group>"; };
-		E90CBD7E2719AC390092F043 /* AdViewPopUp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdViewPopUp.swift; sourceTree = "<group>"; };
 		E91594EB26F37E7F00785848 /* LoadingIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingIndicator.swift; sourceTree = "<group>"; };
 		E91594EF26F4CE6600785848 /* WelcomeCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeCard.swift; sourceTree = "<group>"; };
 		E91594F226F5112400785848 /* LaunchSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchSettings.swift; sourceTree = "<group>"; };
@@ -276,13 +274,13 @@
 		3DD1E0A126D2DF9200E5CCAD /* Feature */ = {
 			isa = PBXGroup;
 			children = (
+				3DD1E0AA26D2E51600E5CCAD /* Introduction */,
 				E9294EB72700E98C00C50D84 /* Advertisement */,
 				E926464A26FE89F9003D0D3F /* Settings */,
 				3D0762A426D979BF00031C57 /* CelebrityList */,
 				3D566FB026D4056B00D69502 /* CelebrityRecogniton */,
 				3DD1E0A626D2E2A600E5CCAD /* Camera */,
 				3DD1E0A226D2DF9900E5CCAD /* CelebrityDetail */,
-				3DD1E0AA26D2E51600E5CCAD /* Introduction */,
 			);
 			path = Feature;
 			sourceTree = "<group>";
@@ -371,7 +369,6 @@
 			isa = PBXGroup;
 			children = (
 				E9294EB82700E99C00C50D84 /* AdView.swift */,
-				E90CBD7E2719AC390092F043 /* AdViewPopUp.swift */,
 			);
 			path = Advertisement;
 			sourceTree = "<group>";
@@ -562,7 +559,6 @@
 				E9294EB92700E99C00C50D84 /* AdView.swift in Sources */,
 				E91594F526F541F500785848 /* PhotoPreview.swift in Sources */,
 				E94D24EA27273EF100359DB5 /* ZoomView.swift in Sources */,
-				E90CBD7F2719AC390092F043 /* AdViewPopUp.swift in Sources */,
 				E9CA1BFF2700AD9200809C78 /* SettingsViewModel.swift in Sources */,
 				3D0762A826D979F400031C57 /* CelebrityListViewModel.swift in Sources */,
 				E91594F326F5112400785848 /* LaunchSettings.swift in Sources */,
