@@ -51,8 +51,6 @@ struct CameraScreen : View {
                                 Color("BackgroundColor")
                                 image?.resizable().scaledToFit().cornerRadius(15).padding(50)
                             }
-                            
-                            
                         }
                     }
                     
@@ -102,8 +100,6 @@ struct CameraScreen : View {
                             self.camera.takePic()
                         }.disabled(!launch.didLaunchBefore)
                     }
-                    
-                    
                 }.onAppear(perform: {
                     self.celeb.resetCelebs()
                     self.camera.resetCamera()
@@ -119,7 +115,6 @@ struct CameraScreen : View {
                             self.camera.stopCamera()
                             self.isBackground = true
                         }
-                        
                     }
                 }
                 .onReceive(NotificationCenter.default.publisher(for: UIApplication.didBecomeActiveNotification )) {
@@ -136,28 +131,46 @@ struct CameraScreen : View {
                 if !launch.didLaunchBefore {
                     WelcomeCard(action: {launch.didLaunchBefore.toggle()})
                 }
-                if !self.camera.isPhotoTaken && !self.isImagePicked && !self.camera.alert  {
-                    VStack {
-                        HStack {
-                            Spacer()
-                            SettingsButton(){
-                                self.isSettings.toggle()
-                            }.disabled(!launch.didLaunchBefore)
-                            
-                        }.padding()
-                        HStack {
-                            Spacer()
-                            SwapCameraButton(){
-                                self.camera.resetZoom()
-                                self.camera.swapCamera()
-                            }.disabled(!launch.didLaunchBefore)
-                            
-                        }.padding()
-                        Spacer()
-                    }
-                }
-
                 
+                if !self.isImagePicked && !self.camera.alert  {
+                    if !self.camera.isPhotoTaken  {
+                        VStack {
+                            HStack {
+                                Spacer()
+                                FunctionButton(icon: "gearshape.fill", iconSize: 30 ){
+                                    self.isSettings.toggle()
+                                }.disabled(!launch.didLaunchBefore)
+                            }.padding()
+                            HStack {
+                                Spacer()
+                                FunctionButton(icon: "arrow.triangle.2.circlepath.camera.fill", iconSize: 30){
+                                    self.camera.resetZoom()
+                                    self.camera.swapCamera()
+                                }.disabled(!launch.didLaunchBefore)
+                            }.padding()
+                            Spacer()
+                        }
+                    }
+                    else {
+                        VStack {
+                            HStack {
+                                Spacer()
+                                FunctionButton(icon: "arrowshape.turn.up.forward.fill", iconSize: 30 ){
+                                    //self.isSettings.toggle()
+                                }.disabled(!launch.didLaunchBefore)
+                            }.padding()
+                            HStack {
+                                Spacer()
+                                FunctionButton(icon: "externaldrive.connected.to.line.below", iconSize: 30){
+                                    //self.camera.resetZoom()
+                                    //self.camera.swapCamera()
+                                }.disabled(!launch.didLaunchBefore)
+                            }.padding()
+                            Spacer()
+                        }
+                    }
+                    
+                }
             }.sheet(isPresented: $isShowPhotoLibrary) {
                 ImagePicker(sourceType: .photoLibrary, onImagePicked: {
                     pickedImage in
