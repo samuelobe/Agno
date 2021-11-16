@@ -143,7 +143,7 @@ struct CameraScreen : View {
                             }.padding()
                             HStack {
                                 Spacer()
-                                FunctionButton(icon: "arrow.triangle.2.circlepath.camera.fill", iconSize: 30){
+                                FunctionButton(icon: "arrow.triangle.2.circlepath.camera.fill", iconSize: 25){
                                     self.camera.resetZoom()
                                     self.camera.swapCamera()
                                 }.disabled(!launch.didLaunchBefore)
@@ -155,13 +155,13 @@ struct CameraScreen : View {
                         VStack {
                             HStack {
                                 Spacer()
-                                FunctionButton(icon: "arrowshape.turn.up.forward.fill", iconSize: 30 ){
+                                FunctionButton(icon: "arrowshape.turn.up.forward.fill", iconSize: 25 ){
                                     //self.isSettings.toggle()
                                 }.disabled(!launch.didLaunchBefore)
                             }.padding()
                             HStack {
                                 Spacer()
-                                FunctionButton(icon: "externaldrive.connected.to.line.below", iconSize: 30){
+                                FunctionButton(icon: "square.and.arrow.down", iconSize: 25){
                                     //self.camera.resetZoom()
                                     //self.camera.swapCamera()
                                 }.disabled(!launch.didLaunchBefore)
@@ -169,7 +169,6 @@ struct CameraScreen : View {
                             Spacer()
                         }
                     }
-                    
                 }
             }.sheet(isPresented: $isShowPhotoLibrary) {
                 ImagePicker(sourceType: .photoLibrary, onImagePicked: {
