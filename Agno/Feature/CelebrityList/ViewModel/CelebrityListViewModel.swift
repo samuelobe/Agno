@@ -21,7 +21,7 @@ class CelebrityListViewModel: ObservableObject {
     }
     
     func getAWSData() {
-        recognitionAWS.picData = (UIImage(data: self.imageData)?.jpegData(compressionQuality: 0.2))!
+        recognitionAWS.picData = (UIImage(data: self.imageData)?.jpegData(compressionQuality: 0.5))!
         recognitionAWS.sendImageToRekognition() {
             (celebData, alertData) in
             DispatchQueue.main.async {

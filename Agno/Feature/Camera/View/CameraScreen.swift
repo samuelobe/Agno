@@ -20,6 +20,8 @@ struct CameraScreen : View {
     @State private var isShowPhotoLibrary = false
     @State private var isSettings = false
     @State private var isBackground = false
+    @State private var isShareSheet = false
+    @State private var items : [Any] = []
     
     var isSim = Platform.isSimulator
     
@@ -156,14 +158,9 @@ struct CameraScreen : View {
                             HStack {
                                 Spacer()
                                 FunctionButton(icon: "arrowshape.turn.up.forward.fill", iconSize: 25 ){
-                                    //self.isSettings.toggle()
-                                }.disabled(!launch.didLaunchBefore)
-                            }.padding()
-                            HStack {
-                                Spacer()
-                                FunctionButton(icon: "square.and.arrow.down", iconSize: 25){
-                                    //self.camera.resetZoom()
-                                    //self.camera.swapCamera()
+                                    items.removeAll()
+                                    items.append((UIImage(data: camera.imageData)?.jpegData(compressionQuality: 0.2))!)
+                                    isShareSheet.toggle()
                                 }.disabled(!launch.didLaunchBefore)
                             }.padding()
                             Spacer()
@@ -180,6 +177,9 @@ struct CameraScreen : View {
             }
             .sheet(isPresented: $isSettings) {
                 SettingsScreen()
+            }
+            .sheet(isPresented: $isShareSheet) {
+                ShareSheet(items: items)
             }
         }
     }
