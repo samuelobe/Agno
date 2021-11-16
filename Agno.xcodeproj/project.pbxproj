@@ -46,7 +46,6 @@
 		E98305E827063F4C00C90736 /* SwapCameraButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E98305E727063F4C00C90736 /* SwapCameraButton.swift */; };
 		E99552EC273F3AAE008FA8D2 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = E99552EE273F3AAE008FA8D2 /* InfoPlist.strings */; };
 		E99552F32742A310008FA8D2 /* FunctionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E99552F22742A310008FA8D2 /* FunctionButton.swift */; };
-		E99552F5274354EA008FA8D2 /* ShareSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = E99552F4274354EA008FA8D2 /* ShareSheet.swift */; };
 		E9CA1BFF2700AD9200809C78 /* SettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9CA1BFE2700AD9200809C78 /* SettingsViewModel.swift */; };
 		E9D55D0126FBCFD200CCF01C /* CelebrityCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9D55D0026FBCFD200CCF01C /* CelebrityCellViewModel.swift */; };
 		E9E5DAC32703CE5600294679 /* LargeCelebrityCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9E5DAC22703CE5600294679 /* LargeCelebrityCell.swift */; };
@@ -96,7 +95,6 @@
 		E98305E727063F4C00C90736 /* SwapCameraButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwapCameraButton.swift; sourceTree = "<group>"; };
 		E99552ED273F3AAE008FA8D2 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		E99552F22742A310008FA8D2 /* FunctionButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FunctionButton.swift; sourceTree = "<group>"; };
-		E99552F4274354EA008FA8D2 /* ShareSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareSheet.swift; sourceTree = "<group>"; };
 		E9CA1BFE2700AD9200809C78 /* SettingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewModel.swift; sourceTree = "<group>"; };
 		E9D55D0026FBCFD200CCF01C /* CelebrityCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CelebrityCellViewModel.swift; sourceTree = "<group>"; };
 		E9E5DAC22703CE5600294679 /* LargeCelebrityCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LargeCelebrityCell.swift; sourceTree = "<group>"; };
@@ -330,7 +328,6 @@
 				E98305E727063F4C00C90736 /* SwapCameraButton.swift */,
 				E94D24E927273EF100359DB5 /* ZoomView.swift */,
 				E99552F22742A310008FA8D2 /* FunctionButton.swift */,
-				E99552F4274354EA008FA8D2 /* ShareSheet.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -551,7 +548,6 @@
 				E98305E827063F4C00C90736 /* SwapCameraButton.swift in Sources */,
 				3D5164A826E2C2840019D663 /* CameraBar.swift in Sources */,
 				3D566FB226D4059500D69502 /* CelebrityRecognition.swift in Sources */,
-				E99552F5274354EA008FA8D2 /* ShareSheet.swift in Sources */,
 				3DB7A96426CEFF750086F644 /* CelebrityDetailScreen.swift in Sources */,
 				3D0762A626D979DF00031C57 /* CelebrityListScreen.swift in Sources */,
 				E945B92326F624A00071DD0B /* Helpers.swift in Sources */,
