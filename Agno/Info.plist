@@ -2,8 +2,6 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>NSPhotoLibraryUsageDescription</key>
-	<string>Agno is requesting access to your photo library so the user can save photos.</string>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
 	<key>CFBundleDisplayName</key>
@@ -30,6 +28,8 @@
 	<true/>
 	<key>NSCameraUsageDescription</key>
 	<string>Agno is requesting access to your camera for celebrity recognition.</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>Agno is requesting access to your photo library so user can save photos.</string>
 	<key>NSUserTrackingUsageDescription</key>
 	<string>This identifier will be used to deliver personalized ads to you.</string>
 	<key>SKAdNetworkItems</key>

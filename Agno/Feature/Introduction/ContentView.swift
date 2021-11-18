@@ -17,7 +17,6 @@ struct ContentView: View {
     //var asIDManager = ASIdentifierManager()
     
     var body: some View {
-        
         NavigationView {
             ZStack {
                 Color(.black).ignoresSafeArea()

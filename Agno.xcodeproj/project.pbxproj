@@ -22,11 +22,8 @@
 		3DB7A95C26CEC5F00086F644 /* CameraScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DB7A95B26CEC5F00086F644 /* CameraScreen.swift */; };
 		3DB7A95E26CED0910086F644 /* CameraViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DB7A95D26CED0900086F644 /* CameraViewModel.swift */; };
 		3DB7A96026CEFA360086F644 /* CameraPreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DB7A95F26CEFA360086F644 /* CameraPreview.swift */; };
-		3DB7A96426CEFF750086F644 /* CelebrityDetailScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DB7A96326CEFF750086F644 /* CelebrityDetailScreen.swift */; };
 		3DB7A97426CFDACD0086F644 /* CustomFont.otf in Resources */ = {isa = PBXBuildFile; fileRef = 3DB7A96C26CFDACD0086F644 /* CustomFont.otf */; };
-		3DB7A97B26D0445E0086F644 /* CelebrityDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DB7A97A26D0445E0086F644 /* CelebrityDetailViewModel.swift */; };
 		3DCD128426E05C4A00FD26D7 /* CelebrtityCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DCD128326E05C4A00FD26D7 /* CelebrtityCell.swift */; };
-		3DD1E09D26D2DA9C00E5CCAD /* CelebrityService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DD1E09C26D2DA9C00E5CCAD /* CelebrityService.swift */; };
 		3DD1E0A526D2E13500E5CCAD /* APIConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DD1E0A426D2E13500E5CCAD /* APIConstants.swift */; };
 		7876922469F1D927A8E4954F /* Pods_Agno.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 754D5FC58E66A741E64DB578 /* Pods_Agno.framework */; };
 		E91594EC26F37E7F00785848 /* LoadingIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E91594EB26F37E7F00785848 /* LoadingIndicator.swift */; };
@@ -72,11 +69,8 @@
 		3DB7A95B26CEC5F00086F644 /* CameraScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraScreen.swift; sourceTree = "<group>"; };
 		3DB7A95D26CED0900086F644 /* CameraViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraViewModel.swift; sourceTree = "<group>"; };
 		3DB7A95F26CEFA360086F644 /* CameraPreview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraPreview.swift; sourceTree = "<group>"; };
-		3DB7A96326CEFF750086F644 /* CelebrityDetailScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CelebrityDetailScreen.swift; sourceTree = "<group>"; };
 		3DB7A96C26CFDACD0086F644 /* CustomFont.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = CustomFont.otf; sourceTree = "<group>"; };
-		3DB7A97A26D0445E0086F644 /* CelebrityDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CelebrityDetailViewModel.swift; sourceTree = "<group>"; };
 		3DCD128326E05C4A00FD26D7 /* CelebrtityCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CelebrtityCell.swift; sourceTree = "<group>"; };
-		3DD1E09C26D2DA9C00E5CCAD /* CelebrityService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CelebrityService.swift; sourceTree = "<group>"; };
 		3DD1E0A426D2E13500E5CCAD /* APIConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIConstants.swift; sourceTree = "<group>"; };
 		754D5FC58E66A741E64DB578 /* Pods_Agno.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Agno.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		97CAB587BB761E3890E9C0DD /* Pods-Agno.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Agno.release.xcconfig"; path = "Target Support Files/Pods-Agno/Pods-Agno.release.xcconfig"; sourceTree = "<group>"; };
@@ -144,9 +138,9 @@
 			isa = PBXGroup;
 			children = (
 				3D0762A226D88B2200031C57 /* Model */,
-				E9FD64D026F7DB3100CD0AC1 /* Service */,
-				3D0762AA26D97A5500031C57 /* ViewModel */,
 				3D0762A926D97A5100031C57 /* View */,
+				3D0762AA26D97A5500031C57 /* ViewModel */,
+				E9FD64D026F7DB3100CD0AC1 /* Service */,
 			);
 			path = CelebrityList;
 			sourceTree = "<group>";
@@ -221,36 +215,12 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
-		3DB7A95726CE9D310086F644 /* View */ = {
-			isa = PBXGroup;
-			children = (
-				3DB7A96326CEFF750086F644 /* CelebrityDetailScreen.swift */,
-			);
-			path = View;
-			sourceTree = "<group>";
-		};
-		3DB7A95926CE9D4D0086F644 /* ViewModel */ = {
-			isa = PBXGroup;
-			children = (
-				3DB7A97A26D0445E0086F644 /* CelebrityDetailViewModel.swift */,
-			);
-			path = ViewModel;
-			sourceTree = "<group>";
-		};
 		3DB7A96A26CFDAB70086F644 /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
 				3DB7A96C26CFDACD0086F644 /* CustomFont.otf */,
 			);
 			path = Fonts;
-			sourceTree = "<group>";
-		};
-		3DD1E09B26D2DA8200E5CCAD /* Service */ = {
-			isa = PBXGroup;
-			children = (
-				3DD1E09C26D2DA9C00E5CCAD /* CelebrityService.swift */,
-			);
-			path = Service;
 			sourceTree = "<group>";
 		};
 		3DD1E09E26D2DF4200E5CCAD /* Base */ = {
@@ -276,25 +246,14 @@
 		3DD1E0A126D2DF9200E5CCAD /* Feature */ = {
 			isa = PBXGroup;
 			children = (
+				3DD1E0A626D2E2A600E5CCAD /* Camera */,
+				3D0762A426D979BF00031C57 /* CelebrityList */,
+				3D566FB026D4056B00D69502 /* CelebrityRecogniton */,
 				3DD1E0AA26D2E51600E5CCAD /* Introduction */,
 				E9294EB72700E98C00C50D84 /* Advertisement */,
 				E926464A26FE89F9003D0D3F /* Settings */,
-				3D0762A426D979BF00031C57 /* CelebrityList */,
-				3D566FB026D4056B00D69502 /* CelebrityRecogniton */,
-				3DD1E0A626D2E2A600E5CCAD /* Camera */,
-				3DD1E0A226D2DF9900E5CCAD /* CelebrityDetail */,
 			);
 			path = Feature;
-			sourceTree = "<group>";
-		};
-		3DD1E0A226D2DF9900E5CCAD /* CelebrityDetail */ = {
-			isa = PBXGroup;
-			children = (
-				3DB7A95726CE9D310086F644 /* View */,
-				3DB7A95926CE9D4D0086F644 /* ViewModel */,
-				3DD1E09B26D2DA8200E5CCAD /* Service */,
-			);
-			path = CelebrityDetail;
 			sourceTree = "<group>";
 		};
 		3DD1E0A326D2DFDA00E5CCAD /* Delegates */ = {
@@ -548,17 +507,14 @@
 				E98305E827063F4C00C90736 /* SwapCameraButton.swift in Sources */,
 				3D5164A826E2C2840019D663 /* CameraBar.swift in Sources */,
 				3D566FB226D4059500D69502 /* CelebrityRecognition.swift in Sources */,
-				3DB7A96426CEFF750086F644 /* CelebrityDetailScreen.swift in Sources */,
 				3D0762A626D979DF00031C57 /* CelebrityListScreen.swift in Sources */,
 				E945B92326F624A00071DD0B /* Helpers.swift in Sources */,
 				3DB7A94326CE9C790086F644 /* SceneDelegate.swift in Sources */,
 				E9294EBB2700F60E00C50D84 /* SettingsButton.swift in Sources */,
 				E926464C26FE8A17003D0D3F /* SettingsScreen.swift in Sources */,
-				3DB7A97B26D0445E0086F644 /* CelebrityDetailViewModel.swift in Sources */,
 				E91594F026F4CE6600785848 /* WelcomeCard.swift in Sources */,
 				E9FD64D226F7DB4500CD0AC1 /* ImageLoaderService.swift in Sources */,
 				E931628826ED64A900E58611 /* Blur.swift in Sources */,
-				3DD1E09D26D2DA9C00E5CCAD /* CelebrityService.swift in Sources */,
 				3D20A94226DEC3B400FDEB22 /* CameraButton.swift in Sources */,
 				E9294EB92700E99C00C50D84 /* AdView.swift in Sources */,
 				E91594F526F541F500785848 /* PhotoPreview.swift in Sources */,
@@ -737,7 +693,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 5;
+				CURRENT_PROJECT_VERSION = 6;
 				DEVELOPMENT_ASSET_PATHS = "\"Agno/Preview Content\"";
 				DEVELOPMENT_TEAM = Y65R63Y23T;
 				ENABLE_PREVIEWS = YES;
@@ -747,7 +703,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.2.1;
+				MARKETING_VERSION = 1.3.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.agno.ayosoftware;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -764,7 +720,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 5;
+				CURRENT_PROJECT_VERSION = 6;
 				DEVELOPMENT_ASSET_PATHS = "\"Agno/Preview Content\"";
 				DEVELOPMENT_TEAM = Y65R63Y23T;
 				ENABLE_PREVIEWS = YES;
@@ -774,7 +730,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.2.1;
+				MARKETING_VERSION = 1.3.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.agno.ayosoftware;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";

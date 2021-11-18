@@ -23,19 +23,17 @@ struct CelebrityListScreen: View {
                 if !celebModel.celebs.isEmpty {
                     
                     switch celebModel.celebs.count {
-                    
-                    case 1:
-                        LargeCelebrityCell(celeb: celebModel.celebs[0])
-                        
-                    default:
-                        ScrollView(.vertical, showsIndicators: false) {
-                            LazyVGrid(columns: gridItems, spacing: 20) {
-                                ForEach(celebModel.celebs){ celeb in
-                                    CelebrityCell(celeb: celeb)
+                        case 1:
+                            LargeCelebrityCell(celeb: celebModel.celebs[0])
+                        default:
+                            ScrollView(.vertical, showsIndicators: false) {
+                                LazyVGrid(columns: gridItems, spacing: 20) {
+                                    ForEach(celebModel.celebs){ celeb in
+                                        CelebrityCell(celeb: celeb)
 
+                                    }
                                 }
                             }
-                        }
                     }
                 }
                 else {

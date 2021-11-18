@@ -24,9 +24,6 @@ struct CameraScreen : View {
     var isSim = Platform.isSimulator
     
     var body: some View {
-        
-        let cameraPreview = CameraPreview(camera: camera)
-        
         GeometryReader { reader in
             ZStack {
                 ZStack {
@@ -40,7 +37,7 @@ struct CameraScreen : View {
                     else{
                         ZStack {
                             if !self.camera.alert {
-                                cameraPreview
+                                CameraPreview(camera: camera)
                                     .disabled(!launch.didLaunchBefore)
                             }
                             else {

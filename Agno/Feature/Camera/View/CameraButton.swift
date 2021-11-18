@@ -8,9 +8,7 @@
 import SwiftUI
 
 struct CameraButton: View {
-
     let action : () -> Void
-    
     var body: some View {
         VStack {
             Spacer()
