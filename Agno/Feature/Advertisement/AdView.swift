@@ -11,9 +11,9 @@ import GoogleMobileAds
 struct AdView: UIViewRepresentable {
     func makeUIView(context: Context) -> some UIView {
         let banner = GADBannerView(adSize: kGADAdSizeBanner)
-        let testID = "ca-app-pub-3940256099942544/2934735716"
-        //let realID = "ca-app-pub-7426293309772583/9584732121"
-        banner.adUnitID = testID
+        //let testID = "ca-app-pub-3940256099942544/2934735716"
+        let realID = "ca-app-pub-7426293309772583/9584732121"
+        banner.adUnitID = realID
         banner.rootViewController = UIApplication.shared.windows.first?.rootViewController
        
         banner.load(GADRequest())
