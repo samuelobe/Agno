@@ -25,20 +25,15 @@ class CelebrityRecognition : ObservableObject {
         let semaphore = DispatchSemaphore(value: 0)
         
         rekognitionObject = AWSRekognition.default()
-        
         celebImageAWS?.bytes = self.picData
-        //print("AWS pic data added")
-
         celebRequest?.image = celebImageAWS
-        //print("Request Created")
         
         rekognitionObject?.recognizeCelebrities(celebRequest!){
             (result, error) in
             if error != nil {
-                
-                //print(error!.localizedDescription)
+                completionHandler(celebList, alert)
             }
-            if result != nil {
+            else if result != nil {
                 let faces = result!.celebrityFaces
                 if ((faces?.count)! > 0) {
                     for celeb in faces! {
@@ -67,7 +62,6 @@ class CelebrityRecognition : ObservableObject {
                         self.retrieveImageURL(wikidataLink) {
                             urlLink in
                             let recognizedCeleb = RecognizedCelebrity(name: celeb.name!, confidence: celeb.matchConfidence!,  url: link, imageURL: urlLink)
-                            //print(recognizedCeleb)
                             celebList.append(recognizedCeleb)
                             semaphore.signal()
                                 
@@ -76,23 +70,9 @@ class CelebrityRecognition : ObservableObject {
                         
                     }
                     alert = false
-                    //print("Celebs found")
                 }
-                else if ((result!.unrecognizedFaces?.count)! > 0) {
-                    
-                    //print("Other faces found")
-                }
-                else {
-                    
-                    //print("No faces found in picture")
-                }
-            }
-            else {
-                
-                //print("No result")
             }
             completionHandler(celebList, alert)
-            
         }
     }
     

@@ -6,7 +6,6 @@
 //
 
 import SwiftUI
-//import AdSupport
 
 struct ContentView: View {
     @State private var action: Int? = 0
@@ -14,7 +13,6 @@ struct ContentView: View {
     @StateObject var celeb = CelebrityListViewModel(recognitionAWS: CelebrityRecognition())
     @StateObject var launch = LaunchSettings()
     @StateObject var settings = SettingsViewModel()
-    //var asIDManager = ASIdentifierManager()
     
     var body: some View {
         NavigationView {
@@ -36,9 +34,3 @@ struct ContentView: View {
         .preferredColorScheme(.dark).environmentObject(camera).environmentObject(celeb).environmentObject(settings).edgesIgnoringSafeArea(.all).navigationViewStyle(.stack)
     }
 }
-
-//struct ContentView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        ContentView()
-//    }
-//}

@@ -106,7 +106,6 @@ struct CameraScreen : View {
                 .ignoresSafeArea(.all ,edges: .all)
                 .onReceive(NotificationCenter.default.publisher(for: UIApplication.willResignActiveNotification )) {
                     _ in
-                    //print("moving to background")
                     if !camera.isPhotoTaken {
                         DispatchQueue.main.async {
                             self.camera.stopCamera()
@@ -116,7 +115,6 @@ struct CameraScreen : View {
                 }
                 .onReceive(NotificationCenter.default.publisher(for: UIApplication.didBecomeActiveNotification )) {
                     _ in
-                    //print("user returned to app")
                     if !camera.isPhotoTaken {
                         DispatchQueue.main.async {
                             self.isBackground = false

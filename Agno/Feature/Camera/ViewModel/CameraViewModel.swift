@@ -83,7 +83,6 @@ class CameraViewModel: NSObject, ObservableObject {
                 DispatchQueue.main.async {
                     self.alert.toggle()
                 }
-                //print("Unable to access back camera!")
                 return
             }
             
@@ -120,7 +119,6 @@ class CameraViewModel: NSObject, ObservableObject {
             DispatchQueue.main.async {
                 self.alert.toggle()
             }
-            //print(error.localizedDescription)
         }
     }
     
@@ -177,8 +175,6 @@ extension CameraViewModel : AVCapturePhotoCaptureDelegate {
         self.stopCamera()
         
         if error != nil {
-            //print(error!)
-            //print("Photo output error")
             return
         }
         
@@ -186,8 +182,6 @@ extension CameraViewModel : AVCapturePhotoCaptureDelegate {
             return
         }
         self.imageData = data
-        
-        //print("image data captured")
     }
 }
 

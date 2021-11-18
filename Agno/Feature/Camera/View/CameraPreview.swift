@@ -28,7 +28,6 @@ struct CameraPreview : UIViewRepresentable {
     }
     
     func updateUIView(_ uiView: ZoomView, context: Context) {
-        //print(view.lastZoomFactor)
     }
     
 }

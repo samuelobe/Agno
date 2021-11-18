@@ -26,19 +26,6 @@ struct SettingsScreen: View {
                     Section(header: Text(LocalizedStringKey("access")), footer: Text(LocalizedStringKey("swap"))) {
                         Toggle(isOn: $settings.swapButtons, label: {Text(LocalizedStringKey("mode"))})
                     }
-//                    Section(header: Text(LocalizedStringKey("lang")), footer: Text(LocalizedStringKey("langChoice"))) {
-//                        Button(action: {
-//                            if let settingsUrl = URL(string: UIApplication.openSettingsURLString) {
-//                               UIApplication.shared.open(settingsUrl)
-//                             }
-//                        }) {
-//                            HStack {
-//                                Text(LocalizedStringKey("langChange"))
-//                                Spacer()
-//                                Image(systemName: "chevron.right")
-//                            }
-//                        }
-//                    }
                     Section(header: Text(LocalizedStringKey("about"))) {
                         Button(action: {
                             self.presentingSafariView.toggle()
@@ -65,7 +52,7 @@ struct SettingsScreen: View {
                     self.presentationMode.wrappedValue.dismiss()
                     
                 }) {Text(LocalizedStringKey("done"))
-                    .bold()
+                        .bold()
                     
                 }
                 }
