@@ -9,5 +9,5 @@ import Foundation
 
 enum APIConstants {
     static let baseURL = "https://api.api-ninjas.com/v1/celebrity?name="
-    static let API_KEY = "+aXdEaffVLmUnA1cFqEDjw==sTCEKkhasEI9lXYe"
+    static let API_KEY = "ADD-KEY-HERE"
 }
